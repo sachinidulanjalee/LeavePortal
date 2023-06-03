@@ -105,9 +105,9 @@ namespace LeavePortal
             this.pnlRegister.Controls.Add(this.panel4);
             this.pnlRegister.Controls.Add(this.label9);
             this.pnlRegister.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlRegister.Location = new System.Drawing.Point(0, 424);
+            this.pnlRegister.Location = new System.Drawing.Point(0, 426);
             this.pnlRegister.Name = "pnlRegister";
-            this.pnlRegister.Size = new System.Drawing.Size(380, 16);
+            this.pnlRegister.Size = new System.Drawing.Size(380, 14);
             this.pnlRegister.TabIndex = 8;
             // 
             // btnRegister
@@ -242,6 +242,7 @@ namespace LeavePortal
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Sign In";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label4
             // 
@@ -449,6 +450,7 @@ namespace LeavePortal
             this.Name = "frm_Login";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frm_Login_Load);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.pnlRegister.ResumeLayout(false);
