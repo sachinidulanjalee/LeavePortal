@@ -102,7 +102,10 @@ namespace LeavePortal
                 if (ouserModel.UserName == txtUserName.Text && ouserModel.Password == txtPassword.Text)
                 {
                     MessageBox.Show("Login Successfully....", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    HomeScreen hs = new HomeScreen();
+                    hs.Show();
+                    this.Hide();
+                 }
                 else
                 {
                     MessageBox.Show("UserName or Password Incorrect....", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
