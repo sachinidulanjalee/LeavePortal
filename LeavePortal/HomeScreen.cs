@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeavePortal.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,8 @@ namespace LeavePortal
 
         private void HomeScreen_Load(object sender, EventArgs e)
         {
+            UserName.Text = LogUser.userName;
+            lblDatetime.Text = DateTime.Now.ToString();
             adminDashboard1.BringToFront();
         }
 
@@ -95,6 +98,16 @@ namespace LeavePortal
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             adminDashboard1.BringToFront();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

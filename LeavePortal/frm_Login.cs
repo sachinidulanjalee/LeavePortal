@@ -98,14 +98,26 @@ namespace LeavePortal
                 UserModel ouserModel = userCreateBL.GetByUserType(userName);
 
                 userCreateBL.Login(userName, password, ouserModel.UserType);
-
+                LogUser.userName = userName;
                 if (ouserModel.UserName == txtUserName.Text && ouserModel.Password == txtPassword.Text)
                 {
+
                     MessageBox.Show("Login Successfully....", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    HomeScreen hs = new HomeScreen();
-                    hs.Show();
+
+                    if(ouserModel.UserType ==1)
+                    {
+                        HomeScreen hs = new HomeScreen();
+                        hs.Show();
+                      
+                    }
+                    else
+                    {
+                        UserPortalForm Us = new UserPortalForm();
+                        Us.Show();
+                    }
                     this.Hide();
-                 }
+
+                }
                 else
                 {
                     MessageBox.Show("UserName or Password Incorrect....", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -8,20 +8,6 @@ namespace LeavePortal.Common
         DEMO = 1,
     }
 
-    public enum LendingStatus
-    {
-        [Description("Issued")]
-        NotApplicble = 0,
-
-        [Description("Damaged")]
-        Damaged = 1,
-
-        [Description("Misplaced")]
-        Missplased = 2,
-
-        [Description("Collected")]
-        Collected = 3
-    }
     public enum UserStatus
     {
         [Description("New User")]
@@ -40,22 +26,10 @@ namespace LeavePortal.Common
         Inactive = 5
     }
 
-    public enum AvalaibleStatus
-    {
-        [Description("Available")]
-        Avalaible = 1,
-
-        [Description("Not-Available")]
-        NotAvaliable = 2,
-
-        [Description("Lended")]
-        Lended = 3,
-
-        [Description("Reference Only")]
-        ReferenceOnly = 4,
-    }
     public enum Status
     {
+        [Description("--Select--")]
+        Select = 0,
         Active = 1,
         Inactive = 2
     }
@@ -66,5 +40,72 @@ namespace LeavePortal.Common
         Female = 2,
         Other
     }
+
+    public enum userType
+    {  Admin = 1,
+       User  =2
+    }
+
+    public enum LeaveDayMode
+    {
+        [Description("--Select--")]
+        Select = 0,
+        [Description("Full Day")]
+        Fullday = 1,
+
+        [Description("Half Day")]
+        Halfday = 2,
+
+        Both = 3,
+        Hourly = 4
+    }
+
+    public enum DayMode
+    {
+        [Description("--Select--")]
+        Select = 0,
+        [Description("Full Day")]
+        FullDay = 1,
+
+        [Description("Half Day")]
+        HalfDay = 2,
+
+        Both = 3,
+        Hourly = 4
+    }
+    public enum LeaveEntitlemant
+    {
+        [Description("--Select--")]
+        Select = 0,
+        [Description("Not Used")]
+        NotUse = 1,
+
+        [Description("Weekly")]
+        Weekly = 2,
+
+        [Description("Monthly")]
+        Monthly = 3,
+
+        [Description("Annually")]
+        Annually = 4,
+
+        [Description("Occasionally")]
+        Occasionally = 5,
+
+        [Description("Quarterly End")]
+        Quarterly = 6,
+
+        [Description("Yearly End")]
+        Yearly = 7
+    }
+
+    public enum LeaveTypeIsDeductFromQuota
+    {
+        [Description("--Select--")]
+        Select =0,
+        Yes = 1,
+        No = 2
+    }
+
 
 }
