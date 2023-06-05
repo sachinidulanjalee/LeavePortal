@@ -16,5 +16,40 @@ namespace LeavePortal
         {
             InitializeComponent();
         }
+
+        private void pnlMenubar_Paint(object sender, PaintEventArgs e)
+        {
+            lblDateTime.Text = DateTime.Now.ToString();
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnMaxzimis_Click(object sender, EventArgs e)
+        {
+            if(WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            frm_Login frm_Login = new frm_Login();
+            frm_Login.Show();
+            this.Hide();
+        }
+
+       
     }
 }

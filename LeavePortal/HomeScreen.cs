@@ -13,6 +13,8 @@ namespace LeavePortal
 {
     public partial class HomeScreen : Form
     {
+        bool functionExpand = false;
+        bool sidebarExpand = true;
         public HomeScreen()
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace LeavePortal
         {
             UserName.Text = LogUser.userName;
             lblDatetime.Text = DateTime.Now.ToString();
-            adminDashboard1.BringToFront();
+            adminDashboard2.BringToFront();
         }
 
        
@@ -30,7 +32,7 @@ namespace LeavePortal
         {
             functionTransition.Start();
         }
-        bool functionExpand = false;
+      
 
         private void functionTransition_Tick(object sender, EventArgs e)
         {
@@ -54,7 +56,7 @@ namespace LeavePortal
             }
         }
 
-        bool sidebarExpand = true;
+   
         private void sideBarTransition_Tick(object sender, EventArgs e)
         {
             if (sidebarExpand)
@@ -97,7 +99,7 @@ namespace LeavePortal
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            adminDashboard1.BringToFront();
+            adminDashboard2.BringToFront();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -108,6 +110,31 @@ namespace LeavePortal
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+        private void btnMaxzimis_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+            }
+        }
+        private void btnLeaveAccPlan_Click(object sender, EventArgs e)
+        {
+            leaveAccuralPlan1.BringToFront();
+        }
+
+        private void leaveAccuralPlan1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            leaveEntitlmentAdd1.BringToFront();
         }
     }
 }

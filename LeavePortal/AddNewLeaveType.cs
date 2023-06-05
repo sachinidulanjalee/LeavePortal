@@ -46,8 +46,9 @@ namespace LeavePortal
             CommonMethod.setEnumValues(cmbDayMode, typeof(DayMode));
             CommonMethod.setEnumValues(cmbStatus, typeof(Status));
 
-            btnSave.Enabled = false;
-
+            btnSave.Visible = false;
+            btnDelete.Visible = false;
+            
         
         }
 
@@ -144,7 +145,7 @@ namespace LeavePortal
             catch (Exception ex)
             {
                 throw ex;
-                return;
+                
             }
         }
     }

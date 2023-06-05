@@ -222,6 +222,47 @@ namespace LeavePortal.BL
                 throw ex;
             }
         }
+
+        public List<DropListDTO>LeaveTypeSearchForDropDown( int Status)
+        {
+            List<DropListDTO> results = new List<DropListDTO>();
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine("    SELECT ");
+                    sb.AppendLine("   LeaveCode,");
+                    sb.AppendLine("   Name");
+                    sb.AppendLine("   FROM LeaveType ");
+                    sb.AppendLine("   WHERE 1=1 ");
+                    sb.AppendLine("   AND (Status=?Status)");
+                    oCloudConnection.CommandText = sb.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Status", Value = Status });
+
+                    results.Add(new DropListDTO { Value = "", Text = "--Select--" });
+                    using (IDataReader dr = oCloudConnection.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            DropListDTO result = new DropListDTO();
+                            result.Value = Helper.GetDataValue<int>(dr, "LeaveCode").ToString();
+                            result.Text = Helper.GetDataValue<string>(dr, "Name");
+                            results.Add(result);
+                        }
+                        dr.Close();
+                    }
+                }
+                return results;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
         #endregion Search
     }
 }

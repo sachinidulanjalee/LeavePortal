@@ -59,6 +59,8 @@ namespace LeavePortal
             this.label6 = new System.Windows.Forms.Label();
             this.pnlAddButton = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -281,13 +283,14 @@ namespace LeavePortal
             // 
             // pnlAddButton
             // 
+            this.pnlAddButton.Controls.Add(this.btnDelete);
             this.pnlAddButton.Controls.Add(this.btnSave);
             this.pnlAddButton.Controls.Add(this.btnAdd);
             this.pnlAddButton.Controls.Add(this.btnClear);
             this.pnlAddButton.Controls.Add(this.btnCancel);
-            this.pnlAddButton.Location = new System.Drawing.Point(30, 394);
+            this.pnlAddButton.Location = new System.Drawing.Point(30, 440);
             this.pnlAddButton.Name = "pnlAddButton";
-            this.pnlAddButton.Size = new System.Drawing.Size(383, 65);
+            this.pnlAddButton.Size = new System.Drawing.Size(509, 65);
             this.pnlAddButton.TabIndex = 22;
             // 
             // btnSave
@@ -302,12 +305,34 @@ namespace LeavePortal
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(900, 22);
+            this.panel1.TabIndex = 23;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(386, 15);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(88, 35);
+            this.btnDelete.TabIndex = 21;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
             // AddNewLeaveType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(900, 562);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlAddButton);
             this.Controls.Add(this.txtAbbrevaiation);
             this.Controls.Add(this.label6);
@@ -377,5 +402,7 @@ namespace LeavePortal
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel pnlAddButton;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

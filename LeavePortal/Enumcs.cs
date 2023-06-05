@@ -107,5 +107,72 @@ namespace LeavePortal.Common
         No = 2
     }
 
+    public enum LeaveAccrualType
+    {
+        [Description("--Select--")]
+        Select = 0,
+        [Description("First Year")]
+        FirstYear = 1,
 
+        [Description("Second Year")]
+        SecondYear = 2,
+
+        [Description("Third Year Onwards")]
+        ThirdYearOnwards = 3
+    }
+
+
+    public enum YesNo
+    {
+        [Description("--Select--")]
+        Select = 0,
+        Yes = 1,
+        No = 2
+    }
+
+    public enum LeaveGeneratedBy
+    {
+        [Description("--Select--")]
+        Select = 0,
+        [Description("Joined Date")]
+        JoinedDate = 1,
+
+        [Description("Confirmation Date")]
+        ConfirmationDate = 2
+    }
+    public enum ProrateType
+    {
+        [Description("--Select--")]
+        Select = 0,
+        Quarterly = 1,
+        Monthly = 2
+    }
+
+    public enum Quarter
+    {
+        [Description("--Select--")]
+        Select = 0,
+        First = 1,
+        Second = 2,
+        Third = 3,
+        Fourth = 4
+    }
+
+    public enum Month
+    {
+        [Description("--Select--")]
+        Select = 0,
+        January = 1,
+        February = 2,
+        March = 3,
+        April = 4,
+        May = 5,
+        June = 6,
+        July = 7,
+        August = 8,
+        September = 9,
+        October = 10,
+        November = 11,
+        December = 12
+    }
 }
