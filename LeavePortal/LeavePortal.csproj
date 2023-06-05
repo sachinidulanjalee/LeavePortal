@@ -83,6 +83,7 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="BL\CommonBL.cs" />
     <Compile Include="BL\LeaveTypeBL.cs" />
     <Compile Include="BL\UserCreateBL.cs" />
     <Compile Include="Common\CommonMethod.cs" />
@@ -113,6 +114,7 @@
     </Compile>
     <Compile Include="Model\DropListDTO.cs" />
     <Compile Include="Model\LeaveTypeDTO.cs" />
+    <Compile Include="Model\ParamsDTO.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

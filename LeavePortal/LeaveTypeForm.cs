@@ -81,6 +81,24 @@ namespace LeavePortal
             LoadGrid();
             timer1.Start();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
+            {
+                List<ParamsDTO> oParamsDTOs = new List<ParamsDTO>();
+
+                oParamsDTOs.Add(new ParamsDTO { ColumnName = "LeaveCode", Operator = "= ", Value = txtSearch.Text.Trim() });
+
+
+                List<LeaveTypeDTO> oLeaveTypeDTO = new List<LeaveTypeDTO>();
+                oLeaveTypeDTO.AddRange(oLeaveTypeBL.LeaveTypeSearch(oParamsDTOs));
+                dgLeaveTypes.DataSource = oLeaveTypeDTO;
+
+            }
+
+
+        }
     }
 }
     

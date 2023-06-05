@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LeavePortal.BL
 {
-    public  class LeaveTypeBL
+    public  class LeaveTypeBL : CommonBL
     {
         #region Insert 
         public int LeaveTypeInsert(LeaveTypeDTO oLeaveTypeDTO)
@@ -169,6 +169,52 @@ namespace LeavePortal.BL
                     }
                 }
                 return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
+        public List<LeaveTypeDTO> LeaveTypeSearch(List<ParamsDTO> oParamsDTOs)
+        {
+            List<LeaveTypeDTO> results = new List<LeaveTypeDTO>();
+            try
+            {
+                string query = base.GenerateQueryFromListArray(oParamsDTOs);
+
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder sb = LeaveTypeSearch();
+                    sb.AppendLine(query);
+
+                    oCloudConnection.CommandText = sb.ToString();
+
+                    using (IDataReader dr = oCloudConnection.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            LeaveTypeDTO result = new LeaveTypeDTO();
+                            result.LeaveCode = Helper.GetDataValue<int>(dr, "LeaveCode");
+                            result.Name = Helper.GetDataValue<string>(dr, "Name");
+                            result.Abbreviation = Helper.GetDataValue<string>(dr, "Abbreviation");
+                            result.IsDeductFromQuota = Helper.GetDataValue<int>(dr, "IsDeductFromQuota");
+                            result.DayMode = Helper.GetDataValue<int>(dr, "DayMode");
+                            result.Entitlement = Helper.GetDataValue<decimal>(dr, "Entitlement");
+                            result.LeaveEntitlementMode = Helper.GetDataValue<int>(dr, "LeaveEntitlementMode");
+                            result.Status = Helper.GetDataValue<int>(dr, "Status");
+                            result.CreatedDateTime = Helper.GetDataValue<DateTime>(dr, "CreatedDateTime");
+                            result.CreatedUser = Helper.GetDataValue<string>(dr, "CreatedUser");
+                            result.CreatedMachine = Helper.GetDataValue<string>(dr, "CreatedMachine");
+                            result.ModifiedDateTime = Helper.GetDataValue<DateTime>(dr, "ModifiedDateTime");
+                            result.ModifiedUser = Helper.GetDataValue<string>(dr, "ModifiedUser");
+                            result.ModifiedMachine = Helper.GetDataValue<string>(dr, "ModifiedMachine");
+                            results.Add(result);
+                        }
+                        dr.Close();
+                    }
+                }
+                return results;
             }
             catch (Exception ex)
             {
