@@ -58,9 +58,7 @@ namespace LeavePortal
             this.txtAbbrevaiation = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlAddButton = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -203,7 +201,7 @@ namespace LeavePortal
             this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(104, 15);
+            this.btnAdd.Location = new System.Drawing.Point(22, 15);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 35);
             this.btnAdd.TabIndex = 17;
@@ -216,7 +214,7 @@ namespace LeavePortal
             this.btnClear.BackColor = System.Drawing.Color.SteelBlue;
             this.btnClear.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(198, 15);
+            this.btnClear.Location = new System.Drawing.Point(138, 15);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(88, 35);
             this.btnClear.TabIndex = 18;
@@ -229,7 +227,7 @@ namespace LeavePortal
             this.btnCancel.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(292, 15);
+            this.btnCancel.Location = new System.Drawing.Point(258, 15);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 35);
             this.btnCancel.TabIndex = 19;
@@ -283,27 +281,13 @@ namespace LeavePortal
             // 
             // pnlAddButton
             // 
-            this.pnlAddButton.Controls.Add(this.btnDelete);
-            this.pnlAddButton.Controls.Add(this.btnSave);
             this.pnlAddButton.Controls.Add(this.btnAdd);
             this.pnlAddButton.Controls.Add(this.btnClear);
             this.pnlAddButton.Controls.Add(this.btnCancel);
             this.pnlAddButton.Location = new System.Drawing.Point(30, 440);
             this.pnlAddButton.Name = "pnlAddButton";
-            this.pnlAddButton.Size = new System.Drawing.Size(509, 65);
+            this.pnlAddButton.Size = new System.Drawing.Size(397, 65);
             this.pnlAddButton.TabIndex = 22;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(5, 15);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(88, 35);
-            this.btnSave.TabIndex = 20;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -313,18 +297,6 @@ namespace LeavePortal
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(900, 22);
             this.panel1.TabIndex = 23;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(386, 15);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(88, 35);
-            this.btnDelete.TabIndex = 21;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // AddNewLeaveType
             // 
@@ -401,8 +373,6 @@ namespace LeavePortal
         private System.Windows.Forms.TextBox txtAbbrevaiation;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel pnlAddButton;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnDelete;
     }
 }

@@ -77,6 +77,18 @@
     <Compile Include="AddNewAccrualPlan.Designer.cs">
       <DependentUpon>AddNewAccrualPlan.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddNewEmployeeProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewEmployeeProfile.Designer.cs">
+      <DependentUpon>AddNewEmployeeProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewLeaveApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewLeaveApply.Designer.cs">
+      <DependentUpon>AddNewLeaveApply.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNewLeaveType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,16 +102,39 @@
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="BL\CommonBL.cs" />
+    <Compile Include="BL\DesignationBL.cs" />
+    <Compile Include="BL\EmpAuthorizationAllocationBL.cs" />
+    <Compile Include="BL\EmpLeaveEntitlementBL.cs" />
+    <Compile Include="BL\EmployeeProfileBL.cs" />
+    <Compile Include="BL\EmployeeValidationBL.cs" />
     <Compile Include="BL\LeaveAccrualPlanBL.cs" />
+    <Compile Include="BL\LeaveEntitlementGenarateBL.cs" />
+    <Compile Include="BL\LeaveEntitlmentBL.cs" />
+    <Compile Include="BL\LeaveRequestDetailBL.cs" />
+    <Compile Include="BL\LeaveRequestHeaderBL.cs" />
     <Compile Include="BL\LeaveTypeBL.cs" />
+    <Compile Include="BL\SerialNosBL.cs" />
     <Compile Include="BL\UserCreateBL.cs" />
     <Compile Include="Common\CommonMethod.cs" />
     <Compile Include="Common\LogUser.cs" />
+    <Compile Include="Common\MailConfiguration.cs" />
+    <Compile Include="EditLeaveType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditLeaveType.Designer.cs">
+      <DependentUpon>EditLeaveType.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditNewAccrualPlan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditNewAccrualPlan.Designer.cs">
       <DependentUpon>EditNewAccrualPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeProfile.Designer.cs">
+      <DependentUpon>EmployeeProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Enumcs.cs" />
     <Compile Include="frm_Login.cs">
@@ -120,16 +155,27 @@
     <Compile Include="LeaveAccuralPlan.Designer.cs">
       <DependentUpon>LeaveAccuralPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="LeaveEntitlmentAdd.cs">
+    <Compile Include="LeaveApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LeaveApply.Designer.cs">
+      <DependentUpon>LeaveApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveEntitlment.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LeaveEntitlmentAdd.Designer.cs">
-      <DependentUpon>LeaveEntitlmentAdd.cs</DependentUpon>
+    <Compile Include="LeaveEntitlment.Designer.cs">
+      <DependentUpon>LeaveEntitlment.cs</DependentUpon>
     </Compile>
     <Compile Include="LeaveManagmentSytemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LeaveManagmentSytemDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveManagmentSytemDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeaveManagmentSytemDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="LeaveTypeForm.cs">
       <SubType>UserControl</SubType>
@@ -137,13 +183,24 @@
     <Compile Include="LeaveTypeForm.Designer.cs">
       <DependentUpon>LeaveTypeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ApplicableLeaveTypesDTO.cs" />
+    <Compile Include="Model\DesignationDTO.cs" />
     <Compile Include="Model\DropListDTO.cs" />
+    <Compile Include="Model\EmployeeProfileDTO.cs" />
+    <Compile Include="Model\ExpEmployeeProfileDTO.cs" />
     <Compile Include="Model\LeaveAccrualPlanDTO.cs" />
+    <Compile Include="Model\LeaveEntitlmentDTO.cs" />
+    <Compile Include="Model\LeaveRequestDetailDTO.cs" />
+    <Compile Include="Model\LeaveRequestHeaderDTO.cs" />
     <Compile Include="Model\LeaveTypeDTO.cs" />
+    <Compile Include="Model\MailConfigurationDTO.cs" />
     <Compile Include="Model\ParamsDTO.cs" />
+    <Compile Include="Model\ResultDTO.cs" />
+    <Compile Include="Model\SerialNosDTO.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\Sessions.cs" />
     <Compile Include="UserPortalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,14 +210,26 @@
     <EmbeddedResource Include="AddNewAccrualPlan.resx">
       <DependentUpon>AddNewAccrualPlan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddNewEmployeeProfile.resx">
+      <DependentUpon>AddNewEmployeeProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewLeaveApply.resx">
+      <DependentUpon>AddNewLeaveApply.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewLeaveType.resx">
       <DependentUpon>AddNewLeaveType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditLeaveType.resx">
+      <DependentUpon>EditLeaveType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditNewAccrualPlan.resx">
       <DependentUpon>EditNewAccrualPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeProfile.resx">
+      <DependentUpon>EmployeeProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
@@ -171,8 +240,11 @@
     <EmbeddedResource Include="LeaveAccuralPlan.resx">
       <DependentUpon>LeaveAccuralPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LeaveEntitlmentAdd.resx">
-      <DependentUpon>LeaveEntitlmentAdd.cs</DependentUpon>
+    <EmbeddedResource Include="LeaveApply.resx">
+      <DependentUpon>LeaveApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeaveEntitlment.resx">
+      <DependentUpon>LeaveEntitlment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LeaveTypeForm.resx">
       <DependentUpon>LeaveTypeForm.cs</DependentUpon>
@@ -200,6 +272,17 @@
     </None>
     <None Include="LeaveManagmentSytemDataSet.xss">
       <DependentUpon>LeaveManagmentSytemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LeaveManagmentSytemDataSet1.xsc">
+      <DependentUpon>LeaveManagmentSytemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LeaveManagmentSytemDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LeaveManagmentSytemDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LeaveManagmentSytemDataSet1.xss">
+      <DependentUpon>LeaveManagmentSytemDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -9,6 +9,7 @@ namespace LeavePortal.Common
     class LogUser
     {
         static string UserName;
+        static string EmpNo;
 
         public static string userName
         { 
@@ -20,6 +21,20 @@ namespace LeavePortal.Common
             set
             {
                 UserName = value;
+            }
+
+        }
+
+        public static string empNo
+        {
+
+            get
+            {
+                return EmpNo;
+            }
+            set
+            {
+                EmpNo = value;
             }
 
         }

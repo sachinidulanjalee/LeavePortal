@@ -7,6 +7,7 @@ namespace LeavePortal.Model
     public class UserModel 
     {
         public int UserID { get; set; }
+        public long EmpNo { get; set; }
 
         public string UserName { get; set; }
 

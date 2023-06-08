@@ -29,23 +29,24 @@ namespace LeavePortal
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.pnlRegister = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cmbUserType = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtRpassword = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEmpNo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRUserName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.linkRegister = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,9 +59,18 @@ namespace LeavePortal
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlLogin.SuspendLayout();
             this.pnlRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -72,6 +82,13 @@ namespace LeavePortal
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLogin
@@ -89,11 +106,15 @@ namespace LeavePortal
             this.pnlLogin.Location = new System.Drawing.Point(341, 5);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(380, 440);
+            this.pnlLogin.Size = new System.Drawing.Size(413, 497);
             this.pnlLogin.TabIndex = 0;
+            this.pnlLogin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlLogin_MouseDown);
+            this.pnlLogin.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlLogin_MouseMove);
             // 
             // pnlRegister
             // 
+            this.pnlRegister.Controls.Add(this.label12);
+            this.pnlRegister.Controls.Add(this.panel7);
             this.pnlRegister.Controls.Add(this.btnClose);
             this.pnlRegister.Controls.Add(this.label6);
             this.pnlRegister.Controls.Add(this.panel6);
@@ -106,9 +127,9 @@ namespace LeavePortal
             this.pnlRegister.Controls.Add(this.panel4);
             this.pnlRegister.Controls.Add(this.label9);
             this.pnlRegister.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlRegister.Location = new System.Drawing.Point(0, 426);
+            this.pnlRegister.Location = new System.Drawing.Point(0, 487);
             this.pnlRegister.Name = "pnlRegister";
-            this.pnlRegister.Size = new System.Drawing.Size(380, 14);
+            this.pnlRegister.Size = new System.Drawing.Size(413, 10);
             this.pnlRegister.TabIndex = 8;
             // 
             // btnClose
@@ -125,45 +146,43 @@ namespace LeavePortal
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label6.Location = new System.Drawing.Point(38, 297);
+            this.label6.Location = new System.Drawing.Point(42, 358);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 22);
+            this.label6.Size = new System.Drawing.Size(74, 20);
             this.label6.TabIndex = 19;
-            this.label6.Text = "Password";
+            this.label6.Text = "UserType";
             this.label6.UseWaitCursor = true;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel6.Controls.Add(this.textBox4);
+            this.panel6.Controls.Add(this.cmbUserType);
             this.panel6.ForeColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(39, 332);
+            this.panel6.Location = new System.Drawing.Point(43, 380);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.panel6.Size = new System.Drawing.Size(300, 28);
             this.panel6.TabIndex = 18;
             // 
-            // textBox4
+            // cmbUserType
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.ForeColor = System.Drawing.Color.SteelBlue;
-            this.textBox4.Location = new System.Drawing.Point(0, 0);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(300, 25);
-            this.textBox4.TabIndex = 0;
+            this.cmbUserType.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUserType.FormattingEnabled = true;
+            this.cmbUserType.Location = new System.Drawing.Point(-1, -1);
+            this.cmbUserType.Name = "cmbUserType";
+            this.cmbUserType.Size = new System.Drawing.Size(302, 28);
+            this.cmbUserType.TabIndex = 0;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label10.Location = new System.Drawing.Point(39, 229);
+            this.label10.Location = new System.Drawing.Point(39, 214);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 22);
+            this.label10.Size = new System.Drawing.Size(79, 20);
             this.label10.TabIndex = 17;
             this.label10.Text = "Password";
             this.label10.UseWaitCursor = true;
@@ -171,24 +190,26 @@ namespace LeavePortal
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel5.Controls.Add(this.textBox3);
+            this.panel5.Controls.Add(this.txtRpassword);
             this.panel5.ForeColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(40, 264);
+            this.panel5.Location = new System.Drawing.Point(40, 249);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.panel5.Size = new System.Drawing.Size(300, 28);
+            this.panel5.Size = new System.Drawing.Size(300, 21);
             this.panel5.TabIndex = 16;
             // 
-            // textBox3
+            // txtRpassword
             // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.textBox3.Location = new System.Drawing.Point(0, 0);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(300, 25);
-            this.textBox3.TabIndex = 0;
+            this.txtRpassword.BackColor = System.Drawing.Color.White;
+            this.txtRpassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRpassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtRpassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRpassword.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtRpassword.Location = new System.Drawing.Point(0, 0);
+            this.txtRpassword.Name = "txtRpassword";
+            this.txtRpassword.Size = new System.Drawing.Size(300, 19);
+            this.txtRpassword.TabIndex = 0;
+            this.txtRpassword.UseSystemPasswordChar = true;
             // 
             // btnRegister
             // 
@@ -196,7 +217,7 @@ namespace LeavePortal
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(73, 380);
+            this.btnRegister.Location = new System.Drawing.Point(77, 431);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(0);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(220, 35);
@@ -208,69 +229,71 @@ namespace LeavePortal
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label7.Location = new System.Drawing.Point(42, 155);
+            this.label7.Location = new System.Drawing.Point(42, 144);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 22);
+            this.label7.Size = new System.Drawing.Size(61, 20);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Email";
+            this.label7.Text = "EmpNo";
             this.label7.UseWaitCursor = true;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtEmpNo);
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(46, 190);
+            this.panel1.Location = new System.Drawing.Point(46, 179);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.panel1.Size = new System.Drawing.Size(300, 28);
+            this.panel1.Size = new System.Drawing.Size(300, 21);
             this.panel1.TabIndex = 11;
             // 
-            // textBox1
+            // txtEmpNo
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 25);
-            this.textBox1.TabIndex = 0;
+            this.txtEmpNo.BackColor = System.Drawing.Color.White;
+            this.txtEmpNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmpNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEmpNo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmpNo.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtEmpNo.Location = new System.Drawing.Point(0, 0);
+            this.txtEmpNo.Name = "txtEmpNo";
+            this.txtEmpNo.Size = new System.Drawing.Size(300, 19);
+            this.txtEmpNo.TabIndex = 0;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.SteelBlue;
             this.label8.Location = new System.Drawing.Point(41, 81);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 22);
+            this.label8.Size = new System.Drawing.Size(89, 20);
             this.label8.TabIndex = 10;
             this.label8.Text = "User Name";
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.txtRUserName);
             this.panel4.ForeColor = System.Drawing.Color.White;
             this.panel4.Location = new System.Drawing.Point(42, 113);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.panel4.Size = new System.Drawing.Size(300, 28);
+            this.panel4.Size = new System.Drawing.Size(300, 21);
             this.panel4.TabIndex = 9;
             // 
-            // textBox2
+            // txtRUserName
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.textBox2.Location = new System.Drawing.Point(0, 0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 25);
-            this.textBox2.TabIndex = 0;
+            this.txtRUserName.BackColor = System.Drawing.Color.White;
+            this.txtRUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRUserName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtRUserName.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRUserName.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtRUserName.Location = new System.Drawing.Point(0, 0);
+            this.txtRUserName.Name = "txtRUserName";
+            this.txtRUserName.Size = new System.Drawing.Size(300, 19);
+            this.txtRUserName.TabIndex = 0;
             // 
             // label9
             // 
@@ -413,8 +436,18 @@ namespace LeavePortal
             this.panel2.Location = new System.Drawing.Point(5, 5);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(330, 440);
+            this.panel2.Size = new System.Drawing.Size(330, 497);
             this.panel2.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(52, 184);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(232, 37);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "ABC Company";
             // 
             // label1
             // 
@@ -439,21 +472,70 @@ namespace LeavePortal
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label11
+            // label12
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(52, 184);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(232, 37);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "ABC Company";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label12.Location = new System.Drawing.Point(36, 287);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 20);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Email";
+            this.label12.UseWaitCursor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel7.Controls.Add(this.txtEmail);
+            this.panel7.ForeColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(37, 322);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.panel7.Size = new System.Drawing.Size(300, 21);
+            this.panel7.TabIndex = 21;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtEmail.Location = new System.Drawing.Point(0, 0);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(300, 19);
+            this.txtEmail.TabIndex = 0;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
+            // 
+            // errorProvider6
+            // 
+            this.errorProvider6.ContainerControl = this;
             // 
             // frm_Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(725, 450);
+            this.ClientSize = new System.Drawing.Size(759, 507);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlLogin);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -469,7 +551,6 @@ namespace LeavePortal
             this.pnlRegister.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -483,6 +564,14 @@ namespace LeavePortal
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -507,19 +596,28 @@ namespace LeavePortal
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEmpNo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtRUserName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtRpassword;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbUserType;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
+        private System.Windows.Forms.ErrorProvider errorProvider6;
     }
 }
 

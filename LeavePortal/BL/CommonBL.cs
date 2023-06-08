@@ -1,11 +1,10 @@
-﻿using LeavePortal.Model;
+﻿using DMSSWE.DATA;
+using LeavePortal.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LeavePortal.BL
 {
@@ -63,7 +62,6 @@ namespace LeavePortal.BL
             return selectquery.ToString();
         }
 
-
         public static DataTable ListToDataTable<T>(IList<T> data)
         {
             PropertyDescriptorCollection props = TypeDescriptor.GetProperties(typeof(T));
@@ -88,6 +86,49 @@ namespace LeavePortal.BL
             }
             return table;
         }
-        #endregion Processs
+
+        #endregion Process
+
+        public MailConfigurationDTO MailDetails()
+        {
+            MailConfigurationDTO result = new MailConfigurationDTO();
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder varname1 = new StringBuilder();
+                    varname1.Append("SELECT   Top(1)     Id, Smtp_Username, Smtp_Password, Configset, Host, Port, [From], From_Name \n");
+                    varname1.Append("FROM            MailConfiguration \n");
+                    //varname1.Append("WHERE CompanyID=?CompanyId");
+
+                    oCloudConnection.CommandText = varname1.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    //oCloudConnection.Parameters.Add(new Parameter { Name = "CompanyId", Value = CompanyId });
+                    using (IDataReader dr = oCloudConnection.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            result.Id = Helper.GetDataValue<int>(dr, "Id");
+                            result.Smtp_Username = Helper.GetDataValue<string>(dr, "Smtp_Username");
+                            result.Smtp_Password = Helper.GetDataValue<string>(dr, "Smtp_Password");
+                            result.Configset = Helper.GetDataValue<string>(dr, "Configset");
+                            result.Host = Helper.GetDataValue<string>(dr, "Host");
+                            result.Port = Helper.GetDataValue<int>(dr, "Port");
+                            result.From = Helper.GetDataValue<string>(dr, "From");
+                            result.From_Name = Helper.GetDataValue<string>(dr, "From_Name");
+                        }
+                        dr.Close();
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                
+                throw ex;
+            }
+        }
     }
 }

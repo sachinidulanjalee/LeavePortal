@@ -14,6 +14,7 @@ namespace LeavePortal
 {
     public partial class LeaveTypeForm : UserControl
     {
+
         public LeaveTypeForm()
         {
             InitializeComponent();
@@ -21,15 +22,6 @@ namespace LeavePortal
         private LeaveTypeBL oLeaveTypeBL = new LeaveTypeBL();
         public static DataGridViewRow selectedrow;
         #region Event
-        private void btnAddNewLeaveType_Click(object sender, EventArgs e)
-        {
-            AddNewLeaveType lT = new AddNewLeaveType();
-
-
-            lT.Show();
-
-        }
-
 
 
         private void LeaveTypeForm_Load(object sender, EventArgs e)
@@ -50,14 +42,12 @@ namespace LeavePortal
 
         }
 
-
-
         private void dgLeaveTypes_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 selectedrow = dgLeaveTypes.Rows[e.RowIndex];
-                AddNewLeaveType.getAddNewLeaveType.ShowDialog();
+                EditLeaveType.getEditLeaveTypee.ShowDialog();
 
 
             }
@@ -103,5 +93,11 @@ namespace LeavePortal
             }
         }
         #endregion Method
+
+        private void btnAddNewLeaveType_Click_1(object sender, EventArgs e)
+        {
+            AddNewLeaveType lT = new AddNewLeaveType();
+            lT.Show();
+        }
     }
 }

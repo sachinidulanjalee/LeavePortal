@@ -32,8 +32,8 @@ namespace LeavePortal
 
         private void btnAddNewAccrualPaln_Click(object sender, EventArgs e)
         {
-            AddNewAccrualPlan AccPlan = new AddNewAccrualPlan();
-            AccPlan.Show();
+            AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
+            addNewAccrualPlan.Show();
 
         }
         #endregion Event
@@ -80,6 +80,13 @@ namespace LeavePortal
         }
         private void label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnAddNewAccrualPaln_Click_1(object sender, EventArgs e)
+        {
+            AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
+            addNewAccrualPlan.Show();
 
         }
     }

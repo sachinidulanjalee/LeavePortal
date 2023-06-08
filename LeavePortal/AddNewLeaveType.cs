@@ -15,21 +15,7 @@ namespace LeavePortal
 {
     public partial class AddNewLeaveType : Form
     {
-        public static AddNewLeaveType addNewLeaveType;
-
-        public static AddNewLeaveType getAddNewLeaveType
-        {
-          get
-            {
-                if(addNewLeaveType ==  null)
-                {
-                    addNewLeaveType = new AddNewLeaveType();
-                }
-                return addNewLeaveType;
-              }
-
-        }
-
+ 
         public AddNewLeaveType()
         {
             InitializeComponent();
@@ -46,10 +32,7 @@ namespace LeavePortal
             CommonMethod.setEnumValues(cmbDayMode, typeof(DayMode));
             CommonMethod.setEnumValues(cmbStatus, typeof(Status));
 
-            btnSave.Visible = false;
-            btnDelete.Visible = false;
-            
-        
+       
         }
 
         private void btnClear_Click(object sender, EventArgs e)

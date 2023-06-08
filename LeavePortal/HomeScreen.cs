@@ -15,6 +15,7 @@ namespace LeavePortal
     {
         bool functionExpand = false;
         bool sidebarExpand = true;
+        public Point mouseLocation;
         public HomeScreen()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace LeavePortal
         {
             UserName.Text = LogUser.userName;
             lblDatetime.Text = DateTime.Now.ToString();
-            adminDashboard2.BringToFront();
+            adminDashboard1.BringToFront();
         }
 
        
@@ -94,12 +95,12 @@ namespace LeavePortal
 
         private void btnLeaveType_Click(object sender, EventArgs e)
         {
-            leaveTypeForm1.BringToFront();
+            leaveTypeForm2.BringToFront();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            adminDashboard2.BringToFront();
+            adminDashboard1.BringToFront();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -111,20 +112,20 @@ namespace LeavePortal
         {
             WindowState = FormWindowState.Minimized;
         }
-        private void btnMaxzimis_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                WindowState = FormWindowState.Normal;
-            }
-        }
+        //private void btnMaxzimis_Click(object sender, EventArgs e)
+        //{
+        //    if (WindowState == FormWindowState.Normal)
+        //    {
+        //        WindowState = FormWindowState.Maximized;
+        //    }
+        //    else
+        //    {
+        //        WindowState = FormWindowState.Normal;
+        //    }
+        //}
         private void btnLeaveAccPlan_Click(object sender, EventArgs e)
         {
-            leaveAccuralPlan1.BringToFront();
+            leaveAccuralPlan2.BringToFront();
         }
 
         private void leaveAccuralPlan1_Load(object sender, EventArgs e)
@@ -134,7 +135,38 @@ namespace LeavePortal
 
         private void button10_Click(object sender, EventArgs e)
         {
-            leaveEntitlmentAdd1.BringToFront();
+            leaveEntitlment2.BringToFront();        
+                }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            employeeProfile3.BringToFront();
+        }
+
+        private void leaveEntitlment2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HomeScreen_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void HomeScreen_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mouusePose = Control.MousePosition;
+                mouusePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mouusePose;
+
+            }
         }
     }
 }

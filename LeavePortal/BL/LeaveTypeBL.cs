@@ -1,19 +1,17 @@
 ﻿using DMSSWE;
 using DMSSWE.DATA;
-using LeavePortal.Common;
 using LeavePortal.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LeavePortal.BL
 {
-    public  class LeaveTypeBL : CommonBL
+    public class LeaveTypeBL : CommonBL
     {
-        #region Insert 
+        #region Insert
+
         public int LeaveTypeInsert(LeaveTypeDTO oLeaveTypeDTO)
         {
             int result = 0;
@@ -63,13 +61,14 @@ namespace LeavePortal.BL
             }
             catch (Exception ex)
             {
-               
                 throw ex;
             }
         }
+
         #endregion Insert
 
         #region Search
+
         private static StringBuilder LeaveTypeSearch()
         {
             StringBuilder sb = new StringBuilder();
@@ -176,6 +175,7 @@ namespace LeavePortal.BL
                 throw ex;
             }
         }
+
         public List<LeaveTypeDTO> LeaveTypeSearch(List<ParamsDTO> oParamsDTOs)
         {
             List<LeaveTypeDTO> results = new List<LeaveTypeDTO>();
@@ -223,14 +223,13 @@ namespace LeavePortal.BL
             }
         }
 
-        public List<DropListDTO>LeaveTypeSearchForDropDown( int Status)
+        public List<DropListDTO> LeaveTypeSearchForDropDown(int Status)
         {
             List<DropListDTO> results = new List<DropListDTO>();
             try
             {
                 using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
                 {
-
                     StringBuilder sb = new StringBuilder();
                     sb.AppendLine("    SELECT ");
                     sb.AppendLine("   LeaveCode,");
@@ -263,6 +262,7 @@ namespace LeavePortal.BL
                 throw ex;
             }
         }
+
         #endregion Search
     }
 }

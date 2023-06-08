@@ -42,18 +42,18 @@ namespace LeavePortal
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(654, 75);
+            this.txtSearch.Location = new System.Drawing.Point(394, 65);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(183, 23);
+            this.txtSearch.Size = new System.Drawing.Size(174, 23);
             this.txtSearch.TabIndex = 13;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 11);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 28);
+            this.label1.Size = new System.Drawing.Size(199, 23);
             this.label1.TabIndex = 12;
             this.label1.Text = "Leave Accrual Plan";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -61,11 +61,11 @@ namespace LeavePortal
             // DataGridViewAP
             // 
             this.DataGridViewAP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewAP.Location = new System.Drawing.Point(58, 121);
+            this.DataGridViewAP.Location = new System.Drawing.Point(45, 121);
             this.DataGridViewAP.Name = "DataGridViewAP";
             this.DataGridViewAP.RowHeadersWidth = 51;
             this.DataGridViewAP.RowTemplate.Height = 24;
-            this.DataGridViewAP.Size = new System.Drawing.Size(922, 326);
+            this.DataGridViewAP.Size = new System.Drawing.Size(666, 218);
             this.DataGridViewAP.TabIndex = 11;
             // 
             // btnAddNewAccrualPaln
@@ -73,12 +73,13 @@ namespace LeavePortal
             this.btnAddNewAccrualPaln.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAddNewAccrualPaln.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewAccrualPaln.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewAccrualPaln.Location = new System.Drawing.Point(58, 59);
+            this.btnAddNewAccrualPaln.Location = new System.Drawing.Point(45, 59);
             this.btnAddNewAccrualPaln.Name = "btnAddNewAccrualPaln";
-            this.btnAddNewAccrualPaln.Size = new System.Drawing.Size(157, 55);
+            this.btnAddNewAccrualPaln.Size = new System.Drawing.Size(117, 38);
             this.btnAddNewAccrualPaln.TabIndex = 10;
             this.btnAddNewAccrualPaln.Text = "+ Add New";
             this.btnAddNewAccrualPaln.UseVisualStyleBackColor = false;
+            this.btnAddNewAccrualPaln.Click += new System.EventHandler(this.btnAddNewAccrualPaln_Click_1);
             // 
             // btnSearch
             // 
@@ -87,10 +88,10 @@ namespace LeavePortal
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(864, 69);
+            this.btnSearch.Location = new System.Drawing.Point(604, 59);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnSearch.Size = new System.Drawing.Size(116, 39);
+            this.btnSearch.Size = new System.Drawing.Size(107, 34);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.Text = " Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -111,7 +112,7 @@ namespace LeavePortal
             this.Controls.Add(this.btnAddNewAccrualPaln);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LeaveAccuralPlan";
-            this.Size = new System.Drawing.Size(1033, 466);
+            this.Size = new System.Drawing.Size(781, 434);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

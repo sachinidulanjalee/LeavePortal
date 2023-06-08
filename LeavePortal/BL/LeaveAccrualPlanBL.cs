@@ -5,9 +5,7 @@ using LeavePortal.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LeavePortal.BL
 {
@@ -43,9 +41,9 @@ namespace LeavePortal.BL
                             result.LeaveCode = Helper.GetDataValue<int>(dr, "LeaveCode");
                             result.LeaveCodeText = Helper.GetDataValue<string>(dr, "Name");
                             result.IsEntitle = Helper.GetDataValue<int>(dr, "IsEntitle");
-                           // result.IsEntitleText = Enum.GetName(typeof(DaycrossMode), Helper.GetDataValue<int>(dr, "IsEntitle"));
+                            // result.IsEntitleText = Enum.GetName(typeof(DaycrossMode), Helper.GetDataValue<int>(dr, "IsEntitle"));
                             result.IsProrate = Helper.GetDataValue<int>(dr, "IsProrate");
-                           // result.IsProrateText = Enum.GetName(typeof(DaycrossMode), Helper.GetDataValue<int>(dr, "IsProrate"));
+                            // result.IsProrateText = Enum.GetName(typeof(DaycrossMode), Helper.GetDataValue<int>(dr, "IsProrate"));
                             result.FirstQuarterEntitlement = Helper.GetDataValue<int>(dr, "FirstQuarterEntitlement");
                             result.SecondQuarterEntitlement = Helper.GetDataValue<int>(dr, "SecondQuarterEntitlement");
                             result.ThiredQuarterEntitlement = Helper.GetDataValue<int>(dr, "ThiredQuarterEntitlement");
@@ -60,12 +58,11 @@ namespace LeavePortal.BL
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-        public LeaveAccrualPlanDTO LeaveAccrualPlanSearchById( int leaveAccrualType, int leaveCode)
+        public LeaveAccrualPlanDTO LeaveAccrualPlanSearchById(int leaveAccrualType, int leaveCode)
         {
             LeaveAccrualPlanDTO result = new LeaveAccrualPlanDTO();
             try
@@ -92,7 +89,6 @@ namespace LeavePortal.BL
                     sb.AppendLine(" WHERE 1=1 ");
                     sb.AppendLine(" AND (LeaveAccrualType=?LeaveAccrualType)");
                     sb.AppendLine(" AND (LeaveCode=?LeaveCode)");
-
 
                     oCloudConnection.CommandText = sb.ToString();
                     oCloudConnection.Parameters.Clear();
@@ -156,7 +152,7 @@ namespace LeavePortal.BL
                     //sb.AppendLine("ModifiedDateTime,");
                     //sb.AppendLine("ModifiedUser,");
                     //sb.AppendLine("ModifiedMachine");
-                    //sb.AppendLine(" FROM LeaveAccrualPlan ");  
+                    //sb.AppendLine(" FROM LeaveAccrualPlan ");
                     //sb.AppendLine(" WHERE 1=1 ");
 
                     sb.AppendLine("select LeaveAccrualPlan.LeaveAccrualType, LeaveAccrualPlan.LeaveCode, LeaveType.Name, LeaveAccrualPlan.IsEntitle, LeaveAccrualPlan.IsProrate, LeaveAccrualPlan.FirstQuarterEntitlement, ");
@@ -211,7 +207,6 @@ namespace LeavePortal.BL
             {
                 using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
                 {
-
                     StringBuilder varname1 = new StringBuilder();
                     varname1.Append(" SELECT COUNT(*) ");
                     varname1.Append(" FROM   LeaveAccrualPlan  ");
@@ -231,10 +226,8 @@ namespace LeavePortal.BL
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
         #endregion Search
@@ -309,7 +302,6 @@ namespace LeavePortal.BL
                     sb.AppendLine(" AND (LeaveAccrualType=?LeaveAccrualType)");
                     sb.AppendLine(" AND (LeaveCode=?LeaveCode)");
 
-
                     oCloudConnection.CommandText = sb.ToString();
                     oCloudConnection.Parameters.Clear();
                     oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveAccrualType", Value = oLeaveAccrualPlanDTO.LeaveAccrualType });
@@ -354,7 +346,6 @@ namespace LeavePortal.BL
                     sb.AppendLine(" WHERE 1=1");
                     sb.AppendLine(" AND (LeaveAccrualType=?LeaveAccrualType)");
                     sb.AppendLine(" AND (LeaveCode=?LeaveCode)");
-
 
                     oCloudConnection.CommandText = sb.ToString();
                     oCloudConnection.Parameters.Clear();

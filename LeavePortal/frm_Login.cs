@@ -25,6 +25,7 @@ namespace LeavePortal
         string _constring = string.Empty;
         UserModel userModel = new UserModel();
         UserCreateBL userCreateBL = new UserCreateBL();
+        public Point mouseLocation;
 
 
         private void frm_Login_Load(object sender, EventArgs e)
@@ -32,6 +33,8 @@ namespace LeavePortal
             string activeConnection = ConfigurationManager.AppSettings["ActiveConnection"];
             _constring = ConfigurationManager.ConnectionStrings[activeConnection].ConnectionString;
             DMSSWE.Common.ConnectionString = _constring;
+
+            CommonMethod.setEnumValues(cmbUserType, typeof(userType));
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -58,35 +61,7 @@ namespace LeavePortal
             pnlLogin.Location = new Point(345, 5);
             panel2.Location = new Point(5, 5);
 
-            //try
-            //{
-            //    UserModel oData = new UserModel();
-            //    oData.UserName = txtUserName.Text.Trim();
-            //    oData.Password = DMSSWE.CryptoUtil.Encrypt(txtUserName.Text.Trim(), txtPassword.Text.Trim())
-            //    oData.UserType = Convert.ToInt32(ddStatus.SelectedValue);
-            //    oData.Status = Convert.ToInt32(ddStatus.SelectedValue);
-            //    oData.CreatedDateTime = System.DateTime.UtcNow;
-            //    oData.CreatedBy = Session["UserID"].ToString();
-            //    oData.CreatedMachine = Session["UserMachine"].ToString();
-            //    oData.ModifiedDateTime = System.DateTime.UtcNow;
-            //    oData.ModifiedBy = Session["UserID"].ToString();
-            //    oData.ModifiedMachine = Session["UserMachine"].ToString();
-
-            //    if (oDesignationBL.DesignationInsert(oData) > 0)
-            //    {
-            //        // ShowMessage("Successfully inserted !..");
-            //        ShowMessage(ResponseMessages.InsertSuccess);
-            //        mvParent.ActiveViewIndex = 0;
-            //        ResetControllers();
-            //        HandleControllers(CommandMood.Add);
-            //        LoadDesignations();
-            ////    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //    return;
-            //}
+            Add();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -97,8 +72,13 @@ namespace LeavePortal
                 string password = txtPassword.Text.Trim();
                 UserModel ouserModel = userCreateBL.GetByUserType(userName);
 
+              
                 userCreateBL.Login(userName, password, ouserModel.UserType);
+                userCreateBL.GetByUserType(userName);
+              
                 LogUser.userName = userName;
+                LogUser.empNo = ouserModel.EmpNo.ToString() ;
+
                 if (ouserModel.UserName == txtUserName.Text && ouserModel.Password == txtPassword.Text)
                 {
 
@@ -133,6 +113,98 @@ namespace LeavePortal
            
         }
 
+        private void pnlLogin_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void pnlLogin_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                Point mouusePose = Control.MousePosition;
+                mouusePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mouusePose;
+                    
+            }
+        }
+
+        private void Add()
+        {
+            DateTime d1 = DateTime.UtcNow;
+            DateTime ExpiryDate = d1.AddMonths(5);
+
+            try
+            {
+                if (LoginValidation())
+                {
+                    UserModel oData = new UserModel();
+                    oData.UserName = txtRUserName.Text.Trim();
+                    oData.EmpNo = Convert.ToInt64(txtEmpNo.Text.Trim());
+                    // oData.Password = DMSSWE.CryptoUtil.Encrypt(txtUserName.Text.Trim(), txtRpassword.Text.Trim());
+                    oData.Password = txtRpassword.Text.Trim();
+                    oData.Email = txtEmail.Text.ToString();
+                    oData.UserType = Convert.ToInt32(cmbUserType.SelectedValue);
+                    oData.ExpiryDate = ExpiryDate;
+                    oData.MaximumAttemps = 3;
+                    oData.Status = (int)Status.Active;
+                    oData.CreatedDateTime = System.DateTime.UtcNow;
+                    oData.CreatedBy = "Admin";
+                    oData.CreatedMachine = System.Windows.Forms.SystemInformation.ComputerName;
+                    oData.ModifiedDateTime = System.DateTime.UtcNow;
+                    oData.ModifiedBy = "Admin";
+                    oData.ModifiedMachine = System.Windows.Forms.SystemInformation.ComputerName;
+
+
+                    if (userCreateBL.Add(oData) > 0)
+                    {
+                        MessageBox.Show("Successfully Registered....", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(" Registered Fail....", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private bool LoginValidation()
+        {
+            bool status = true;
+            try
+            {
+                if (string.IsNullOrEmpty(txtUserName.Text.Trim()) || string.IsNullOrEmpty(txtRUserName.Text.Trim()))
+                {
+                    errorProvider1.SetError(txtUserName, "UserName is required");
+                }
+                if (string.IsNullOrEmpty(txtPassword.Text.Trim()) || string.IsNullOrEmpty(txtRpassword.Text.Trim()))
+                {
+                    errorProvider2.SetError(txtPassword, "Password is required");
+                }
+                if (string.IsNullOrEmpty(txtEmpNo.Text.Trim()))
+                {
+                    errorProvider3.SetError(txtEmpNo, "Employee No is required");
+                }
+                if (string.IsNullOrEmpty(cmbUserType.SelectedIndex.ToString()))
+                {
+                    errorProvider4.SetError(cmbUserType, "UserType is required");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return status;
+        }
     }
     
 }

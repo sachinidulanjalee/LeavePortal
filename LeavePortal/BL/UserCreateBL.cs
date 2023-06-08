@@ -3,75 +3,72 @@ using DMSSWE.DATA;
 using LeavePortal.Common;
 using LeavePortal.Model;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LeavePortal.BL
 {
     internal class UserCreateBL
     {
-        public int Add( UserModel _oUserModel)
+        public int Add(UserModel _oUserModel)
         {
             try
             {
                 int result = 0;
                 using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(" INSERT INTO User VALUES(");
-                sb.AppendLine("?UserName,");
-                sb.AppendLine("?Password,");
-                sb.AppendLine("?UserType,");
-                sb.AppendLine("?Email,");
-                sb.AppendLine("?ExpiryDate,");
-                sb.AppendLine("?MaximumAttemps,");
-                sb.AppendLine("?Status,");
-                sb.AppendLine("?CreatedDateTime,");
-                sb.AppendLine("?CreatedBy,");
-                sb.AppendLine("?CreatedMachine,");
-                sb.AppendLine("?ModifiedDateTime,");
-                sb.AppendLine("?ModifiedBy,");
-                sb.AppendLine("?ModifiedMachine)");
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine(" INSERT INTO UserAccount VALUES(");
+                    sb.AppendLine("?EmpNo,");
+                    sb.AppendLine("?UserName,");
+                    sb.AppendLine("?Password,");
+                    sb.AppendLine("?Email,");
+                    sb.AppendLine("?UserType,");
+                    sb.AppendLine("?ExpiryDate,");
+                    sb.AppendLine("?MaximumAttemps,");
+                    sb.AppendLine("?Status,");
+                    sb.AppendLine("?CreatedDateTime,");
+                    sb.AppendLine("?CreatedBy,");
+                    sb.AppendLine("?CreatedMachine,");
+                    sb.AppendLine("?ModifiedDateTime,");
+                    sb.AppendLine("?ModifiedBy,");
+                    sb.AppendLine("?ModifiedMachine)");
 
-                oCloudConnection.CommandText = sb.ToString();
-                oCloudConnection.Parameters.Clear();
-                oCloudConnection.Parameters.Add(new Parameter { Name = "UserName", Value = _oUserModel.UserName });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "Password", Value = _oUserModel.Password });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "UserType", Value = _oUserModel.Password });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "Email", Value = _oUserModel.Email });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "ExpiryDate", Value = _oUserModel.ExpiryDate });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "MaximumAttemps", Value = _oUserModel.MaximumAttemps });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "Status", Value = _oUserModel.Status });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedDateTime", Value = _oUserModel.CreatedDateTime });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedUser", Value = _oUserModel.CreatedBy });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedMachine", Value = _oUserModel.CreatedMachine });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedDateTime", Value = _oUserModel.ModifiedDateTime });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedUser", Value = _oUserModel.ModifiedBy });
-                oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedMachine", Value = _oUserModel.ModifiedMachine });
-                result = oCloudConnection.ExecuteQuery();
+                    oCloudConnection.CommandText = sb.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "EmpNo", Value = _oUserModel.EmpNo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "UserName", Value = _oUserModel.UserName });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Password", Value = _oUserModel.Password });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Email", Value = _oUserModel.Email });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "UserType", Value = _oUserModel.UserType });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ExpiryDate", Value = _oUserModel.ExpiryDate });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "MaximumAttemps", Value = _oUserModel.MaximumAttemps });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Status", Value = _oUserModel.Status });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedDateTime", Value = _oUserModel.CreatedDateTime });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedBy", Value = _oUserModel.CreatedBy });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedMachine", Value = _oUserModel.CreatedMachine });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedDateTime", Value = _oUserModel.ModifiedDateTime });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedBy", Value = _oUserModel.ModifiedBy });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedMachine", Value = _oUserModel.ModifiedMachine });
+                    result = oCloudConnection.ExecuteQuery();
+                }
+                return result;
             }
-            return result;
-        }
             catch (Exception ex)
             {
                 Logger.Write(ex);
                 throw ex;
             }
-}
+        }
 
-
-        public object Login(string userName, string password,int userType)
+        public object Login(string userName, string password, int userType)
         {
             object result = null;
 
             try
             {
                 var _oUser = GetByUserNamePassword(userName, password, userType);
-                //var _oUser = GetByUserNamePassword(userName, DMSSWE.CryptoUtil.Encrypt(userName.Trim(), password), userType);
+                //var _oUser = GetByUserNamePassword(userName, DMSSWE.CryptoUtil.Encrypt(userName,password), userType);
                 if (_oUser == null)
                 {
                     return new { result = 0, UserId = 0, UserName = "", msg = "Invalid User." };
@@ -109,7 +106,7 @@ namespace LeavePortal.BL
             }
         }
 
-        public UserModel GetByUserNamePassword(string userName, string Password,int UserType)
+        public UserModel GetByUserNamePassword(string userName, string Password, int UserType)
         {
             UserModel results = new UserModel();
             try
@@ -118,6 +115,7 @@ namespace LeavePortal.BL
                 {
                     StringBuilder varname1 = new StringBuilder();
                     varname1.Append("SELECT UserID, \n");
+                    varname1.Append("       EmpNo, \n");
                     varname1.Append("       UserName, \n");
                     varname1.Append("       Password, \n");
                     varname1.Append("       Email, \n");
@@ -149,6 +147,7 @@ namespace LeavePortal.BL
                         {
                             UserModel result = new UserModel();
                             result.UserID = Helper.GetDataValue<int>(dr, "UserID");
+                            result.EmpNo = Helper.GetDataValue<long>(dr, "EmpNo");
                             result.UserName = Helper.GetDataValue<string>(dr, "UserName");
                             result.Password = DMSSWE.CryptoUtil.Decrypt(Helper.GetDataValue<string>(dr, "Password"), result.UserName.Trim());
                             result.UserType = Helper.GetDataValue<int>(dr, "UserType");
@@ -180,6 +179,7 @@ namespace LeavePortal.BL
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(" SELECT ");
             sb.AppendLine("UserID,");
+            sb.AppendLine("EmpNo,");
             sb.AppendLine("UserName,");
             sb.AppendLine("Password,");
             sb.AppendLine("Email,");
@@ -199,7 +199,6 @@ namespace LeavePortal.BL
             return sb;
         }
 
-
         public UserModel GetByUserType(string userName)
         {
             UserModel result = new UserModel();
@@ -218,9 +217,9 @@ namespace LeavePortal.BL
                         while (dr.Read())
                         {
                             result.UserName = Helper.GetDataValue<string>(dr, "UserName");
+                            result.EmpNo = Helper.GetDataValue<long>(dr, "EmpNo");
                             result.Password = Helper.GetDataValue<string>(dr, "Password");
                             result.UserType = Helper.GetDataValue<int>(dr, "UserType");
-
                         }
                         dr.Close();
                     }
@@ -233,6 +232,5 @@ namespace LeavePortal.BL
                 throw ex;
             }
         }
-
     }
 }

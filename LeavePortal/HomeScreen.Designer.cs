@@ -33,56 +33,59 @@ namespace LeavePortal
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.PictureBox();
+            this.btnMinimize = new System.Windows.Forms.PictureBox();
+            this.btnHam = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.pnDashboard = new System.Windows.Forms.Panel();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.FunctionContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnFunction = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnLeaveType = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.btnLeaveAccPlan = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
             this.pnlReport = new System.Windows.Forms.Panel();
+            this.btnReport = new System.Windows.Forms.Button();
             this.functionTransition = new System.Windows.Forms.Timer(this.components);
             this.sideBarTransition = new System.Windows.Forms.Timer(this.components);
             this.UserName = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblDatetime = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnFunction = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnLeaveType = new System.Windows.Forms.Button();
-            this.btnLeaveAccPlan = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnMaxzimis = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.PictureBox();
-            this.btnMinimize = new System.Windows.Forms.PictureBox();
-            this.btnHam = new System.Windows.Forms.PictureBox();
-            this.leaveTypeForm1 = new LeavePortal.LeaveTypeForm();
-            this.leaveEntitlmentAdd1 = new LeavePortal.LeaveEntitlmentAdd();
-            this.adminDashboard2 = new LeavePortal.AdminDashboard();
-            this.leaveAccuralPlan1 = new LeavePortal.LeaveAccuralPlan();
+            this.leaveEntitlment2 = new LeavePortal.LeaveEntitlment();
+            this.leaveAccuralPlan2 = new LeavePortal.LeaveAccuralPlan();
+            this.adminDashboard1 = new LeavePortal.AdminDashboard();
+            this.leaveTypeForm2 = new LeavePortal.LeaveTypeForm();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar.SuspendLayout();
             this.pnDashboard.SuspendLayout();
             this.FunctionContainer.SuspendLayout();
@@ -100,11 +103,6 @@ namespace LeavePortal
             this.pnlReport.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaxzimis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -115,18 +113,53 @@ namespace LeavePortal
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1295, 45);
+            this.panel2.Size = new System.Drawing.Size(1274, 45);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnMaxzimis);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnMinimize);
-            this.panel1.Location = new System.Drawing.Point(1153, 0);
+            this.panel1.Location = new System.Drawing.Point(1129, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(145, 46);
             this.panel1.TabIndex = 7;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(90, 3);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(43, 40);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnClose.TabIndex = 3;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(37, 3);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(47, 37);
+            this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnHam
+            // 
+            this.btnHam.Image = ((System.Drawing.Image)(resources.GetObject("btnHam.Image")));
+            this.btnHam.Location = new System.Drawing.Point(10, 6);
+            this.btnHam.Name = "btnHam";
+            this.btnHam.Size = new System.Drawing.Size(39, 31);
+            this.btnHam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnHam.TabIndex = 5;
+            this.btnHam.TabStop = false;
+            this.btnHam.Click += new System.EventHandler(this.btnHam_Click);
             // 
             // panel3
             // 
@@ -136,6 +169,16 @@ namespace LeavePortal
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(174, 85);
             this.panel3.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(16, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // sidebar
             // 
@@ -157,6 +200,25 @@ namespace LeavePortal
             this.pnDashboard.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.pnDashboard.Size = new System.Drawing.Size(252, 61);
             this.pnDashboard.TabIndex = 5;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(-11, -11);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnDashboard.Size = new System.Drawing.Size(268, 82);
+            this.btnDashboard.TabIndex = 6;
+            this.btnDashboard.Text = "        Dashboard";
+            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // FunctionContainer
             // 
@@ -184,6 +246,24 @@ namespace LeavePortal
             this.panel4.Size = new System.Drawing.Size(252, 61);
             this.panel4.TabIndex = 7;
             // 
+            // btnFunction
+            // 
+            this.btnFunction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnFunction.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction.ForeColor = System.Drawing.Color.White;
+            this.btnFunction.Image = ((System.Drawing.Image)(resources.GetObject("btnFunction.Image")));
+            this.btnFunction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFunction.Location = new System.Drawing.Point(-12, -5);
+            this.btnFunction.Name = "btnFunction";
+            this.btnFunction.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnFunction.Size = new System.Drawing.Size(269, 77);
+            this.btnFunction.TabIndex = 6;
+            this.btnFunction.Text = "        Function";
+            this.btnFunction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFunction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFunction.UseVisualStyleBackColor = false;
+            this.btnFunction.Click += new System.EventHandler(this.btnFunction_Click);
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.button1);
@@ -193,6 +273,25 @@ namespace LeavePortal
             this.panel6.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.panel6.Size = new System.Drawing.Size(252, 61);
             this.panel6.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(-11, -6);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(281, 75);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "        EmployeeProfile";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel7
             // 
@@ -214,199 +313,6 @@ namespace LeavePortal
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.panel8.Size = new System.Drawing.Size(252, 61);
             this.panel8.TabIndex = 10;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.btnLeaveAccPlan);
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Controls.Add(this.button7);
-            this.panel11.Location = new System.Drawing.Point(0, 183);
-            this.panel11.Margin = new System.Windows.Forms.Padding(0);
-            this.panel11.Name = "panel11";
-            this.panel11.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel11.Size = new System.Drawing.Size(252, 61);
-            this.panel11.TabIndex = 11;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.button6);
-            this.panel12.Location = new System.Drawing.Point(0, 61);
-            this.panel12.Margin = new System.Windows.Forms.Padding(0);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel12.Size = new System.Drawing.Size(252, 61);
-            this.panel12.TabIndex = 10;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.button10);
-            this.panel9.Controls.Add(this.button9);
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Controls.Add(this.button5);
-            this.panel9.Location = new System.Drawing.Point(0, 244);
-            this.panel9.Margin = new System.Windows.Forms.Padding(0);
-            this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel9.Size = new System.Drawing.Size(252, 61);
-            this.panel9.TabIndex = 11;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.button4);
-            this.panel10.Location = new System.Drawing.Point(0, 61);
-            this.panel10.Margin = new System.Windows.Forms.Padding(0);
-            this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel10.Size = new System.Drawing.Size(252, 61);
-            this.panel10.TabIndex = 10;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.button11);
-            this.panel13.Location = new System.Drawing.Point(3, 308);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(260, 59);
-            this.panel13.TabIndex = 14;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.button13);
-            this.panel15.Location = new System.Drawing.Point(3, 373);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(260, 59);
-            this.panel15.TabIndex = 15;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.button12);
-            this.panel14.Location = new System.Drawing.Point(3, 438);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(260, 59);
-            this.panel14.TabIndex = 16;
-            // 
-            // pnlReport
-            // 
-            this.pnlReport.Controls.Add(this.btnReport);
-            this.pnlReport.Location = new System.Drawing.Point(3, 137);
-            this.pnlReport.Name = "pnlReport";
-            this.pnlReport.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.pnlReport.Size = new System.Drawing.Size(252, 61);
-            this.pnlReport.TabIndex = 7;
-            // 
-            // functionTransition
-            // 
-            this.functionTransition.Interval = 10;
-            this.functionTransition.Tick += new System.EventHandler(this.functionTransition_Tick);
-            // 
-            // sideBarTransition
-            // 
-            this.sideBarTransition.Interval = 10;
-            this.sideBarTransition.Tick += new System.EventHandler(this.sideBarTransition_Tick);
-            // 
-            // UserName
-            // 
-            this.UserName.AutoSize = true;
-            this.UserName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName.Location = new System.Drawing.Point(203, 8);
-            this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(78, 19);
-            this.UserName.TabIndex = 7;
-            this.UserName.Text = "UserName";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.lblDatetime);
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Controls.Add(this.UserName);
-            this.panel5.Location = new System.Drawing.Point(1009, 78);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(285, 32);
-            this.panel5.TabIndex = 8;
-            // 
-            // lblDatetime
-            // 
-            this.lblDatetime.AutoSize = true;
-            this.lblDatetime.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatetime.Location = new System.Drawing.Point(4, 8);
-            this.lblDatetime.Name = "lblDatetime";
-            this.lblDatetime.Size = new System.Drawing.Size(73, 19);
-            this.lblDatetime.TabIndex = 10;
-            this.lblDatetime.Text = "DateTime";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(158, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 31);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(16, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(142, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(-11, -11);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(268, 82);
-            this.btnDashboard.TabIndex = 6;
-            this.btnDashboard.Text = "        Dashboard";
-            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
-            // btnFunction
-            // 
-            this.btnFunction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.btnFunction.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction.ForeColor = System.Drawing.Color.White;
-            this.btnFunction.Image = ((System.Drawing.Image)(resources.GetObject("btnFunction.Image")));
-            this.btnFunction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFunction.Location = new System.Drawing.Point(-12, -5);
-            this.btnFunction.Name = "btnFunction";
-            this.btnFunction.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnFunction.Size = new System.Drawing.Size(269, 77);
-            this.btnFunction.TabIndex = 6;
-            this.btnFunction.Text = "        Function";
-            this.btnFunction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFunction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFunction.UseVisualStyleBackColor = false;
-            this.btnFunction.Click += new System.EventHandler(this.btnFunction_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-11, -6);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(281, 75);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "        EmployeeProfile";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -445,6 +351,18 @@ namespace LeavePortal
             this.btnLeaveType.UseVisualStyleBackColor = false;
             this.btnLeaveType.Click += new System.EventHandler(this.btnLeaveType_Click);
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btnLeaveAccPlan);
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Controls.Add(this.button7);
+            this.panel11.Location = new System.Drawing.Point(0, 183);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel11.Size = new System.Drawing.Size(252, 61);
+            this.panel11.TabIndex = 11;
+            // 
             // btnLeaveAccPlan
             // 
             this.btnLeaveAccPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
@@ -463,6 +381,16 @@ namespace LeavePortal
             this.btnLeaveAccPlan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLeaveAccPlan.UseVisualStyleBackColor = false;
             this.btnLeaveAccPlan.Click += new System.EventHandler(this.btnLeaveAccPlan_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.button6);
+            this.panel12.Location = new System.Drawing.Point(0, 61);
+            this.panel12.Margin = new System.Windows.Forms.Padding(0);
+            this.panel12.Name = "panel12";
+            this.panel12.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel12.Size = new System.Drawing.Size(252, 61);
+            this.panel12.TabIndex = 10;
             // 
             // button6
             // 
@@ -500,6 +428,19 @@ namespace LeavePortal
             this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button7.UseVisualStyleBackColor = false;
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.button10);
+            this.panel9.Controls.Add(this.button9);
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.button5);
+            this.panel9.Location = new System.Drawing.Point(0, 244);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
+            this.panel9.Name = "panel9";
+            this.panel9.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel9.Size = new System.Drawing.Size(252, 61);
+            this.panel9.TabIndex = 11;
+            // 
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
@@ -513,7 +454,7 @@ namespace LeavePortal
             this.button10.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.button10.Size = new System.Drawing.Size(271, 88);
             this.button10.TabIndex = 12;
-            this.button10.Text = "        LeaveEntitlementAdd";
+            this.button10.Text = "        LeaveEntitlement";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button10.UseVisualStyleBackColor = false;
@@ -536,6 +477,16 @@ namespace LeavePortal
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button9.UseVisualStyleBackColor = false;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.button4);
+            this.panel10.Location = new System.Drawing.Point(0, 61);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel10.Size = new System.Drawing.Size(252, 61);
+            this.panel10.TabIndex = 10;
             // 
             // button4
             // 
@@ -573,6 +524,14 @@ namespace LeavePortal
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = false;
             // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.button11);
+            this.panel13.Location = new System.Drawing.Point(3, 308);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(260, 59);
+            this.panel13.TabIndex = 14;
+            // 
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
@@ -590,6 +549,14 @@ namespace LeavePortal
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button11.UseVisualStyleBackColor = false;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.button13);
+            this.panel15.Location = new System.Drawing.Point(3, 373);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(260, 59);
+            this.panel15.TabIndex = 15;
             // 
             // button13
             // 
@@ -609,6 +576,14 @@ namespace LeavePortal
             this.button13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button13.UseVisualStyleBackColor = false;
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.button12);
+            this.panel14.Location = new System.Drawing.Point(3, 438);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(260, 59);
+            this.panel14.TabIndex = 16;
+            // 
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
@@ -627,6 +602,15 @@ namespace LeavePortal
             this.button12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button12.UseVisualStyleBackColor = false;
             // 
+            // pnlReport
+            // 
+            this.pnlReport.Controls.Add(this.btnReport);
+            this.pnlReport.Location = new System.Drawing.Point(3, 137);
+            this.pnlReport.Name = "pnlReport";
+            this.pnlReport.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.pnlReport.Size = new System.Drawing.Size(252, 61);
+            this.pnlReport.TabIndex = 7;
+            // 
             // btnReport
             // 
             this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
@@ -644,97 +628,101 @@ namespace LeavePortal
             this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReport.UseVisualStyleBackColor = false;
             // 
-            // btnMaxzimis
+            // functionTransition
             // 
-            this.btnMaxzimis.Image = ((System.Drawing.Image)(resources.GetObject("btnMaxzimis.Image")));
-            this.btnMaxzimis.Location = new System.Drawing.Point(50, 9);
-            this.btnMaxzimis.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMaxzimis.Name = "btnMaxzimis";
-            this.btnMaxzimis.Size = new System.Drawing.Size(41, 35);
-            this.btnMaxzimis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMaxzimis.TabIndex = 7;
-            this.btnMaxzimis.TabStop = false;
-            this.btnMaxzimis.Click += new System.EventHandler(this.btnMaxzimis_Click);
+            this.functionTransition.Interval = 10;
+            this.functionTransition.Tick += new System.EventHandler(this.functionTransition_Tick);
             // 
-            // btnClose
+            // sideBarTransition
             // 
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(90, 3);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(43, 40);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnClose.TabIndex = 3;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.sideBarTransition.Interval = 10;
+            this.sideBarTransition.Tick += new System.EventHandler(this.sideBarTransition_Tick);
             // 
-            // btnMinimize
+            // UserName
             // 
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(0, 8);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(47, 37);
-            this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimize.TabIndex = 2;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            this.UserName.AutoSize = true;
+            this.UserName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName.Location = new System.Drawing.Point(203, 8);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(78, 19);
+            this.UserName.TabIndex = 7;
+            this.UserName.Text = "UserName";
             // 
-            // btnHam
+            // panel5
             // 
-            this.btnHam.Image = ((System.Drawing.Image)(resources.GetObject("btnHam.Image")));
-            this.btnHam.Location = new System.Drawing.Point(10, 6);
-            this.btnHam.Name = "btnHam";
-            this.btnHam.Size = new System.Drawing.Size(39, 31);
-            this.btnHam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnHam.TabIndex = 5;
-            this.btnHam.TabStop = false;
-            this.btnHam.Click += new System.EventHandler(this.btnHam_Click);
+            this.panel5.Controls.Add(this.lblDatetime);
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Controls.Add(this.UserName);
+            this.panel5.Location = new System.Drawing.Point(987, 78);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(285, 32);
+            this.panel5.TabIndex = 8;
             // 
-            // leaveTypeForm1
+            // lblDatetime
             // 
-            this.leaveTypeForm1.BackColor = System.Drawing.Color.White;
-            this.leaveTypeForm1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveTypeForm1.Location = new System.Drawing.Point(261, 116);
-            this.leaveTypeForm1.Name = "leaveTypeForm1";
-            this.leaveTypeForm1.Size = new System.Drawing.Size(1033, 466);
-            this.leaveTypeForm1.TabIndex = 11;
+            this.lblDatetime.AutoSize = true;
+            this.lblDatetime.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatetime.Location = new System.Drawing.Point(4, 8);
+            this.lblDatetime.Name = "lblDatetime";
+            this.lblDatetime.Size = new System.Drawing.Size(73, 19);
+            this.lblDatetime.TabIndex = 10;
+            this.lblDatetime.Text = "DateTime";
             // 
-            // leaveEntitlmentAdd1
+            // pictureBox2
             // 
-            this.leaveEntitlmentAdd1.BackColor = System.Drawing.Color.White;
-            this.leaveEntitlmentAdd1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveEntitlmentAdd1.Location = new System.Drawing.Point(261, 119);
-            this.leaveEntitlmentAdd1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.leaveEntitlmentAdd1.Name = "leaveEntitlmentAdd1";
-            this.leaveEntitlmentAdd1.Size = new System.Drawing.Size(1033, 466);
-            this.leaveEntitlmentAdd1.TabIndex = 10;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(158, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(39, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
             // 
-            // adminDashboard2
+            // leaveEntitlment2
             // 
-            this.adminDashboard2.Location = new System.Drawing.Point(263, 119);
-            this.adminDashboard2.Name = "adminDashboard2";
-            this.adminDashboard2.Size = new System.Drawing.Size(1033, 466);
-            this.adminDashboard2.TabIndex = 9;
+            this.leaveEntitlment2.BackColor = System.Drawing.Color.White;
+            this.leaveEntitlment2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveEntitlment2.Location = new System.Drawing.Point(262, 106);
+            this.leaveEntitlment2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.leaveEntitlment2.Name = "leaveEntitlment2";
+            this.leaveEntitlment2.Size = new System.Drawing.Size(1014, 482);
+            this.leaveEntitlment2.TabIndex = 13;
+            this.leaveEntitlment2.Load += new System.EventHandler(this.leaveEntitlment2_Load);
             // 
-            // leaveAccuralPlan1
+            // leaveAccuralPlan2
             // 
-            this.leaveAccuralPlan1.BackColor = System.Drawing.Color.White;
-            this.leaveAccuralPlan1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveAccuralPlan1.Location = new System.Drawing.Point(261, 116);
-            this.leaveAccuralPlan1.Name = "leaveAccuralPlan1";
-            this.leaveAccuralPlan1.Size = new System.Drawing.Size(1033, 466);
-            this.leaveAccuralPlan1.TabIndex = 12;
+            this.leaveAccuralPlan2.BackColor = System.Drawing.Color.White;
+            this.leaveAccuralPlan2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveAccuralPlan2.Location = new System.Drawing.Point(260, 108);
+            this.leaveAccuralPlan2.Name = "leaveAccuralPlan2";
+            this.leaveAccuralPlan2.Size = new System.Drawing.Size(1014, 460);
+            this.leaveAccuralPlan2.TabIndex = 12;
+            // 
+            // adminDashboard1
+            // 
+            this.adminDashboard1.Location = new System.Drawing.Point(258, 108);
+            this.adminDashboard1.Name = "adminDashboard1";
+            this.adminDashboard1.Size = new System.Drawing.Size(1015, 477);
+            this.adminDashboard1.TabIndex = 9;
+            // 
+            // leaveTypeForm2
+            // 
+            this.leaveTypeForm2.BackColor = System.Drawing.Color.White;
+            this.leaveTypeForm2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveTypeForm2.Location = new System.Drawing.Point(263, 110);
+            this.leaveTypeForm2.Name = "leaveTypeForm2";
+            this.leaveTypeForm2.Size = new System.Drawing.Size(1009, 472);
+            this.leaveTypeForm2.TabIndex = 11;
             // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1295, 588);
-            this.Controls.Add(this.leaveAccuralPlan1);
-            this.Controls.Add(this.leaveTypeForm1);
-            this.Controls.Add(this.leaveEntitlmentAdd1);
-            this.Controls.Add(this.adminDashboard2);
+            this.ClientSize = new System.Drawing.Size(1274, 588);
+            this.Controls.Add(this.leaveEntitlment2);
+            this.Controls.Add(this.leaveAccuralPlan2);
+            this.Controls.Add(this.adminDashboard1);
+            this.Controls.Add(this.leaveTypeForm2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.sidebar);
@@ -745,9 +733,15 @@ namespace LeavePortal
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.HomeScreen_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HomeScreen_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HomeScreen_MouseMove);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHam)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.sidebar.ResumeLayout(false);
             this.pnDashboard.ResumeLayout(false);
             this.FunctionContainer.ResumeLayout(false);
@@ -766,11 +760,6 @@ namespace LeavePortal
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaxzimis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHam)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -820,10 +809,17 @@ namespace LeavePortal
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblDatetime;
-        private System.Windows.Forms.PictureBox btnMaxzimis;
         private AdminDashboard adminDashboard2;
-        private LeaveEntitlmentAdd leaveEntitlmentAdd1;
+        private LeaveEntitlment leaveEntitlmentAdd1;
         private LeaveTypeForm leaveTypeForm1;
         private LeaveAccuralPlan leaveAccuralPlan1;
+        private LeaveEntitlment leaveEntitlment1;
+        private AdminDashboard adminDashboard1;
+        private EmployeeProfile employeeProfile1;
+        private LeaveTypeForm leaveTypeForm2;
+        private LeaveAccuralPlan leaveAccuralPlan2;
+        private LeaveEntitlment leaveEntitlment2;
+        private EmployeeProfile employeeProfile2;
+        private EmployeeProfile employeeProfile3;
     }
 }

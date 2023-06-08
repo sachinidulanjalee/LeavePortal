@@ -80,6 +80,28 @@ namespace LeavePortal.Common
                 cxbx.ValueMember = "Value";
                 cxbx.DataSource = list;
             }
+
+        public List<DropListDTO> ComboDataBindByEnum<T>()
+        {
+            List<DropListDTO> oData = new List<DropListDTO>();
+            try
+            {
+                oData.Add(new DropListDTO { Text = "- Select -", Value = "" });
+                foreach (IConvertible e in Enum.GetValues(typeof(T)))
+                {
+                    string text = e.ToString().Trim();
+                    string value = e.ToType(Enum.GetUnderlyingType(typeof(T)), CultureInfo.CurrentCulture).ToString();
+                    var attributes = typeof(T).GetField(text.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
+                    string Description = attributes.Length == 0 ? text : ((DescriptionAttribute)attributes[0]).Description.ToString();
+                    oData.Add(new DropListDTO { Value = value, Text = Description });
+                }
+                return oData;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+    }
     
 }

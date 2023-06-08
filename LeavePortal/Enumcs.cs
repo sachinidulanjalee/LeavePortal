@@ -8,6 +8,30 @@ namespace LeavePortal.Common
         DEMO = 1,
     }
 
+
+    public enum DocumentSubmitted
+    {
+        Yes = 2,
+        No = 1
+    }
+
+    public enum AutharizationLevel
+    {
+        [Description("Authorization Level 1")]
+        AuthorizationLevel1 = 1,
+
+        [Description("Authorization Level 2")]
+        AuthorizationLevel2 = 2,
+
+        [Description("Authorization Level 3")]
+        AuthorizationLevel3 = 3,
+
+        [Description("Authorization Level 4")]
+        AuthorizationLevel4 = 4,
+
+        [Description("Finance Authorization")]
+        FinanceAuthorization = 5
+    }
     public enum UserStatus
     {
         [Description("New User")]
@@ -36,16 +60,46 @@ namespace LeavePortal.Common
 
     public enum sex
     {
+        [Description("--Select--")]
+        Select = 0,
         Male = 1,
         Female = 2,
         Other
     }
 
     public enum userType
-    {  Admin = 1,
+    {
+        [Description("--Select--")]
+        Select = 0,
+        Admin = 1,
        User  =2
     }
+    public enum SerialNosMode
+    {
+        ACNO = 1,
+        LCNO = 2,
+        EANO = 3
+    }
+    public enum LeaveRequestDayMode1
+    {
+        [Description("Full Day")]
+        Fullday = 1,
 
+        [Description("Half Day")]
+        Halfday = 2
+    }
+
+    public enum LeaveRequestDayMode2
+    {
+        [Description("Short Leave")]
+        ShortLeave = 4
+    }
+
+    public enum LeaveRequestDayMode3
+    {
+        [Description("Full Day")]
+        Fullday = 1
+    }
     public enum LeaveDayMode
     {
         [Description("--Select--")]
@@ -175,4 +229,316 @@ namespace LeavePortal.Common
         November = 11,
         December = 12
     }
+
+    public enum Selction
+    {
+        [Description("--Select--")]
+        Select = 0,
+        [Description("AllEmployee")]
+        AllEmployee = 1,
+    }
+
+    public enum LeaveAllocationPeriod
+    {
+        [Description("--Select--")]
+        Select = 0,
+        Calendar_Year = 1,
+        Joined_Year = 2
+    }
+
+    public enum Title
+    {
+        [Description("--Select--")]
+        Select = 0,
+        Mr = 1,
+        Ms = 2,
+        Miss = 3,
+        Mrs = 4,
+        Dr = 5,
+        Rev = 6,
+        Prof = 7
+    }
+
+    public enum LeaveApprovelMode
+    {
+        Auto = 1,
+        Manual = 2,
+    }
+
+    public enum LeaveStatus
+    {
+        Pending = 1,
+        Approved = 2,
+        Denied = 3,
+        Cancel = 4,
+        Validate = 5,
+        DoubleDeduction = 6
+    }
+
+    public enum Gender
+    {
+        [Description("--Select--")]
+        Select = 0,
+        Male = 1,
+        Female = 2
+    }
+    public enum CivilStatus
+    {
+        [Description("--Select--")]
+        Select = 0,
+        Married = 1,
+        Unmarried = 2
+    }
+
+
+    public enum LabourAct
+    {
+        [Description("--Select--")]
+        Select = 0,
+        [Description("Shop And Office Act")]
+        ShopAndOfficeAct = 1,
+
+        [Description("Wages Boards Ordinance")]
+        WagesBoardsOrdinance = 2
+    }
+    public enum Religion
+    {
+        [Description("--Select--")]
+        Select = 0,
+        [Description("Buddhist")]
+        Buddhist = 1,
+
+        [Description("Roman Catholic")]
+        RomanCatholic = 2,
+
+        [Description("Islam")]
+        Islam = 3,
+
+        [Description("Hindu")]
+        Hindu = 4,
+
+        [Description("Christian")]
+        Christian = 5,
+
+        [Description("Anglican")]
+        Anglican = 6,
+
+        [Description("Other")]
+        Other
+    }
+
+    public enum Nationality
+    {
+        [Description("--Select--")]
+        Select = 0,
+        SriLankan = 1,
+        American,
+        British,
+        Indian,
+        Afghanistan,
+        Albania,
+        Algeria,
+        Andorra,
+        Angola,
+        AntiguaandBarbuda,
+        Argentina,
+        Armenia,
+        Australia,
+        Austria,
+        Azerbaijan,
+        Bahamas,
+        Bahrain,
+        Bangladesh,
+        Barbados,
+        Belarus,
+        Belgium,
+        Belize,
+        Benin,
+        Bhutan,
+        Bolivia,
+        BosniaandHerzegovina,
+        Botswana,
+        Brazil,
+        Brunei,
+        Bulgaria,
+        BurkinaFaso,
+        Burundi,
+        CôtedIvoire,
+        CaboVerde,
+        Cambodia,
+        Cameroon,
+        Canada,
+        CentralAfricanRepublic,
+        Chad,
+        Chile,
+        China,
+        Colombia,
+        Comoros,
+        Congo,
+        CostaRica,
+        Croatia,
+        Cuba,
+        Cyprus,
+        Czechia,
+        DemocraticRepublicoftheCongo,
+        Denmark,
+        Djibouti,
+        Dominica,
+        DominicanRepublic,
+        Ecuador,
+        Egypt,
+        ElSalvador,
+        EquatorialGuinea,
+        Eritrea,
+        Estonia,
+        Eswatini,
+        Ethiopia,
+        Fiji,
+        Finland,
+        France,
+        Gabon,
+        Gambia,
+        Georgia,
+        Germany,
+        Ghana,
+        Greece,
+        Grenada,
+        Guatemala,
+        Guinea,
+        GuineaBissau,
+        Guyana,
+        Haiti,
+        HolySee,
+        Honduras,
+        Hungary,
+        Iceland,
+        Indonesia,
+        Iran,
+        Iraq,
+        Ireland,
+        Israel,
+        Italy,
+        Jamaica,
+        Japan,
+        Jordan,
+        Kazakhstan,
+        Kenya,
+        Kiribati,
+        Kuwait,
+        Kyrgyzstan,
+        Laos,
+        Latvia,
+        Lebanon,
+        Lesotho,
+        Liberia,
+        Libya,
+        Liechtenstein,
+        Lithuania,
+        Luxembourg,
+        Madagascar,
+        Malawi,
+        Malaysia,
+        Maldives,
+        Mali,
+        Malta,
+        MarshallIslands,
+        Mauritania,
+        Mauritius,
+        Mexico,
+        Micronesia,
+        Moldova,
+        Monaco,
+        Mongolia,
+        Montenegro,
+        Morocco,
+        Mozambique,
+        Myanmar,
+        Namibia,
+        Nauru,
+        Nepal,
+        Netherlands,
+        NewZealand,
+        Nicaragua,
+        Niger,
+        Nigeria,
+        NorthKorea,
+        NorthMacedonia,
+        Norway,
+        Oman,
+        Pakistan,
+        Palau,
+        PalestineState,
+        Panama,
+        PapuaNewGuinea,
+        Paraguay,
+        Peru,
+        Philippines,
+        Poland,
+        Portugal,
+        Qatar,
+        Romania,
+        Russia,
+        Rwanda,
+        SaintKittsandNevis,
+        SaintLucia,
+        SaintVincentandtheGrenadines,
+        Samoa,
+        SanMarino,
+        SaoTomeandPrincipe,
+        SaudiArabia,
+        Senegal,
+        Serbia,
+        Seychelles,
+        SierraLeone,
+        Singapore,
+        Slovakia,
+        Slovenia,
+        SolomonIslands,
+        Somalia,
+        SouthAfrica,
+        SouthKorea,
+        SouthSudan,
+        Spain,
+        Sudan,
+        Suriname,
+        Sweden,
+        Switzerland,
+        Syria,
+        Tajikistan,
+        Tanzania,
+        Thailand,
+        TimorLeste,
+        Togo,
+        Tonga,
+        TrinidadandTobago,
+        Tunisia,
+        Turkey,
+        Turkmenistan,
+        Tuvalu,
+        Uganda,
+        Ukraine,
+        UnitedArabEmirates,
+        Uruguay,
+        Uzbekistan,
+        Vanuatu,
+        Venezuela,
+        Vietnam,
+        Yemen,
+        Zambia,
+        Zimbabwe
+    }
+
+    public enum WhichHalf
+    {
+        [Description("Not Applicable")]
+        NotApplicable = 0,
+
+        [Description("First Half")]
+        FirstHalf = 1,
+
+        [Description("Second Half")]
+        SecondHalf = 2
+    }
+
+
 }

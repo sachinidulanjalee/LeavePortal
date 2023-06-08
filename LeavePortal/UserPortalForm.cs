@@ -50,6 +50,11 @@ namespace LeavePortal
             this.Hide();
         }
 
-       
+        private void btnCancelLeave_Click(object sender, EventArgs e)
+        {
+            LeaveApply leaveApply = new LeaveApply();
+            leaveApply.Show();
+            this.Hide();
+        }
     }
 }
