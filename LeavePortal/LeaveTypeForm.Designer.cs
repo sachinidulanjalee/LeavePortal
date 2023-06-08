@@ -66,6 +66,7 @@ namespace LeavePortal
             this.dgLeaveTypes.RowTemplate.Height = 24;
             this.dgLeaveTypes.Size = new System.Drawing.Size(666, 205);
             this.dgLeaveTypes.TabIndex = 6;
+            this.dgLeaveTypes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLeaveTypes_CellDoubleClick);
             // 
             // btnAddNewLeaveType
             // 
@@ -82,7 +83,8 @@ namespace LeavePortal
             // 
             // timer1
             // 
-            this.timer1.Interval = 1;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // btnSearch
             // 
@@ -112,6 +114,7 @@ namespace LeavePortal
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LeaveTypeForm";
             this.Size = new System.Drawing.Size(763, 445);
+            this.Load += new System.EventHandler(this.LeaveTypeForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgLeaveTypes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

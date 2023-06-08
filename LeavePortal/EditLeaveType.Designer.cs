@@ -32,7 +32,6 @@ namespace LeavePortal
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlAddButton = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtAbbrevaiation = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -66,11 +65,10 @@ namespace LeavePortal
             // pnlAddButton
             // 
             this.pnlAddButton.Controls.Add(this.btnSave);
-            this.pnlAddButton.Controls.Add(this.btnClear);
             this.pnlAddButton.Controls.Add(this.btnCancel);
-            this.pnlAddButton.Location = new System.Drawing.Point(21, 413);
+            this.pnlAddButton.Location = new System.Drawing.Point(64, 409);
             this.pnlAddButton.Name = "pnlAddButton";
-            this.pnlAddButton.Size = new System.Drawing.Size(377, 65);
+            this.pnlAddButton.Size = new System.Drawing.Size(229, 65);
             this.pnlAddButton.TabIndex = 41;
             // 
             // btnSave
@@ -78,36 +76,26 @@ namespace LeavePortal
             this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(5, 15);
+            this.btnSave.Location = new System.Drawing.Point(16, 13);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 35);
             this.btnSave.TabIndex = 20;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnClear.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(136, 15);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(88, 35);
-            this.btnClear.TabIndex = 18;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(253, 15);
+            this.btnCancel.Location = new System.Drawing.Point(110, 13);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 35);
             this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtAbbrevaiation
             // 
@@ -280,6 +268,7 @@ namespace LeavePortal
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditLeaveType";
             this.Text = "EditLeaveType";
+            this.Load += new System.EventHandler(this.EditLeaveType_Load);
             this.pnlAddButton.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -291,17 +280,8 @@ namespace LeavePortal
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlAddButton;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox txtAbbrevaiation;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbDedQuota;
-        private System.Windows.Forms.ComboBox cmbStatus;
-        private System.Windows.Forms.ComboBox cmbLeaveEntilmet;
-        private System.Windows.Forms.ComboBox cmbDayMode;
-        private System.Windows.Forms.TextBox txtEntitlment;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtLeaveCode;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -310,5 +290,13 @@ namespace LeavePortal
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtAbbrevaiation;
+        public System.Windows.Forms.ComboBox cmbDedQuota;
+        public System.Windows.Forms.ComboBox cmbStatus;
+        public System.Windows.Forms.ComboBox cmbLeaveEntilmet;
+        public System.Windows.Forms.ComboBox cmbDayMode;
+        public System.Windows.Forms.TextBox txtEntitlment;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtLeaveCode;
     }
 }

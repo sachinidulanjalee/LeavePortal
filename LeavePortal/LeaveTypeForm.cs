@@ -22,15 +22,7 @@ namespace LeavePortal
         private LeaveTypeBL oLeaveTypeBL = new LeaveTypeBL();
         public static DataGridViewRow selectedrow;
         #region Event
-
-
-        private void LeaveTypeForm_Load(object sender, EventArgs e)
-        {
-            LoadGrid();
-            timer1.Start();
-        }
-
-        private void dgLeaveTypes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       private void dgLeaveTypes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
 
@@ -42,22 +34,7 @@ namespace LeavePortal
 
         }
 
-        private void dgLeaveTypes_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                selectedrow = dgLeaveTypes.Rows[e.RowIndex];
-                EditLeaveType.getEditLeaveTypee.ShowDialog();
-
-
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            LoadGrid();
-            timer1.Start();
-        }
+     
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -75,6 +52,7 @@ namespace LeavePortal
             }
 
         }
+
         #endregion Event
 
         #region method
@@ -98,6 +76,34 @@ namespace LeavePortal
         {
             AddNewLeaveType lT = new AddNewLeaveType();
             lT.Show();
+        }
+
+        private void LeaveTypeForm_Load_1(object sender, EventArgs e)
+        {
+            LoadGrid();
+            timer1.Start();
+        }
+
+        private void dgLeaveTypes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            EditLeaveType editLeaveType = new EditLeaveType();
+            editLeaveType.txtLeaveCode.Text = this.dgLeaveTypes.CurrentRow.Cells[0].Value.ToString();
+            editLeaveType.txtName.Text = this.dgLeaveTypes.CurrentRow.Cells[1].Value.ToString();
+            editLeaveType.txtAbbrevaiation.Text = this.dgLeaveTypes.CurrentRow.Cells[2].Value.ToString();
+            editLeaveType.txtEntitlment.Text = this.dgLeaveTypes.CurrentRow.Cells[6].Value.ToString();
+            editLeaveType.cmbDayMode.Text = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
+            editLeaveType.cmbDedQuota.Text = this.dgLeaveTypes.CurrentRow.Cells[5].Value.ToString();
+            editLeaveType.cmbLeaveEntilmet.Text = this.dgLeaveTypes.CurrentRow.Cells[3].Value.ToString();
+            editLeaveType.cmbStatus.Text = this.dgLeaveTypes.CurrentRow.Cells[7].Value.ToString();
+            editLeaveType.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+                LoadGrid();
+                timer1.Start();
+            
         }
     }
 }

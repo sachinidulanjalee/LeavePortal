@@ -75,8 +75,6 @@ namespace LeavePortal
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblDatetime = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.leaveEntitlment2 = new LeavePortal.LeaveEntitlment();
-            this.leaveAccuralPlan2 = new LeavePortal.LeaveAccuralPlan();
             this.adminDashboard1 = new LeavePortal.AdminDashboard();
             this.leaveTypeForm2 = new LeavePortal.LeaveTypeForm();
             this.panel2.SuspendLayout();
@@ -678,51 +676,29 @@ namespace LeavePortal
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
-            // leaveEntitlment2
-            // 
-            this.leaveEntitlment2.BackColor = System.Drawing.Color.White;
-            this.leaveEntitlment2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveEntitlment2.Location = new System.Drawing.Point(262, 106);
-            this.leaveEntitlment2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.leaveEntitlment2.Name = "leaveEntitlment2";
-            this.leaveEntitlment2.Size = new System.Drawing.Size(1014, 482);
-            this.leaveEntitlment2.TabIndex = 13;
-            this.leaveEntitlment2.Load += new System.EventHandler(this.leaveEntitlment2_Load);
-            // 
-            // leaveAccuralPlan2
-            // 
-            this.leaveAccuralPlan2.BackColor = System.Drawing.Color.White;
-            this.leaveAccuralPlan2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveAccuralPlan2.Location = new System.Drawing.Point(260, 108);
-            this.leaveAccuralPlan2.Name = "leaveAccuralPlan2";
-            this.leaveAccuralPlan2.Size = new System.Drawing.Size(1014, 460);
-            this.leaveAccuralPlan2.TabIndex = 12;
-            // 
             // adminDashboard1
             // 
-            this.adminDashboard1.Location = new System.Drawing.Point(258, 108);
+            this.adminDashboard1.Location = new System.Drawing.Point(261, 132);
             this.adminDashboard1.Name = "adminDashboard1";
-            this.adminDashboard1.Size = new System.Drawing.Size(1015, 477);
+            this.adminDashboard1.Size = new System.Drawing.Size(1012, 456);
             this.adminDashboard1.TabIndex = 9;
             // 
             // leaveTypeForm2
             // 
             this.leaveTypeForm2.BackColor = System.Drawing.Color.White;
             this.leaveTypeForm2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveTypeForm2.Location = new System.Drawing.Point(263, 110);
+            this.leaveTypeForm2.Location = new System.Drawing.Point(263, 116);
             this.leaveTypeForm2.Name = "leaveTypeForm2";
-            this.leaveTypeForm2.Size = new System.Drawing.Size(1009, 472);
-            this.leaveTypeForm2.TabIndex = 11;
+            this.leaveTypeForm2.Size = new System.Drawing.Size(1011, 472);
+            this.leaveTypeForm2.TabIndex = 10;
             // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1274, 588);
-            this.Controls.Add(this.leaveEntitlment2);
-            this.Controls.Add(this.leaveAccuralPlan2);
-            this.Controls.Add(this.adminDashboard1);
             this.Controls.Add(this.leaveTypeForm2);
+            this.Controls.Add(this.adminDashboard1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.sidebar);
@@ -816,10 +792,8 @@ namespace LeavePortal
         private LeaveEntitlment leaveEntitlment1;
         private AdminDashboard adminDashboard1;
         private EmployeeProfile employeeProfile1;
-        private LeaveTypeForm leaveTypeForm2;
-        private LeaveAccuralPlan leaveAccuralPlan2;
-        private LeaveEntitlment leaveEntitlment2;
         private EmployeeProfile employeeProfile2;
         private EmployeeProfile employeeProfile3;
+        private LeaveTypeForm leaveTypeForm2;
     }
 }

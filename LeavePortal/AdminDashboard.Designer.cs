@@ -50,7 +50,7 @@ namespace LeavePortal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pictureBox1);
             this.Name = "AdminDashboard";
-            this.Size = new System.Drawing.Size(1035, 464);
+            this.Size = new System.Drawing.Size(1035, 459);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

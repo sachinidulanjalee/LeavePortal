@@ -125,7 +125,7 @@ namespace LeavePortal
         //}
         private void btnLeaveAccPlan_Click(object sender, EventArgs e)
         {
-            leaveAccuralPlan2.BringToFront();
+            
         }
 
         private void leaveAccuralPlan1_Load(object sender, EventArgs e)
@@ -135,7 +135,6 @@ namespace LeavePortal
 
         private void button10_Click(object sender, EventArgs e)
         {
-            leaveEntitlment2.BringToFront();        
                 }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -145,7 +144,7 @@ namespace LeavePortal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            employeeProfile3.BringToFront();
+          
         }
 
         private void leaveEntitlment2_Load(object sender, EventArgs e)

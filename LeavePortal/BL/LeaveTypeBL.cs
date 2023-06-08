@@ -264,5 +264,61 @@ namespace LeavePortal.BL
         }
 
         #endregion Search
+
+        #region Update
+        public int LeaveTypeUpdate(LeaveTypeDTO oLeaveTypeDTO)
+        {
+            int result = 0;
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine(" UPDATE LeaveType");
+                    sb.AppendLine(" SET ");
+                    sb.AppendLine("Name=?Name,");
+                    sb.AppendLine("Abbreviation=?Abbreviation,");
+                    sb.AppendLine("IsDeductFromQuota=?IsDeductFromQuota,");
+                    sb.AppendLine("DayMode=?DayMode,");
+                    sb.AppendLine("Entitlement=?Entitlement,");
+                    sb.AppendLine("LeaveEntitlementMode=?LeaveEntitlementMode,");
+                    sb.AppendLine("Status=?Status,");
+                    sb.AppendLine("CreatedDateTime=?CreatedDateTime,");
+                    sb.AppendLine("CreatedUser=?CreatedUser,");
+                    sb.AppendLine("CreatedMachine=?CreatedMachine,");
+                    sb.AppendLine("ModifiedDateTime=?ModifiedDateTime,");
+                    sb.AppendLine("ModifiedUser=?ModifiedUser,");
+                    sb.AppendLine("ModifiedMachine=?ModifiedMachine");
+                    sb.AppendLine(" WHERE 1=1");
+                    sb.AppendLine(" AND (LeaveCode=?LeaveCode)");
+
+                    oCloudConnection.CommandText = sb.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveCode", Value = oLeaveTypeDTO.LeaveCode });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Name", Value = oLeaveTypeDTO.Name });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Abbreviation", Value = oLeaveTypeDTO.Abbreviation });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "IsDeductFromQuota", Value = oLeaveTypeDTO.IsDeductFromQuota });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "DayMode", Value = oLeaveTypeDTO.DayMode });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Entitlement", Value = oLeaveTypeDTO.Entitlement });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveEntitlementMode", Value = oLeaveTypeDTO.LeaveEntitlementMode });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Status", Value = oLeaveTypeDTO.Status });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedDateTime", Value = oLeaveTypeDTO.CreatedDateTime });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedUser", Value = oLeaveTypeDTO.CreatedUser });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "CreatedMachine", Value = oLeaveTypeDTO.CreatedMachine });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedDateTime", Value = oLeaveTypeDTO.ModifiedDateTime });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedUser", Value = oLeaveTypeDTO.ModifiedUser });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedMachine", Value = oLeaveTypeDTO.ModifiedMachine });
+                    result = oCloudConnection.ExecuteQuery();
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
+        #endregion Update
+
     }
 }

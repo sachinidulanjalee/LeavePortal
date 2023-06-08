@@ -25,14 +25,11 @@ namespace LeavePortal
 
         private void AddNewLeaveType_Load(object sender, EventArgs e)
         {
-          
-           
+                   
             CommonMethod.setEnumValues(cmbLeaveEntilmet, typeof(LeaveEntitlemant));
             CommonMethod.setEnumValues(cmbDedQuota, typeof(LeaveTypeIsDeductFromQuota));
             CommonMethod.setEnumValues(cmbDayMode, typeof(DayMode));
             CommonMethod.setEnumValues(cmbStatus, typeof(Status));
-
-       
         }
 
         private void btnClear_Click(object sender, EventArgs e)
