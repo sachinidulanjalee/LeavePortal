@@ -291,27 +291,27 @@ namespace LeavePortal
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cmbIsEntitle;
-        private System.Windows.Forms.ComboBox cmbLeaveCode;
-        private System.Windows.Forms.ComboBox cmbLACCPaln;
         private System.Windows.Forms.Panel pnlAddButton;
         private System.Windows.Forms.Button btnLAPDelete;
         private System.Windows.Forms.Button btnLAPSave;
         private System.Windows.Forms.Button btnLAPEditCancel;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbIsPotrate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtThired;
         private System.Windows.Forms.Label lblPorateType;
         private System.Windows.Forms.Label lblQuarter;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtSecond;
-        private System.Windows.Forms.TextBox txtFirst;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtFourth;
         private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.ComboBox cmbIsEntitle;
+        public System.Windows.Forms.ComboBox cmbLeaveCode;
+        public System.Windows.Forms.ComboBox cmbLACCPaln;
+        public System.Windows.Forms.ComboBox cmbIsPotrate;
+        public System.Windows.Forms.TextBox txtThired;
+        public System.Windows.Forms.TextBox txtSecond;
+        public System.Windows.Forms.TextBox txtFirst;
+        public System.Windows.Forms.TextBox txtFourth;
     }
 }

@@ -50,6 +50,7 @@ namespace LeavePortal
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.pnlAddButton.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,11 +65,12 @@ namespace LeavePortal
             // 
             // pnlAddButton
             // 
+            this.pnlAddButton.Controls.Add(this.btnDelete);
             this.pnlAddButton.Controls.Add(this.btnSave);
             this.pnlAddButton.Controls.Add(this.btnCancel);
             this.pnlAddButton.Location = new System.Drawing.Point(64, 409);
             this.pnlAddButton.Name = "pnlAddButton";
-            this.pnlAddButton.Size = new System.Drawing.Size(229, 65);
+            this.pnlAddButton.Size = new System.Drawing.Size(317, 65);
             this.pnlAddButton.TabIndex = 41;
             // 
             // btnSave
@@ -240,6 +242,19 @@ namespace LeavePortal
             this.label1.TabIndex = 24;
             this.label1.Text = "Leave Type";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(204, 13);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(88, 35);
+            this.btnDelete.TabIndex = 21;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // EditLeaveType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -298,5 +313,6 @@ namespace LeavePortal
         public System.Windows.Forms.TextBox txtEntitlment;
         public System.Windows.Forms.TextBox txtName;
         public System.Windows.Forms.TextBox txtLeaveCode;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

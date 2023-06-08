@@ -99,6 +99,7 @@ namespace LeavePortal
             // timer2
             // 
             this.timer2.Interval = 1;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // LeaveAccuralPlan
             // 
@@ -113,6 +114,7 @@ namespace LeavePortal
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LeaveAccuralPlan";
             this.Size = new System.Drawing.Size(781, 434);
+            this.Load += new System.EventHandler(this.LeaveAccuralPlan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

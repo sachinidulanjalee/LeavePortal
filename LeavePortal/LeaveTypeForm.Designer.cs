@@ -100,6 +100,7 @@ namespace LeavePortal
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = " Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // LeaveTypeForm
             // 

@@ -26,11 +26,30 @@ namespace LeavePortal
         #region Event
         private void LeaveAccuralPlan_Load(object sender, EventArgs e)
         {
+
             LoadGrid();
             timer2.Start();
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+            LoadGrid();
+            timer2.Start();
+        }
         private void btnAddNewAccrualPaln_Click(object sender, EventArgs e)
+        {
+            AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
+            addNewAccrualPlan.Show();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddNewAccrualPaln_Click_1(object sender, EventArgs e)
         {
             AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
             addNewAccrualPlan.Show();
@@ -57,37 +76,9 @@ namespace LeavePortal
 
         #endregion Method
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            LoadGrid();
-            timer2.Start();
-        }
-
-        private void DataGridViewAP_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void DataGridViewAP_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                selectedrow = DataGridViewAP.Rows[e.RowIndex];
-                EditNewAccrualPlan.getEditNewAccrualPlan.ShowDialog();
 
 
-            }
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void btnAddNewAccrualPaln_Click_1(object sender, EventArgs e)
-        {
-            AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
-            addNewAccrualPlan.Show();
-
-        }
     }
 }

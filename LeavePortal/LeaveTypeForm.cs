@@ -34,45 +34,7 @@ namespace LeavePortal
 
         }
 
-     
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
-            {
-                List<ParamsDTO> oParamsDTOs = new List<ParamsDTO>();
-
-                oParamsDTOs.Add(new ParamsDTO { ColumnName = "LeaveCode", Operator = "= ", Value = txtSearch.Text.Trim() });
-
-
-                List<LeaveTypeDTO> oLeaveTypeDTO = new List<LeaveTypeDTO>();
-                oLeaveTypeDTO.AddRange(oLeaveTypeBL.LeaveTypeSearch(oParamsDTOs));
-                dgLeaveTypes.DataSource = oLeaveTypeDTO;
-
-            }
-
-        }
-
-        #endregion Event
-
-        #region method
-        private void LoadGrid()
-        {
-            try
-            {
-                List<LeaveTypeDTO> lstDTO = oLeaveTypeBL.LeaveDatagridLoadData();
-                dgLeaveTypes.DataSource = lstDTO;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-
-            }
-        }
-        #endregion Method
-
-        private void btnAddNewLeaveType_Click_1(object sender, EventArgs e)
+            private void btnAddNewLeaveType_Click_1(object sender, EventArgs e)
         {
             AddNewLeaveType lT = new AddNewLeaveType();
             lT.Show();
@@ -101,9 +63,55 @@ namespace LeavePortal
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-                LoadGrid();
-                timer1.Start();
-            
+            LoadGrid();
+            timer1.Start();
+
+        }
+
+        #endregion Event
+
+        #region method
+        private void LoadGrid()
+        {
+            try
+            {
+                List<LeaveTypeDTO> lstDTO = oLeaveTypeBL.LeaveDatagridLoadData();
+                dgLeaveTypes.DataSource = lstDTO;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+        }
+
+        private void SearchLeaveType()
+        {
+            try
+            {
+                List<ParamsDTO> oParamsDTOs = new List<ParamsDTO>();
+                AddNewEmployeeProfile employeeProfile = new AddNewEmployeeProfile();
+
+                if (!String.IsNullOrEmpty(txtSearch.Text.Trim()))
+                    oParamsDTOs.Add(new ParamsDTO { ColumnName = "LeaveCode", Operator = "Like", Value = txtSearch.Text.Trim() + "%" });
+
+                //if (employeeProfile.cmbSatus.SelectedIndex > 0)
+                //    oParamsDTOs.Add(new ParamsDTO { ColumnName = "A.Status", Operator = "=", Value = Convert.ToInt32(employeeProfile.cmbSatus.SelectedValue) });
+
+                dgLeaveTypes.DataSource = oLeaveTypeBL.LeaveTypeSearch(oParamsDTOs);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion Method
+
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+            SearchLeaveType();
         }
     }
 }

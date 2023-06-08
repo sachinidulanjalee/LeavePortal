@@ -45,13 +45,13 @@ namespace LeavePortal
             this.cmbLeaveCode = new System.Windows.Forms.ComboBox();
             this.cmbIsEntitle = new System.Windows.Forms.ComboBox();
             this.pnlPoratType = new System.Windows.Forms.Panel();
-            this.txtFirst = new System.Windows.Forms.TextBox();
-            this.txtFourth = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtSecond = new System.Windows.Forms.TextBox();
-            this.lblPorateType = new System.Windows.Forms.Label();
             this.txtThired = new System.Windows.Forms.TextBox();
+            this.lblPorateType = new System.Windows.Forms.Label();
             this.lblQuarter = new System.Windows.Forms.Label();
+            this.txtSecond = new System.Windows.Forms.TextBox();
+            this.txtFirst = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtFourth = new System.Windows.Forms.TextBox();
             this.pnlAddButton.SuspendLayout();
             this.pnlPoratType.SuspendLayout();
             this.SuspendLayout();
@@ -217,35 +217,12 @@ namespace LeavePortal
             this.pnlPoratType.Size = new System.Drawing.Size(850, 156);
             this.pnlPoratType.TabIndex = 53;
             // 
-            // txtFirst
+            // txtThired
             // 
-            this.txtFirst.Location = new System.Drawing.Point(196, 20);
-            this.txtFirst.Name = "txtFirst";
-            this.txtFirst.Size = new System.Drawing.Size(204, 23);
-            this.txtFirst.TabIndex = 52;
-            // 
-            // txtFourth
-            // 
-            this.txtFourth.Location = new System.Drawing.Point(627, 91);
-            this.txtFourth.Name = "txtFourth";
-            this.txtFourth.Size = new System.Drawing.Size(204, 23);
-            this.txtFourth.TabIndex = 56;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(414, 90);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 19);
-            this.label5.TabIndex = 55;
-            this.label5.Text = "FourthQuarterEntitlement:";
-            // 
-            // txtSecond
-            // 
-            this.txtSecond.Location = new System.Drawing.Point(627, 18);
-            this.txtSecond.Name = "txtSecond";
-            this.txtSecond.Size = new System.Drawing.Size(204, 23);
-            this.txtSecond.TabIndex = 58;
+            this.txtThired.Location = new System.Drawing.Point(196, 90);
+            this.txtThired.Name = "txtThired";
+            this.txtThired.Size = new System.Drawing.Size(204, 23);
+            this.txtThired.TabIndex = 60;
             // 
             // lblPorateType
             // 
@@ -256,13 +233,6 @@ namespace LeavePortal
             this.lblPorateType.TabIndex = 57;
             this.lblPorateType.Text = "SecondQuarterEntitlement:";
             // 
-            // txtThired
-            // 
-            this.txtThired.Location = new System.Drawing.Point(196, 90);
-            this.txtThired.Name = "txtThired";
-            this.txtThired.Size = new System.Drawing.Size(204, 23);
-            this.txtThired.TabIndex = 60;
-            // 
             // lblQuarter
             // 
             this.lblQuarter.AutoSize = true;
@@ -271,6 +241,36 @@ namespace LeavePortal
             this.lblQuarter.Size = new System.Drawing.Size(184, 19);
             this.lblQuarter.TabIndex = 59;
             this.lblQuarter.Text = "ThiredQuarterEntitlement:";
+            // 
+            // txtSecond
+            // 
+            this.txtSecond.Location = new System.Drawing.Point(627, 18);
+            this.txtSecond.Name = "txtSecond";
+            this.txtSecond.Size = new System.Drawing.Size(204, 23);
+            this.txtSecond.TabIndex = 58;
+            // 
+            // txtFirst
+            // 
+            this.txtFirst.Location = new System.Drawing.Point(196, 20);
+            this.txtFirst.Name = "txtFirst";
+            this.txtFirst.Size = new System.Drawing.Size(204, 23);
+            this.txtFirst.TabIndex = 52;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(414, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(187, 19);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "FourthQuarterEntitlement:";
+            // 
+            // txtFourth
+            // 
+            this.txtFourth.Location = new System.Drawing.Point(627, 91);
+            this.txtFourth.Name = "txtFourth";
+            this.txtFourth.Size = new System.Drawing.Size(204, 23);
+            this.txtFourth.TabIndex = 56;
             // 
             // AddNewAccrualPlan
             // 
@@ -311,22 +311,22 @@ namespace LeavePortal
         private System.Windows.Forms.Button btnLAPClear;
         private System.Windows.Forms.Button btnLAPCancel;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbIsPotrate;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbLACCPaln;
-        private System.Windows.Forms.ComboBox cmbLeaveCode;
-        private System.Windows.Forms.ComboBox cmbIsEntitle;
         private System.Windows.Forms.Panel pnlPoratType;
-        private System.Windows.Forms.TextBox txtFirst;
-        private System.Windows.Forms.TextBox txtFourth;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtSecond;
         private System.Windows.Forms.Label lblPorateType;
-        private System.Windows.Forms.TextBox txtThired;
         private System.Windows.Forms.Label lblQuarter;
+        public System.Windows.Forms.ComboBox cmbIsPotrate;
+        public System.Windows.Forms.ComboBox cmbLACCPaln;
+        public System.Windows.Forms.ComboBox cmbLeaveCode;
+        public System.Windows.Forms.ComboBox cmbIsEntitle;
+        public System.Windows.Forms.TextBox txtFirst;
+        public System.Windows.Forms.TextBox txtFourth;
+        public System.Windows.Forms.TextBox txtSecond;
+        public System.Windows.Forms.TextBox txtThired;
     }
 }

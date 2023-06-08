@@ -55,9 +55,15 @@ namespace LeavePortal
             leaveTypeForm.Show();
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteLeaveTypes();
+
+
+        }
         private void Save()
         {
-        
+
 
             if (LeaveTypeValidation())
             {
@@ -88,7 +94,7 @@ namespace LeavePortal
                 {
                     MessageBox.Show("Upadate Fail....", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
         }
 
@@ -122,5 +128,57 @@ namespace LeavePortal
             }
             return status;
         }
+
+
+
+        private void DeleteLeaveTypes()
+        {
+            try
+            {
+
+
+                LeaveTypeDTO oLeaveTypeDTO = new LeaveTypeDTO();
+                oLeaveTypeDTO.LeaveCode = Convert.ToInt32(txtLeaveCode.Text);
+                // oDayTypeDTO.RosterCode = lblgvRosterCode.Text;
+
+                if (oLeaveTypeBL.IsLeaveTypeExistsApplicableLeaveTypes(Convert.ToString(txtLeaveCode.Text)))
+                {
+
+                    MessageBox.Show("AlreadyAllocatedLeaveType", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (oLeaveTypeBL.IsLeaveTypeExistsLeaveAccrualPlan(Convert.ToString(txtLeaveCode.Text)))
+                {
+
+                    MessageBox.Show("AlreadyAllocatedLeaveType", "warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                }
+
+                else if (oLeaveTypeBL.LeaveTypeDelete(oLeaveTypeDTO) >= 0)
+                {
+                    MessageBox.Show("Are you sure you want to delete this item?", "warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    MessageBox.Show("Delete Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Clear();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void Clear()
+        {
+
+            txtLeaveCode.Text = string.Empty;
+            cmbDayMode.SelectedIndex = 0;
+            cmbDedQuota.SelectedIndex = 0;
+            cmbLeaveEntilmet.SelectedIndex = 0;
+            cmbStatus.SelectedIndex = 1;
+            txtAbbrevaiation.Text = string.Empty;
+            txtEntitlment.Text = "0.00";
+            txtName.Text = string.Empty;
+
+        }
     }
+    
 }

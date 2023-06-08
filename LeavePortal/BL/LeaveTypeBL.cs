@@ -263,6 +263,62 @@ namespace LeavePortal.BL
             }
         }
 
+        public bool IsLeaveTypeExistsApplicableLeaveTypes(string LeaveCode)
+        {
+            int result = 0;
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder varname1 = new StringBuilder();
+                    varname1.Append(" SELECT COUNT(*) ");
+                    varname1.Append(" FROM   ApplicableLeaveTypes  ");
+                    varname1.Append(" WHERE  (1=1) ");
+                    varname1.Append("	     AND (LeaveCode=?LeaveCode)");
+                    oCloudConnection.CommandText = varname1.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveCode", Value = LeaveCode });
+                    result = Convert.ToInt32(oCloudConnection.ExecuteScalar());
+                }
+                if (result > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool IsLeaveTypeExistsLeaveAccrualPlan(string LeaveCode)
+        {
+            int result = 0;
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder varname1 = new StringBuilder();
+                    varname1.Append(" SELECT COUNT(*) ");
+                    varname1.Append(" FROM   LeaveAccrualPlan  ");
+                    varname1.Append(" WHERE  (1=1) ");
+                    varname1.Append("	     AND (LeaveCode=?LeaveCode)");
+                    oCloudConnection.CommandText = varname1.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveCode", Value = LeaveCode });
+                    result = Convert.ToInt32(oCloudConnection.ExecuteScalar());
+                }
+                if (result > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         #endregion Search
 
         #region Update
@@ -320,5 +376,35 @@ namespace LeavePortal.BL
         }
         #endregion Update
 
+
+        #region Delete
+
+        public int LeaveTypeDelete(LeaveTypeDTO oLeaveTypeDTO)
+        {
+            int result = 0;
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine(" DELETE FROM LeaveType");
+                    sb.AppendLine(" WHERE 1=1");
+                    sb.AppendLine(" AND (LeaveCode=?LeaveCode)");
+
+                    oCloudConnection.CommandText = sb.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveCode", Value = oLeaveTypeDTO.LeaveCode });
+                    result = oCloudConnection.ExecuteQuery();
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
+
+        #endregion Delete
     }
 }

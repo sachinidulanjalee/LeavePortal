@@ -136,6 +136,7 @@ namespace LeavePortal
 
                 if (oLeaveAccrualPlanBL.LeaveAccrualPlanDelete(oLeaveAccrualPlanDTO) >= 0)
                 {
+                    MessageBox.Show("Are you sure you want to delete this item?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     MessageBox.Show("Delete Successful", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
