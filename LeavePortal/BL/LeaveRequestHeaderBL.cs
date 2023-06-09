@@ -151,7 +151,7 @@ namespace LeavePortal.BL
                 throw ex;
             }
         }
-        public string ApplyLeaveKIOSK(int oYear, LeaveRequestHeaderDTO oLeaveRequestHeaderDTO, List<LeaveRequestDetailDTO> lstLeaveRequestDetailDTO, List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTOAdd, List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTOUpdate, LeaveTypeDTO oLeaveTypeDTO)
+        public string ApplyLeaveKIOSK(int oYear, LeaveRequestHeaderDTO oLeaveRequestHeaderDTO, List<LeaveRequestDetailDTO> lstLeaveRequestDetailDTO, List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTOAdd, List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTOUpdate)
         {
             string LeaveChitNo = string.Empty;
             SerialNosBL oSerialNosBL = new SerialNosBL();
@@ -177,6 +177,7 @@ namespace LeavePortal.BL
                     {
                         this.LeaveRequestDetailInsert(oCloudConnection, x);
                     });
+
 
                     lstEmpLeaveEntitlementDTOAdd.ForEach(x => oLeaveEntitlementBL.EmpLeaveEntitlementInsert(oCloudConnection, x));
                     lstEmpLeaveEntitlementDTOUpdate.ForEach(x => this.UpdateEmpLeaveEntitlement(oCloudConnection, x));

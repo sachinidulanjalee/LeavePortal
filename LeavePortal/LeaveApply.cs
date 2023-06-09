@@ -71,6 +71,7 @@ namespace LeavePortal
 
         private void LeaveApply_Load(object sender, EventArgs e)
         {
+            lblDateTime.Text = DateTime.Now.ToString();
             LoadLeaveDetails();
         }
 
@@ -131,8 +132,9 @@ namespace LeavePortal
             Sessions.used = this.dgLeaveDetails.CurrentRow.Cells[9].Value.ToString();
             Sessions.balance = this.dgLeaveDetails.CurrentRow.Cells[10].Value.ToString();
             Sessions.leaveCode = Convert.ToInt32(this.dgLeaveDetails.CurrentRow.Cells[1].Value.ToString());
-            Sessions.startDate = this.dgLeaveDetails.CurrentRow.Cells[4].Value.ToString();
-            Sessions.endDate = this.dgLeaveDetails.CurrentRow.Cells[6].Value.ToString();
+            Sessions.startDate = Convert.ToDateTime(this.dgLeaveDetails.CurrentRow.Cells[4].Value.ToString()).ToString("yyyy-MM-dd");
+            Sessions.endDate = Convert.ToDateTime(this.dgLeaveDetails.CurrentRow.Cells[6].Value.ToString()).ToString("yyyy-MM-dd");
+            Sessions.year = Convert.ToInt32(txtYear.Text).ToString();
             addNewLeaveApply.Show();
         }
     }

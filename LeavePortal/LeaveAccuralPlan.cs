@@ -64,14 +64,14 @@ namespace LeavePortal
         private void LeaveAccuralPlan_Load(object sender, EventArgs e)
         {
             LoadGrid();
-            timer2.Start();
+            //timer2.Start();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
 
             LoadGrid();
-            timer2.Start();
+            //timer2.Start();
         }
 
         private void btnAddNewAccrualPaln_Click(object sender, EventArgs e)

@@ -120,6 +120,7 @@ namespace LeavePortal
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(923, 310);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -127,7 +128,7 @@ namespace LeavePortal
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(535, 228);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 23);
+            this.label2.Size = new System.Drawing.Size(120, 22);
             this.label2.TabIndex = 4;
             this.label2.Text = "Apply Leave";
             // 
@@ -137,7 +138,7 @@ namespace LeavePortal
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(215, 228);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 23);
+            this.label1.Size = new System.Drawing.Size(113, 22);
             this.label1.TabIndex = 3;
             this.label1.Text = "Used Leave";
             // 
@@ -203,6 +204,7 @@ namespace LeavePortal
             this.lblDateTime.Size = new System.Drawing.Size(85, 19);
             this.lblDateTime.TabIndex = 6;
             this.lblDateTime.Text = "DateTime";
+            this.lblDateTime.Click += new System.EventHandler(this.lblDateTime_Click);
             // 
             // label3
             // 
@@ -253,6 +255,7 @@ namespace LeavePortal
             this.Name = "UserPortalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserPortalForm";
+            this.Load += new System.EventHandler(this.UserPortalForm_Load);
             this.pnlMenubar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMaxzimis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();

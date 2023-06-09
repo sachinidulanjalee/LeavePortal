@@ -852,7 +852,7 @@
   <data name="btnDashboard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHmSURBVEhLrZbP
+        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHmSURBVEhLrZbP
         K0RRFMcnYSGSsCBlYzM7NSJWFpKN/AOSHxsWsyBlIRsb2fiRv0As2JEsUIot2djJxkqjiJBfMT7f13ka
         z30z8zTf+nTPPffcc+599903E5PS6XQNJPKg03CNBanxk4/AOxRayjmsAjewBq5VBDk2XGNB1iGlAtKo
         t50cIm5AWDerlFOJIxWIIuVU4l8FaOehxYvIQ8RWwiB0Q6m5PdF3FniESS8ii4gpgml4A1/X0GshuQvQ
@@ -1024,7 +1024,7 @@
   <data name="btnLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        dQAAAHUB48IHZQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADlSURBVDhPtZLB
+        dAAAAHQBMYXlgQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADlSURBVDhPtZLB
         CkFBFIZvJE/BK/AKspKNkq03QFlZEivZscXGyoKFhYW8BltbUqzEiv+fM93ujLmEfPXVf86cTjM13r8p
         aL9mqv2INGxINBawl5IYTh5e4EJV5gL2eJZTlYMkPMMhjLIBggvYG8MTTLBh04M7GFeVEFxAeMaZrqos
         trAt0cdeQDpwI9GE7ytL9Jlog3CGs08cYFWiD99qv7cG9xJN5nAl8SVrOJNokoV3WFSVmxLkTEZVDgbw
@@ -1034,7 +1034,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        sAAAALABFGqraQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGcSURBVEhLzdXL
+        rwAAAK8BK7AVuQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGcSURBVEhLzdXL
         KwVhHMbxE5FcsnPJgqIoiuyxFnYWwtZlpdwtrJSllCUlZYOFiL/CZUFkJVm4Lqzkfvs+v+aoczrmvHPm
         LDz1qfm9552ZM/NeJuKQPExgD48eHY8jF6FShwu8Yg0jnnWv7Ry1SClluMERKtUQlyoc4wqlagiaVdyi
         2KrEKcEdVqwKkELoFYxa5R+NxQsKrHJMC77h8n41TurbbJVjOqCTNA7Joj7q226VYxqhk5qs8k/0aRus

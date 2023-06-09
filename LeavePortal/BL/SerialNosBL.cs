@@ -28,7 +28,6 @@ namespace LeavePortal.BL
                     sb.AppendLine("SerialNo");
                     sb.AppendLine(" FROM SerialNos ");
                     sb.AppendLine(" WHERE 1=1 ");
-                    sb.AppendLine(" AND (CompanyID=?CompanyID)");
                     sb.AppendLine(" AND (SerialId=?SerialId)");
                     sb.AppendLine(" AND (Year=?Year)");
 

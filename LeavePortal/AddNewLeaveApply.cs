@@ -159,7 +159,7 @@ namespace LeavePortal
                 SetLeaveHeaderRecord();
 
 
-                if (string.IsNullOrEmpty(oLeaveRequestHeaderBL.ApplyLeaveKIOSK(Convert.ToInt32(Sessions.year), (LeaveRequestHeaderDTO)Sessions.LeaveRequestHeaderDTOs, (List<LeaveRequestDetailDTO>)Sessions.LeaveRequestDetailDTOs, (List<EmpLeaveEntitlementDTO>)Sessions.empLeaveEntitlementDTOAdd, (List<EmpLeaveEntitlementDTO>)Sessions.EmpLeaveEntitlementDTOUpdate, _oLeaveTypeDTO)))
+                if (string.IsNullOrEmpty(oLeaveRequestHeaderBL.ApplyLeaveKIOSK(Convert.ToInt32(Sessions.year), (LeaveRequestHeaderDTO)Sessions.LeaveRequestHeaderDTOs, (List<LeaveRequestDetailDTO>)Sessions.LeaveRequestDetailDTOs, (List<EmpLeaveEntitlementDTO>)Sessions.empLeaveEntitlementDTOAdd, (List<EmpLeaveEntitlementDTO>)Sessions.EmpLeaveEntitlementDTOUpdate)))
                 {
                     MessageBox.Show(" Leave apply failed. \nTry again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -167,7 +167,7 @@ namespace LeavePortal
                 else
                 {
                     MessageBox.Show(" Leave Successfully Applied....", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                
                     #region Send Mail Notification
 
                     LeaveRequestHeaderDTO oLeaveRequestHeaderDTO = (LeaveRequestHeaderDTO)Sessions.LeaveRequestHeaderDTOs;

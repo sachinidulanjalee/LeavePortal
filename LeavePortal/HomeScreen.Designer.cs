@@ -77,11 +77,11 @@ namespace LeavePortal
             this.lblDatetime = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.leaveTypeForm1 = new LeavePortal.LeaveTypeForm();
             this.rptLeaveType1 = new LeavePortal.Report.RptLeaveType();
             this.leaveAccuralPlan1 = new LeavePortal.LeaveAccuralPlan();
-            this.employeeProfile2 = new LeavePortal.EmployeeProfile();
             this.adminDashboard1 = new LeavePortal.AdminDashboard();
-            this.leaveTypeForm1 = new LeavePortal.LeaveTypeForm();
+            this.leaveEntitlment1 = new LeavePortal.LeaveEntitlment();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -698,15 +698,24 @@ namespace LeavePortal
             // 
             // panel16
             // 
+            this.panel16.Controls.Add(this.leaveEntitlment1);
             this.panel16.Controls.Add(this.leaveTypeForm1);
             this.panel16.Controls.Add(this.rptLeaveType1);
             this.panel16.Controls.Add(this.leaveAccuralPlan1);
-            this.panel16.Controls.Add(this.employeeProfile2);
             this.panel16.Controls.Add(this.adminDashboard1);
             this.panel16.Location = new System.Drawing.Point(261, 117);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(1218, 696);
             this.panel16.TabIndex = 9;
+            // 
+            // leaveTypeForm1
+            // 
+            this.leaveTypeForm1.BackColor = System.Drawing.Color.White;
+            this.leaveTypeForm1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveTypeForm1.Location = new System.Drawing.Point(0, -3);
+            this.leaveTypeForm1.Name = "leaveTypeForm1";
+            this.leaveTypeForm1.Size = new System.Drawing.Size(1218, 693);
+            this.leaveTypeForm1.TabIndex = 4;
             // 
             // rptLeaveType1
             // 
@@ -724,16 +733,6 @@ namespace LeavePortal
             this.leaveAccuralPlan1.Size = new System.Drawing.Size(1218, 667);
             this.leaveAccuralPlan1.TabIndex = 2;
             // 
-            // employeeProfile2
-            // 
-            this.employeeProfile2.BackColor = System.Drawing.Color.White;
-            this.employeeProfile2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeeProfile2.Location = new System.Drawing.Point(-3, 0);
-            this.employeeProfile2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.employeeProfile2.Name = "employeeProfile2";
-            this.employeeProfile2.Size = new System.Drawing.Size(1221, 696);
-            this.employeeProfile2.TabIndex = 1;
-            // 
             // adminDashboard1
             // 
             this.adminDashboard1.Location = new System.Drawing.Point(2, -3);
@@ -741,14 +740,15 @@ namespace LeavePortal
             this.adminDashboard1.Size = new System.Drawing.Size(1216, 696);
             this.adminDashboard1.TabIndex = 0;
             // 
-            // leaveTypeForm1
+            // leaveEntitlment1
             // 
-            this.leaveTypeForm1.BackColor = System.Drawing.Color.White;
-            this.leaveTypeForm1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveTypeForm1.Location = new System.Drawing.Point(0, -3);
-            this.leaveTypeForm1.Name = "leaveTypeForm1";
-            this.leaveTypeForm1.Size = new System.Drawing.Size(1218, 693);
-            this.leaveTypeForm1.TabIndex = 4;
+            this.leaveEntitlment1.BackColor = System.Drawing.Color.White;
+            this.leaveEntitlment1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveEntitlment1.Location = new System.Drawing.Point(0, -3);
+            this.leaveEntitlment1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.leaveEntitlment1.Name = "leaveEntitlment1";
+            this.leaveEntitlment1.Size = new System.Drawing.Size(1221, 696);
+            this.leaveEntitlment1.TabIndex = 5;
             // 
             // HomeScreen
             // 
@@ -850,5 +850,6 @@ namespace LeavePortal
         private System.Windows.Forms.PictureBox btnLogout;
         private Report.RptLeaveType rptLeaveType1;
         private LeaveTypeForm leaveTypeForm1;
+        private LeaveEntitlment leaveEntitlment1;
     }
 }
