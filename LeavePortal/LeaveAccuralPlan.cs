@@ -17,45 +17,12 @@ namespace LeavePortal
         private LeaveAccrualPlanBL oLeaveAccrualPlanBL = new LeaveAccrualPlanBL();
         public static DataGridViewRow selectedrow;
 
-
         public LeaveAccuralPlan()
         {
             InitializeComponent();
         }
 
-        #region Event
-        private void LeaveAccuralPlan_Load(object sender, EventArgs e)
-        {
 
-            LoadGrid();
-            timer2.Start();
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-
-            LoadGrid();
-            timer2.Start();
-        }
-        private void btnAddNewAccrualPaln_Click(object sender, EventArgs e)
-        {
-            AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
-            addNewAccrualPlan.Show();
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddNewAccrualPaln_Click_1(object sender, EventArgs e)
-        {
-            AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
-            addNewAccrualPlan.Show();
-
-        }
-        #endregion Event
 
         #region method
         private void LoadGrid()
@@ -76,9 +43,23 @@ namespace LeavePortal
 
         #endregion Method
 
+        private void LeaveAccuralPlan_Load(object sender, EventArgs e)
+        {
+            LoadGrid();
+            timer2.Start();
+        }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
 
+            LoadGrid();
+            timer2.Start();
+        }
 
-
+        private void btnAddNewAccrualPaln_Click(object sender, EventArgs e)
+        {
+            AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
+            addNewAccrualPlan.Show();
+        }
     }
 }

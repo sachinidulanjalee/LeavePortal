@@ -135,7 +135,9 @@ namespace LeavePortal
 
         private void button10_Click(object sender, EventArgs e)
         {
-                }
+        
+        
+        }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -144,7 +146,7 @@ namespace LeavePortal
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+            employeeProfile1.BringToFront();
         }
 
         private void leaveEntitlment2_Load(object sender, EventArgs e)

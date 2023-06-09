@@ -119,7 +119,7 @@ namespace LeavePortal
             {
                 if (txtEmpNo.Text.Trim() == string.Empty)
                 {
-                    //  ShowInformationMessage("Employee Number can not be empty . ");
+                    MessageBox.Show("Employee Number can not be empty...","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     txtEmpNo.Focus();
                     return status = false;
                 }
@@ -257,7 +257,7 @@ namespace LeavePortal
                     oEmployeeProfileDTO.Designation = cmbDesignation.SelectedIndex != 0 ? Convert.ToInt32(cmbDesignation.SelectedValue) : 0;
                     oEmployeeProfileDTO.NICNo = txtNICNo.Text.ToUpper();
                     oEmployeeProfileDTO.Gender = cmbGender.SelectedIndex != 0 ? Convert.ToInt32(cmbGender.SelectedValue) : 0;
-                    oEmployeeProfileDTO.DateOfBirth = Convert.ToDateTime(dtDateOfBirth);
+                    oEmployeeProfileDTO.DateOfBirth = Convert.ToDateTime(dtDateOfBirth.Text);
                     oEmployeeProfileDTO.DateOfJoining = Convert.ToDateTime(dtDateOfJoin.Text);
                     if (dtDateOfLeaving.Text != string.Empty)
                     {
@@ -282,6 +282,7 @@ namespace LeavePortal
                     if (oemployeeProfileBL.EmployeeProfileInsert(oEmployeeProfileDTO) > 0)
                     {
                         MessageBox.Show("InsertSuccess", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearAllFields();
                     }
                     else
                     {
@@ -295,14 +296,14 @@ namespace LeavePortal
             }
         }
 
-        private void AddNewEmployeeProfile_MouseMove(object sender, MouseEventArgs e)
-        {
-            mouseLocation = new Point(-e.X, -e.Y);
-        }
-
         private void AddNewEmployeeProfile_MouseDown(object sender, MouseEventArgs e)
         {
+            mouseLocation = new Point(-e.X, -e.Y);
 
+        }
+
+        private void AddNewEmployeeProfile_MouseMove(object sender, MouseEventArgs e)
+        {
             if (e.Button == MouseButtons.Left)
             {
                 Point mouusePose = Control.MousePosition;

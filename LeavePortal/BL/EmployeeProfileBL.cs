@@ -436,10 +436,7 @@ namespace LeavePortal.BL
                     varname1.Append("		A.Status ");
                     varname1.Append(" FROM    EmployeeProfile AS A LEFT JOIN ");
                     varname1.Append("             Designation AS B ON  A.Designation = B.DesignationID LEFT OUTER JOIN ");
-                    varname1.Append("             Roster AS C ON  A.RosterCode = C.RosterCode LEFT OUTER JOIN ");
-                    varname1.Append("              SalaryCategoryCode AS F ON A.SalCatCode = F.SalCatCode LEFT OUTER JOIN ");
-                    varname1.Append("             EmployeeProfile AS D ON  A.ReportingTo = D.EmpNo LEFT OUTER JOIN ");
-                    varname1.Append("             EmployeeProfile AS E ON A.ReportingToNext = E.EmpNo ");
+                    varname1.Append("             EmployeeProfile AS D ON  A.ReportingTo = D.EmpNo ");
                     varname1.Append(" WHERE  (1=1) ");
                     varname1.Append("	   AND (A.EmpNo=?EmpNo)");
 

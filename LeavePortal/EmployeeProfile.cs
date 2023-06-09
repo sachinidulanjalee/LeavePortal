@@ -36,7 +36,7 @@ namespace LeavePortal
 
         private void LoadEmployee()
         {
-            gvEmpProfile.DataSource = oEmployeeProfileBL.EmployeeProfileGetAll();
+           // gvEmpProfile.DataSource = oEmployeeProfileBL.EmployeeProfileGetAll();
         }
 
         private void SearchEmployee()

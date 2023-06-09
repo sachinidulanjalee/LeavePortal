@@ -33,6 +33,9 @@ namespace LeavePortal
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.pnlRegister = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -62,9 +65,6 @@ namespace LeavePortal
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -73,6 +73,7 @@ namespace LeavePortal
             this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlLogin.SuspendLayout();
             this.pnlRegister.SuspendLayout();
+            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -82,7 +83,6 @@ namespace LeavePortal
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -131,6 +131,41 @@ namespace LeavePortal
             this.pnlRegister.Name = "pnlRegister";
             this.pnlRegister.Size = new System.Drawing.Size(413, 10);
             this.pnlRegister.TabIndex = 8;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label12.Location = new System.Drawing.Point(36, 287);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 20);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Email";
+            this.label12.UseWaitCursor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel7.Controls.Add(this.txtEmail);
+            this.panel7.ForeColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(37, 322);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.panel7.Size = new System.Drawing.Size(300, 21);
+            this.panel7.TabIndex = 21;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtEmail.Location = new System.Drawing.Point(0, 0);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(300, 19);
+            this.txtEmail.TabIndex = 0;
             // 
             // btnClose
             // 
@@ -472,41 +507,6 @@ namespace LeavePortal
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label12.Location = new System.Drawing.Point(36, 287);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 20);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Email";
-            this.label12.UseWaitCursor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel7.Controls.Add(this.txtEmail);
-            this.panel7.ForeColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(37, 322);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.panel7.Size = new System.Drawing.Size(300, 21);
-            this.panel7.TabIndex = 21;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.SteelBlue;
-            this.txtEmail.Location = new System.Drawing.Point(0, 0);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(300, 19);
-            this.txtEmail.TabIndex = 0;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -549,6 +549,8 @@ namespace LeavePortal
             this.pnlLogin.PerformLayout();
             this.pnlRegister.ResumeLayout(false);
             this.pnlRegister.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -564,8 +566,6 @@ namespace LeavePortal
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();

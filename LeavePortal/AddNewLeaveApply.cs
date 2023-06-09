@@ -37,7 +37,7 @@ namespace LeavePortal
             SetLeaveApply();
             
             cmbWhichHalf.Enabled = false;
-            txtNoHours.Enabled = false;
+            txtNoHours.Enabled = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -57,9 +57,10 @@ namespace LeavePortal
                 }
                 else 
                 {
-                    cmbWhichHalf.Visible = false;
+                    cmbWhichHalf.Enabled = false;
 
                 }
+                SetLeaveDaysCount();
             }
             catch (Exception ex)
             {
@@ -309,19 +310,20 @@ namespace LeavePortal
 
                     if (_oLeaveTypeDTO.DayMode == (int)DayMode.FullDay)
                     {
-                        cmbDayMode.Enabled = false;
+                        cmbDayMode.Enabled = true;
                         cmbWhichHalf.Enabled = false;
-                        txtNoHours.Enabled = false;
+                        txtNoHours.Enabled = true;
+                        dtStartDate.Enabled = true;
                         dtEndDate.Enabled = true;
                         cmbDayMode.SelectedValue = ((int)LeaveRequestDayMode3.Fullday).ToString();
                         cmbWhichHalf.SelectedValue = ((int)WhichHalf.NotApplicable).ToString();
                     }
                     else
                     {
-                        cmbDayMode.Enabled = false;
+                        cmbDayMode.Enabled = true;
                         cmbWhichHalf.Enabled = true;
                         dtStartDate.Enabled = true;
-                        dtStartDate.Enabled = false;
+                        dtEndDate.Enabled = true;
                         cmbDayMode.SelectedValue = ((int)LeaveRequestDayMode1.Halfday).ToString();
                         // cmbWhichHalf.Items.Remove(new ListItem { Value = ((int)WhichHalf.NotApplicable).ToString(), Text = "Not Applicable" });
                         cmbWhichHalf.SelectedIndex = 0;
@@ -366,17 +368,18 @@ namespace LeavePortal
                     if (Convert.ToInt32(cmbDayMode.SelectedValue) == (int)DayMode.HalfDay)
                     {
 
-                        if (oEmployeeProfileDTO.LabourAct == (int)LabourAct.ShopAndOfficeAct)
+                        if (oEmployeeProfileDTO.LabourAct == (int)LabourAct.WagesBoardsOrdinance)
                             NoOfDays = Convert.ToDecimal("0.5");
 
                     }
-                    else
+
+                    else if (_oLeaveTypeDTO.DayMode == (int)DayMode.FullDay)
                     {
-                        if (_oLeaveTypeDTO.DayMode == (int)DayMode.FullDay)
-                            NoOfDays++;
+                        if (oEmployeeProfileDTO.LabourAct == (int)LabourAct.WagesBoardsOrdinance)
+                               NoOfDays++;
+
 
                     }
-
 
                 }
 

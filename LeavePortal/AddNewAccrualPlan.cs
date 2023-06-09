@@ -21,28 +21,15 @@ namespace LeavePortal
         }
         private LeaveTypeBL oLeaveTypeBL = new LeaveTypeBL();
         private LeaveAccrualPlanBL oLeaveAccrualPlanBL = new LeaveAccrualPlanBL();
-
-
-        
-        private void AddNewAccrualPlan_Load(object sender, EventArgs e)
-        {
-          
-            FillDropDowns();
-            LoadLeaveCode();
-            pnlPoratType.Visible = false;
-
-            
-        }
-
         private void btnLAPAdd_Click(object sender, EventArgs e)
         {
             Add();
             this.Close();
         }
 
+
         private void btnLAPClear_Click(object sender, EventArgs e)
         {
-            
             cmbLeaveCode.Text = string.Empty;
             cmbLACCPaln.Text = string.Empty;
             cmbIsPotrate.Text = string.Empty;
@@ -58,7 +45,45 @@ namespace LeavePortal
             this.Close();
         }
 
-        private void FillDropDowns()
+        private void AddNewAccrualPlan_Load(object sender, EventArgs e)
+        {
+            FillDropDowns();
+            LoadLeaveCode();
+            pnlPoratType.Visible = false;
+
+        }
+
+        private void cmbIsPotrate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (cmbIsPotrate.SelectedIndex == (int)YesNo.Yes)
+                {
+                    pnlPoratType.Visible = true;
+                    txtFirst.Text = string.Empty;
+                    txtSecond.Text = string.Empty;
+                    txtThired.Text = string.Empty;
+                    txtFourth.Text = string.Empty;
+                }
+                else if (cmbIsPotrate.SelectedIndex == (int)YesNo.No)
+                {
+                    pnlPoratType.Visible = false;
+                    txtFirst.Text = string.Empty;
+                    txtSecond.Text = string.Empty;
+                    txtThired.Text = string.Empty;
+                    txtFourth.Text = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+    private void FillDropDowns()
         {
             try
             {
@@ -87,34 +112,6 @@ namespace LeavePortal
             }
         }
 
-        private void cmbIsPotrate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cmbIsPotrate.SelectedIndex == (int)YesNo.Yes)
-                {
-                    pnlPoratType.Visible = true;
-                    txtFirst.Text = string.Empty;
-                    txtSecond.Text = string.Empty;
-                    txtThired.Text = string.Empty;
-                    txtFourth.Text = string.Empty;
-                }
-                else if (cmbIsPotrate.SelectedIndex == (int)YesNo.No)
-                {
-                    pnlPoratType.Visible = false;
-                    txtFirst.Text = string.Empty;
-                    txtSecond.Text = string.Empty;
-                    txtThired.Text = string.Empty;
-                    txtFourth.Text = string.Empty;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
- 
         private void Add()
         {
             try
@@ -183,5 +180,6 @@ namespace LeavePortal
             }
             return status;
         }
+
     }
 }
