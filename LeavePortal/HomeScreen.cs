@@ -95,7 +95,7 @@ namespace LeavePortal
 
         private void btnLeaveType_Click(object sender, EventArgs e)
         {
-            //leaveTypeForm2.BringToFront();
+            leaveTypeForm1.BringToFront();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -175,6 +175,11 @@ namespace LeavePortal
             frm_Login frm_Login = new frm_Login();
             frm_Login.Show();
             this.Hide();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            rptLeaveType1.BringToFront();
         }
     }
 }

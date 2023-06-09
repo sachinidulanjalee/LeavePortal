@@ -73,13 +73,15 @@ namespace LeavePortal
             this.sideBarTransition = new System.Windows.Forms.Timer(this.components);
             this.UserName = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.PictureBox();
             this.lblDatetime = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.rptLeaveType1 = new LeavePortal.Report.RptLeaveType();
             this.leaveAccuralPlan1 = new LeavePortal.LeaveAccuralPlan();
             this.employeeProfile2 = new LeavePortal.EmployeeProfile();
             this.adminDashboard1 = new LeavePortal.AdminDashboard();
-            this.btnLogout = new System.Windows.Forms.PictureBox();
+            this.leaveTypeForm1 = new LeavePortal.LeaveTypeForm();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -103,9 +105,9 @@ namespace LeavePortal
             this.panel14.SuspendLayout();
             this.pnlReport.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -630,6 +632,7 @@ namespace LeavePortal
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // functionTransition
             // 
@@ -647,7 +650,7 @@ namespace LeavePortal
             this.UserName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserName.Location = new System.Drawing.Point(244, 7);
             this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(78, 19);
+            this.UserName.Size = new System.Drawing.Size(73, 17);
             this.UserName.TabIndex = 7;
             this.UserName.Text = "UserName";
             // 
@@ -662,13 +665,24 @@ namespace LeavePortal
             this.panel5.Size = new System.Drawing.Size(407, 32);
             this.panel5.TabIndex = 8;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.Location = new System.Drawing.Point(342, -2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(33, 34);
+            this.btnLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.TabStop = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // lblDatetime
             // 
             this.lblDatetime.AutoSize = true;
             this.lblDatetime.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatetime.Location = new System.Drawing.Point(4, 8);
             this.lblDatetime.Name = "lblDatetime";
-            this.lblDatetime.Size = new System.Drawing.Size(73, 19);
+            this.lblDatetime.Size = new System.Drawing.Size(69, 17);
             this.lblDatetime.TabIndex = 10;
             this.lblDatetime.Text = "DateTime";
             // 
@@ -684,6 +698,8 @@ namespace LeavePortal
             // 
             // panel16
             // 
+            this.panel16.Controls.Add(this.leaveTypeForm1);
+            this.panel16.Controls.Add(this.rptLeaveType1);
             this.panel16.Controls.Add(this.leaveAccuralPlan1);
             this.panel16.Controls.Add(this.employeeProfile2);
             this.panel16.Controls.Add(this.adminDashboard1);
@@ -691,6 +707,14 @@ namespace LeavePortal
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(1218, 696);
             this.panel16.TabIndex = 9;
+            // 
+            // rptLeaveType1
+            // 
+            this.rptLeaveType1.BackColor = System.Drawing.Color.White;
+            this.rptLeaveType1.Location = new System.Drawing.Point(-3, 0);
+            this.rptLeaveType1.Name = "rptLeaveType1";
+            this.rptLeaveType1.Size = new System.Drawing.Size(1221, 693);
+            this.rptLeaveType1.TabIndex = 3;
             // 
             // leaveAccuralPlan1
             // 
@@ -717,16 +741,14 @@ namespace LeavePortal
             this.adminDashboard1.Size = new System.Drawing.Size(1216, 696);
             this.adminDashboard1.TabIndex = 0;
             // 
-            // btnLogout
+            // leaveTypeForm1
             // 
-            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
-            this.btnLogout.Location = new System.Drawing.Point(342, -2);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(33, 34);
-            this.btnLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnLogout.TabIndex = 3;
-            this.btnLogout.TabStop = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.leaveTypeForm1.BackColor = System.Drawing.Color.White;
+            this.leaveTypeForm1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveTypeForm1.Location = new System.Drawing.Point(0, -3);
+            this.leaveTypeForm1.Name = "leaveTypeForm1";
+            this.leaveTypeForm1.Size = new System.Drawing.Size(1218, 693);
+            this.leaveTypeForm1.TabIndex = 4;
             // 
             // HomeScreen
             // 
@@ -768,9 +790,9 @@ namespace LeavePortal
             this.pnlReport.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -826,5 +848,7 @@ namespace LeavePortal
         private EmployeeProfile employeeProfile2;
         private LeaveAccuralPlan leaveAccuralPlan1;
         private System.Windows.Forms.PictureBox btnLogout;
+        private Report.RptLeaveType rptLeaveType1;
+        private LeaveTypeForm leaveTypeForm1;
     }
 }

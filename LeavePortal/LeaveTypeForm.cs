@@ -42,8 +42,8 @@ namespace LeavePortal
 
         private void LeaveTypeForm_Load_1(object sender, EventArgs e)
         {
-           // LoadGrid();
-            timer1.Start();
+           LoadGrid();
+            //timer1.Start();
         }
 
         private void dgLeaveTypes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -64,12 +64,6 @@ namespace LeavePortal
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            LoadGrid();
-            timer1.Start();
-
-        }
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
             SearchLeaveType();

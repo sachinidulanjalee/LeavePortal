@@ -1,6 +1,7 @@
 ﻿using LeavePortal.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,8 @@ namespace LeavePortal
         static string StartDate;
         static string EndDate;
         static string Year;
+        static string rptName;
+        static string progressThread;
 
         public static string leaevType
         {
@@ -133,6 +136,32 @@ namespace LeavePortal
             }
 
         }
+        public static string RptName
+        {
+
+            get
+            {
+                return rptName;
+            }
+            set
+            {
+                rptName = value;
+            }
+
+        }
+        public static string ProgressThread
+        {
+
+            get
+            {
+                return progressThread;
+            }
+            set
+            {
+                progressThread = value;
+            }
+
+        }
         public static List<LeaveRequestDetailDTO> LeaveRequestDetailDTOs
         {
             get { return lstleaveRequestDetailDTO; }
@@ -161,5 +190,17 @@ namespace LeavePortal
         }
         private static List<EmpLeaveEntitlementDTO> empLeaveEntitlementDTOUpdate = new List<EmpLeaveEntitlementDTO>() { };
 
+        public static DataSet dsReport
+        {
+            get { return dsreport; }
+            set { dsreport = value; }
+        }
+        private static DataSet dsreport = new DataSet();
+        public static DataSet ReportData
+        {
+            get { return reportData; }
+            set { reportData = value; }
+        }
+        private static DataSet reportData = new DataSet();
     }
 }

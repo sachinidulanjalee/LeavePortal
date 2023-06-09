@@ -39,6 +39,10 @@
     <Reference Include="DMSSWE.CLOUD.SECURITY">
       <HintPath>..\..\..\..\..\OnlineSourceNew_Clone\Dll Files\DMSSWE.CLOUD.SECURITY.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\SSAS\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -59,6 +63,7 @@
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -113,6 +118,7 @@
     <Compile Include="BL\LeaveRequestDetailBL.cs" />
     <Compile Include="BL\LeaveRequestHeaderBL.cs" />
     <Compile Include="BL\LeaveTypeBL.cs" />
+    <Compile Include="BL\ReportBL.cs" />
     <Compile Include="BL\SerialNosBL.cs" />
     <Compile Include="BL\UserCreateBL.cs" />
     <Compile Include="Common\CommonMethod.cs" />
@@ -207,11 +213,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\Sessions.cs" />
+    <Compile Include="Report\RptLeaveType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RptLeaveType.Designer.cs">
+      <DependentUpon>RptLeaveType.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserPortalForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserPortalForm.Designer.cs">
       <DependentUpon>UserPortalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viwer.Designer.cs">
+      <DependentUpon>Viwer.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddNewAccrualPlan.resx">
       <DependentUpon>AddNewAccrualPlan.cs</DependentUpon>
@@ -258,6 +276,9 @@
     <EmbeddedResource Include="LeaveTypeForm.resx">
       <DependentUpon>LeaveTypeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Report\LeaveType.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -268,8 +289,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\RptLeaveType.resx">
+      <DependentUpon>RptLeaveType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserPortalForm.resx">
       <DependentUpon>UserPortalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viwer.resx">
+      <DependentUpon>Viwer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="LeaveManagmentSytemDataSet.xsc">
       <DependentUpon>LeaveManagmentSytemDataSet.xsd</DependentUpon>
@@ -310,5 +337,6 @@
   <ItemGroup>
     <None Include="Resources\annual-leave-jobs.ie_-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

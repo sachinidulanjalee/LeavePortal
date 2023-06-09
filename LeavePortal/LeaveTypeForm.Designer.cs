@@ -29,13 +29,11 @@ namespace LeavePortal
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeaveTypeForm));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgLeaveTypes = new System.Windows.Forms.DataGridView();
             this.btnAddNewLeaveType = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgLeaveTypes)).BeginInit();
             this.SuspendLayout();
@@ -81,11 +79,6 @@ namespace LeavePortal
             this.btnAddNewLeaveType.UseVisualStyleBackColor = false;
             this.btnAddNewLeaveType.Click += new System.EventHandler(this.btnAddNewLeaveType_Click_1);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.SteelBlue;
@@ -114,7 +107,7 @@ namespace LeavePortal
             this.Controls.Add(this.btnAddNewLeaveType);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LeaveTypeForm";
-            this.Size = new System.Drawing.Size(880, 449);
+            this.Size = new System.Drawing.Size(1221, 693);
             this.Load += new System.EventHandler(this.LeaveTypeForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgLeaveTypes)).EndInit();
             this.ResumeLayout(false);
@@ -129,6 +122,5 @@ namespace LeavePortal
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgLeaveTypes;
         private System.Windows.Forms.Button btnAddNewLeaveType;
-        private System.Windows.Forms.Timer timer1;
     }
 }
