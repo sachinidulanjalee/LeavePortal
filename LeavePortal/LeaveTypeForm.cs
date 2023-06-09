@@ -34,7 +34,7 @@ namespace LeavePortal
 
         }
 
-            private void btnAddNewLeaveType_Click_1(object sender, EventArgs e)
+        private void btnAddNewLeaveType_Click_1(object sender, EventArgs e)
         {
             AddNewLeaveType lT = new AddNewLeaveType();
             lT.Show();
@@ -54,11 +54,14 @@ namespace LeavePortal
             editLeaveType.txtName.Text = this.dgLeaveTypes.CurrentRow.Cells[1].Value.ToString();
             editLeaveType.txtAbbrevaiation.Text = this.dgLeaveTypes.CurrentRow.Cells[2].Value.ToString();
             editLeaveType.txtEntitlment.Text = this.dgLeaveTypes.CurrentRow.Cells[6].Value.ToString();
-            editLeaveType.cmbDayMode.Text = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
+            //editLeaveType.cmbDayMode.SelectedItem = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
+            editLeaveType.cmbDayMode.SelectedValue = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
             editLeaveType.cmbDedQuota.Text = this.dgLeaveTypes.CurrentRow.Cells[5].Value.ToString();
             editLeaveType.cmbLeaveEntilmet.Text = this.dgLeaveTypes.CurrentRow.Cells[3].Value.ToString();
             editLeaveType.cmbStatus.Text = this.dgLeaveTypes.CurrentRow.Cells[7].Value.ToString();
             editLeaveType.Show();
+
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

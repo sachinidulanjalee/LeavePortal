@@ -14,26 +14,16 @@ using System.Windows.Forms;
 
 namespace LeavePortal
 {
-    public partial class AddNewEmployeeProfile : Form
+    public partial class EditEmployeeProfile : Form
     {
-
         private CommonMethod oCommonMethod = new CommonMethod();
         private DesignationBL odesignationBL = new DesignationBL();
         private EmployeeProfileBL oemployeeProfileBL = new EmployeeProfileBL();
         private EmployeeValidationBL oEmployeeValidationBL = new EmployeeValidationBL();
         public Point mouseLocation;
-        int maxLength = 10;
-        public AddNewEmployeeProfile()
+        public EditEmployeeProfile()
         {
             InitializeComponent();
-        }
-
-        public void AddNewEmployeeProfile_Load(object sender, EventArgs e)
-        {
-            FillDropDowns();
-            LoadDesignation();
-            LoadingReportingUser();
-           
         }
 
         private void FillDropDowns()
@@ -47,7 +37,7 @@ namespace LeavePortal
                 CommonMethod.setEnumValues(cmbGender, typeof(Gender));
                 CommonMethod.setEnumValues(cmbSatus, typeof(Status));
                 CommonMethod.setEnumValues(cmbCivilStatus, typeof(CivilStatus));
-               
+
             }
             catch (Exception ex)
             {
@@ -84,6 +74,7 @@ namespace LeavePortal
                 throw;
             }
         }
+
         public void ClearAllFields()
         {
             try
@@ -115,6 +106,7 @@ namespace LeavePortal
                 MessageBox.Show(ex.Message);
             }
         }
+
         public bool ValidationEmployee()
         {
             bool status = true;
@@ -122,12 +114,12 @@ namespace LeavePortal
             {
                 if (txtEmpNo.Text.Trim() == string.Empty)
                 {
-                    
+
                     txtEmpNo.Focus();
                     MessageBox.Show("Employee Number can not be empty...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return status = false;
                 }
-             
+
                 if (txtShortName.Text.Trim() == string.Empty)
                 {
                     MessageBox.Show("Short Name can not be empty...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -179,7 +171,7 @@ namespace LeavePortal
                     return status = false;
 
                 }
-             
+
                 if (cmbSatus.SelectedIndex <= 0)
                 {
                     cmbSatus.Focus();
@@ -196,110 +188,83 @@ namespace LeavePortal
 
             return status;
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void Save()
         {
-            this.Close();
+            if (ValidationEmployee())
+            {
+                EmployeeProfileDTO oEmployeeProfileDTO = new EmployeeProfileDTO();
+                oEmployeeProfileDTO.EmpNo = Convert.ToInt64(txtEmpNo.Text);
+                oEmployeeProfileDTO.Title = Convert.ToInt32(cmbTitle.SelectedValue);
+                oEmployeeProfileDTO.ShortName = txtShortName.Text.ToUpper();
+                oEmployeeProfileDTO.FullName = txtfullName.Text.ToUpper();
+                oEmployeeProfileDTO.SurName = txtSurname.Text.ToUpper();
+                oEmployeeProfileDTO.EPFNo = !string.IsNullOrEmpty(txtEPFNo.Text.Trim()) ? Convert.ToInt32(txtEPFNo.Text.Trim()) : 0;
+                oEmployeeProfileDTO.ETFNo = !string.IsNullOrEmpty(txtETFNo.Text.Trim()) ? Convert.ToInt32(txtETFNo.Text.Trim()) : 0;
+                oEmployeeProfileDTO.Religion = cmbReligion.SelectedIndex != 0 ? Convert.ToInt32(cmbReligion.SelectedValue) : 0;
+                oEmployeeProfileDTO.Nationality = cmbNational.SelectedIndex != 0 ? Convert.ToInt32(cmbNational.SelectedValue) : 0;
+                oEmployeeProfileDTO.Designation = cmbDesignation.SelectedIndex != 0 ? Convert.ToInt32(cmbDesignation.SelectedValue) : 0;
+                oEmployeeProfileDTO.NICNo = txtNICNo.Text.ToUpper();
+                oEmployeeProfileDTO.Gender = cmbGender.SelectedIndex != 0 ? Convert.ToInt32(cmbGender.SelectedValue) : 0;
+                oEmployeeProfileDTO.DateOfBirth = Convert.ToDateTime(dtDateOfBirth.Text);
+                oEmployeeProfileDTO.DateOfJoining = Convert.ToDateTime(dtDateOfJoin.Text);
+                if (dtDateOfLeaving.Text != string.Empty)
+                {
+                    oEmployeeProfileDTO.DateOfLeaving = Convert.ToDateTime(dtDateOfLeaving.Text);
+                }
+                oEmployeeProfileDTO.ReportingTo = cmbReporting.SelectedIndex != 0 ? Convert.ToInt32(cmbReporting.SelectedValue) : 0;
+                oEmployeeProfileDTO.LabourAct = cmblabourAct.SelectedIndex != 0 ? Convert.ToInt32(cmblabourAct.SelectedValue) : 0;
+                oEmployeeProfileDTO.Email = txtEmail.Text.Trim();
+                oEmployeeProfileDTO.HomeTelephone = txtHomeTele.Text.Trim();
+                oEmployeeProfileDTO.Mobile = txtMobile.Text.Trim();
+                oEmployeeProfileDTO.EmployeePhoto = new byte[0];
+                oEmployeeProfileDTO.CivilStatus = cmbCivilStatus.SelectedIndex != 0 ? Convert.ToInt32(cmbCivilStatus.SelectedValue) : 0;
+                oEmployeeProfileDTO.CreatedDateTime = DateTime.UtcNow;
+                oEmployeeProfileDTO.CreatedUser = LogUser.userName;
+                oEmployeeProfileDTO.CreatedMachine = System.Windows.Forms.SystemInformation.ComputerName;
+                oEmployeeProfileDTO.ModifiedDateTime = DateTime.UtcNow;
+                oEmployeeProfileDTO.ModifiedUser = LogUser.userName;
+                oEmployeeProfileDTO.ModifiedMachine = System.Windows.Forms.SystemInformation.ComputerName;
 
+                if (oemployeeProfileBL.EmployeeProfileUpdate(oEmployeeProfileDTO) > 0)
+                {
+
+                    MessageBox.Show("Successfully Upadate....", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearAllFields();
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Upadate Fail....", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            ClearAllFields();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            Add();
-        }
-
-        private void Add()
+        private void DeleteLeaveTypes()
         {
             try
             {
-                if (ValidationEmployee())
+
+
+                EmployeeProfileDTO employeeProfileDTO = new EmployeeProfileDTO();
+                employeeProfileDTO.EmpNo = Convert.ToInt32(txtEmpNo.Text);
+                // oDayTypeDTO.RosterCode = lblgvRosterCode.Text;
+
+                 if (oemployeeProfileBL.EmployeeDelete(employeeProfileDTO) >= 0)
                 {
-                    EmployeeProfileDTO oEmployeeProfileDTO = new EmployeeProfileDTO();
-                    oEmployeeProfileDTO.EmpNo = Convert.ToInt64(txtEmpNo.Text);
-                    oEmployeeProfileDTO.Title = Convert.ToInt32(cmbTitle.SelectedValue);
-                    oEmployeeProfileDTO.ShortName = txtShortName.Text.ToUpper();
-                    oEmployeeProfileDTO.FullName = txtfullName.Text.ToUpper();
-                    oEmployeeProfileDTO.SurName = txtSurname.Text.ToUpper();
-                    oEmployeeProfileDTO.EPFNo = !string.IsNullOrEmpty(txtEPFNo.Text.Trim()) ? Convert.ToInt32(txtEPFNo.Text.Trim()) : 0;
-                    oEmployeeProfileDTO.ETFNo = !string.IsNullOrEmpty(txtETFNo.Text.Trim()) ? Convert.ToInt32(txtETFNo.Text.Trim()) : 0;
-                    oEmployeeProfileDTO.Religion = cmbReligion.SelectedIndex != 0 ? Convert.ToInt32(cmbReligion.SelectedValue) : 0;
-                    oEmployeeProfileDTO.Nationality = cmbNational.SelectedIndex != 0 ? Convert.ToInt32(cmbNational.SelectedValue) : 0;
-                    oEmployeeProfileDTO.Designation = cmbDesignation.SelectedIndex != 0 ? Convert.ToInt32(cmbDesignation.SelectedValue) : 0;
-                    oEmployeeProfileDTO.NICNo = txtNICNo.Text.ToUpper();
-                    oEmployeeProfileDTO.Gender = cmbGender.SelectedIndex != 0 ? Convert.ToInt32(cmbGender.SelectedValue) : 0;
-                    oEmployeeProfileDTO.DateOfBirth = Convert.ToDateTime(dtDateOfBirth.Text);
-                    oEmployeeProfileDTO.DateOfJoining = Convert.ToDateTime(dtDateOfJoin.Text);
-                    if (dtDateOfLeaving.Text != string.Empty)
-                    {
-                        oEmployeeProfileDTO.DateOfLeaving = Convert.ToDateTime(dtDateOfLeaving.Text);
-                    }
-
-                    oEmployeeProfileDTO.ReportingTo = cmbReporting.SelectedIndex != 0 ? Convert.ToInt32(cmbReporting.SelectedValue) : 0;
-                    oEmployeeProfileDTO.LabourAct = cmblabourAct.SelectedIndex != 0 ? Convert.ToInt32(cmblabourAct.SelectedValue) : 0;
-                    oEmployeeProfileDTO.Email = txtEmail.Text.Trim();
-                    oEmployeeProfileDTO.HomeTelephone = txtHomeTele.Text.Trim();
-                    oEmployeeProfileDTO.Mobile = txtMobile.Text.Trim();
-                    oEmployeeProfileDTO.EmployeePhoto = new byte[0];
-                    oEmployeeProfileDTO.CivilStatus = cmbCivilStatus.SelectedIndex != 0 ? Convert.ToInt32(cmbCivilStatus.SelectedValue) : 0;
-                    oEmployeeProfileDTO.CreatedDateTime = DateTime.UtcNow;
-                    oEmployeeProfileDTO.CreatedUser = LogUser.userName;
-                    oEmployeeProfileDTO.CreatedMachine = System.Windows.Forms.SystemInformation.ComputerName;
-                    oEmployeeProfileDTO.ModifiedDateTime = DateTime.UtcNow;
-                    oEmployeeProfileDTO.ModifiedUser = LogUser.userName;
-                    oEmployeeProfileDTO.ModifiedMachine = System.Windows.Forms.SystemInformation.ComputerName;
-
-
-                    if (oemployeeProfileBL.EmployeeProfileInsert(oEmployeeProfileDTO) > 0)
-                    {
-                        string nicNumber = txtNICNo.Text; // Replace with the NIC number to validate
-                        bool isValid = ValidateNIC(nicNumber, maxLength);
-
-                        if (isValid)
-                        {
-                            Console.WriteLine("NIC number is valid.");
-                        }
-                        else
-                        {
-                            Console.WriteLine("NIC number is invalid.");
-                        }
-                        MessageBox.Show("InsertSuccess", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearAllFields();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Insert Fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Are you sure you want to delete this Employee?", "warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    MessageBox.Show("Delete Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearAllFields();
                 }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw ex;
             }
         }
-
-        private void AddNewEmployeeProfile_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseLocation = new Point(-e.X, -e.Y);
-
-        }
-
-        private void AddNewEmployeeProfile_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Point mouusePose = Control.MousePosition;
-                mouusePose.Offset(mouseLocation.X, mouseLocation.Y);
-                Location = mouusePose;
-
-            }
-        }
-
-        public static bool ValidateNIC(string nicNumber,int maxLength)
+        public static bool ValidateNIC(string nicNumber, int maxLength)
         {
             // Define the regular expression pattern for NIC validation
             string pattern = @"^\d{9}[VvXx]$";
@@ -312,6 +277,30 @@ namespace LeavePortal
 
             // Return true if the NIC number matches the pattern, false otherwise
             return match.Success;
+        }
+        private void EditEmployeeProfile_Load(object sender, EventArgs e)
+        {
+            FillDropDowns();
+            LoadDesignation();
+            LoadingReportingUser();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Save();
+           
+        }
+
+   
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteLeaveTypes();
         }
     }
 }

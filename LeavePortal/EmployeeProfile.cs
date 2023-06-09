@@ -14,6 +14,7 @@ namespace LeavePortal
 {
     public partial class EmployeeProfile : UserControl
     {
+       
         public EmployeeProfile()
         {
             InitializeComponent();
@@ -36,7 +37,18 @@ namespace LeavePortal
 
         private void LoadEmployee()
         {
-           // gvEmpProfile.DataSource = oEmployeeProfileBL.EmployeeProfileGetAll();
+            try
+            {
+                List<EmployeeProfileDTO> lstEmployeeProfileDTO = oEmployeeProfileBL.EmployeeProfileGetAll();
+                gvEmpProfile.DataSource = lstEmployeeProfileDTO;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            // gvEmpProfile.DataSource = oEmployeeProfileBL.EmployeeProfileGetAll();
         }
 
         private void SearchEmployee()
@@ -72,6 +84,35 @@ namespace LeavePortal
 
             AddNewEmployeeProfile addNewEmployeeProfile = new AddNewEmployeeProfile();
             addNewEmployeeProfile.Show();
+        }
+
+        private void gvEmpProfile_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditEmployeeProfile editEmployeeProfile = new EditEmployeeProfile();
+            editEmployeeProfile.txtEmpNo.Text = this.gvEmpProfile.CurrentRow.Cells[0].Value.ToString();
+            editEmployeeProfile.txtEPFNo.Text = this.gvEmpProfile.CurrentRow.Cells[9].Value.ToString();
+            editEmployeeProfile.cmbTitle.Text = this.gvEmpProfile.CurrentRow.Cells[1].Value.ToString();
+            editEmployeeProfile.txtETFNo.Text = this.gvEmpProfile.CurrentRow.Cells[10].Value.ToString();
+            editEmployeeProfile.txtShortName.Text = this.gvEmpProfile.CurrentRow.Cells[3].Value.ToString();
+            //editLeaveType.cmbDayMode.SelectedItem = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
+            editEmployeeProfile.txtfullName.Text = this.gvEmpProfile.CurrentRow.Cells[4].Value.ToString();
+            editEmployeeProfile.txtSurname.Text = this.gvEmpProfile.CurrentRow.Cells[5].Value.ToString();
+            editEmployeeProfile.dtDateOfJoin.Text = this.gvEmpProfile.CurrentRow.Cells[20].Value.ToString();
+            editEmployeeProfile.cmblabourAct.SelectedItem = this.gvEmpProfile.CurrentRow.Cells[11].Value.ToString();
+            editEmployeeProfile.cmbDesignation.SelectedItem = this.gvEmpProfile.CurrentRow.Cells[6].Value.ToString();
+            editEmployeeProfile.cmbReporting.SelectedItem = this.gvEmpProfile.CurrentRow.Cells[22].Value.ToString();
+            editEmployeeProfile.cmbReligion.SelectedItem = this.gvEmpProfile.CurrentRow.Cells[13].Value.ToString();
+            editEmployeeProfile.cmbCivilStatus.SelectedItem = this.gvEmpProfile.CurrentRow.Cells[17].Value.ToString();
+            editEmployeeProfile.dtDateOfLeaving.Text = this.gvEmpProfile.CurrentRow.Cells[21].Value.ToString();
+            editEmployeeProfile.dtDateOfBirth.Text = this.gvEmpProfile.CurrentRow.Cells[19].Value.ToString();
+            editEmployeeProfile.txtNICNo.Text = this.gvEmpProfile.CurrentRow.Cells[8].Value.ToString();
+            editEmployeeProfile.cmbGender.SelectedItem = this.gvEmpProfile.CurrentRow.Cells[12].Value.ToString();
+            editEmployeeProfile.txtMobile.Text = this.gvEmpProfile.CurrentRow.Cells[25].Value.ToString();
+            editEmployeeProfile.txtHomeTele.Text = this.gvEmpProfile.CurrentRow.Cells[24].Value.ToString();
+            editEmployeeProfile.cmbNational.Text = this.gvEmpProfile.CurrentRow.Cells[15].Value.ToString();
+            editEmployeeProfile.txtEmail.Text = this.gvEmpProfile.CurrentRow.Cells[23].Value.ToString();
+            editEmployeeProfile.cmbSatus.SelectedItem = this.gvEmpProfile.CurrentRow.Cells[31].Value.ToString();
+            editEmployeeProfile.Show();
         }
     }
 }

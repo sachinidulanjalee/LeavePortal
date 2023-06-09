@@ -20,10 +20,7 @@ namespace LeavePortal.Model
       
         public string ShortName { get; set; }
 
-        
-        public string EmployeeNameandNo { get; set; }
-
-      
+              
         public string FullName { get; set; }
 
        
@@ -41,14 +38,16 @@ namespace LeavePortal.Model
         public int ETFNo { get; set; }
 
         public int Gender { get; set; }
+        public string GenderText { get; set; }
 
         public int Religion { get; set; }
-
+        public string ReligionText { get; set; }
 
         public int Nationality { get; set; }
-
+        public string NationalityText { get; set; }
 
         public int CivilStatus { get; set; }
+        public string CivilText { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
@@ -72,6 +71,7 @@ namespace LeavePortal.Model
 
 
         public int LabourAct { get; set; }
+        public string LabourActText { get; set; }
         public int Status { get; set; }
 
         public int EmployeesCount { get; set; }

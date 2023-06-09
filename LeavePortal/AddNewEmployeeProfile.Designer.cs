@@ -671,7 +671,6 @@ namespace LeavePortal
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbTitle;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -718,5 +717,6 @@ namespace LeavePortal
         public System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.Label Gender;
         public System.Windows.Forms.ComboBox cmbCivilStatus;
+        public System.Windows.Forms.ComboBox cmbTitle;
     }
 }

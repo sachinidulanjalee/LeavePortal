@@ -66,7 +66,7 @@ namespace LeavePortal.BL
             sb.AppendLine("A.Designation,");
             sb.Append("B.Description AS DesignationText ");
             sb.Append(" FROM    EmployeeProfile AS A LEFT JOIN ");
-            sb.Append("             Designation AS B ON A.CompanyID = B.CompanyID AND A.Designation = B.DesignationID");
+            sb.Append("             Designation AS B ON A.Designation = B.DesignationID");
             sb.AppendLine(" WHERE 1=1 ");
             return sb;
         }
@@ -350,18 +350,13 @@ namespace LeavePortal.BL
             List<EmployeeProfileDTO> results = new List<EmployeeProfileDTO>();
             try
             {
+               
 
+              
                 using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
                 {
-                    StringBuilder varname1 = new StringBuilder();
-                    varname1.Append("SELECT   A.EmpNo, A.ShortName, A.FullName, A.SurName, A.Designation, B.Description, A.NICNo, ");
-                    varname1.Append("                    A.Status ");
-                    varname1.Append("FROM     EmployeeProfile A LEFT JOIN ");
-                    varname1.Append("                    Designation B ON A.Designation = B.DesignationID ");
-                    varname1.Append("WHERE    (1=1 ) ");
-                    varname1.Append(" Order  By  A.EmpNo ");
-
-                    oCloudConnection.CommandText = varname1.ToString();
+                    StringBuilder sb = EmployeeProfileSearch();
+                    oCloudConnection.CommandText = sb.ToString();
                     oCloudConnection.Parameters.Clear();
 
                     using (IDataReader dr = oCloudConnection.ExecuteReader())
@@ -370,14 +365,42 @@ namespace LeavePortal.BL
                         {
                             EmployeeProfileDTO result = new EmployeeProfileDTO();
                             result.EmpNo = Helper.GetDataValue<long>(dr, "EmpNo");
+                            result.Title = Helper.GetDataValue<int>(dr, "Title");
                             result.ShortName = Helper.GetDataValue<string>(dr, "ShortName");
                             result.FullName = Helper.GetDataValue<string>(dr, "FullName");
                             result.SurName = Helper.GetDataValue<string>(dr, "SurName");
                             result.Designation = Helper.GetDataValue<int>(dr, "Designation");
-                            result.DesignationText = Helper.GetDataValue<string>(dr, "Description");
+                            result.EPFNo = Helper.GetDataValue<int>(dr, "EPFNo");
+                            result.ETFNo = Helper.GetDataValue<int>(dr, "ETFNo");
                             result.NICNo = Helper.GetDataValue<string>(dr, "NICNo");
-                            result.EmployeesCount = Helper.GetDataValue<int>(dr, "Status");
+                            result.Gender = Helper.GetDataValue<int>(dr, "Gender");
+                            result.GenderText = Enum.GetName(typeof(Gender), Helper.GetDataValue<int>(dr, "Gender"));
+                            result.Religion = Helper.GetDataValue<int>(dr, "Religion");
+                            result.ReligionText = Enum.GetName(typeof(Gender), Helper.GetDataValue<int>(dr, "Religion"));
+                            result.Nationality = Helper.GetDataValue<int>(dr, "Nationality");
+                            result.NationalityText = Enum.GetName(typeof(Gender), Helper.GetDataValue<int>(dr, "Nationality"));
+                            result.CivilStatus = Helper.GetDataValue<int>(dr, "CivilStatus");
+                            result.CivilText = Enum.GetName(typeof(Gender), Helper.GetDataValue<int>(dr, "CivilStatus"));
+                            result.DateOfBirth = Helper.GetDataValue<DateTime>(dr, "DateOfBirth");
+                            result.DateOfJoining = Helper.GetDataValue<DateTime>(dr, "DateOfJoining");
+                            result.DateOfLeaving = Helper.GetDataValue<DateTime>(dr, "DateOfLeaving");
+                            result.ReportingTo = Helper.GetDataValue<long>(dr, "ReportingTo");
+                            result.Email = Helper.GetDataValue<string>(dr, "Email");
+                            result.HomeTelephone = Helper.GetDataValue<string>(dr, "HomeTelephone");
+                            result.Mobile = Helper.GetDataValue<string>(dr, "Mobile");
+                            result.EmployeePhoto = Helper.GetDataValue<byte[]>(dr, "EmployeePhoto");
+                            result.LabourAct = Helper.GetDataValue<int>(dr, "LabourAct");
+                            result.LabourActText = Enum.GetName(typeof(Gender), Helper.GetDataValue<int>(dr, "LabourAct"));
+                            result.Status = Helper.GetDataValue<int>(dr, "Status");
                             result.StatusText = Enum.GetName(typeof(Status), Helper.GetDataValue<int>(dr, "Status"));
+                            result.CreatedDateTime = Helper.GetDataValue<DateTime>(dr, "CreatedDateTime");
+                            result.CreatedUser = Helper.GetDataValue<string>(dr, "CreatedUser");
+                            result.CreatedMachine = Helper.GetDataValue<string>(dr, "CreatedMachine");
+                            result.ModifiedDateTime = Helper.GetDataValue<DateTime>(dr, "ModifiedDateTime");
+                            result.ModifiedUser = Helper.GetDataValue<string>(dr, "ModifiedUser");
+                            result.ModifiedMachine = Helper.GetDataValue<string>(dr, "ModifiedMachine");
+                            result.EmployeesCount = Helper.GetDataValue<int>(dr, "Status");
+                           
                             results.Add(result);
                         }
                         dr.Close();
@@ -579,5 +602,116 @@ namespace LeavePortal.BL
 
 
         #endregion Insert
+
+        #region Update
+
+        public int EmployeeProfileUpdate(EmployeeProfileDTO oEmployeeProfileDTO)
+        {
+            int result = 0;
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine(" UPDATE EmployeeProfile");
+                    sb.AppendLine(" SET ");
+                    sb.AppendLine("Title=?Title,");
+                    sb.AppendLine("ShortName=?ShortName,");
+                    sb.AppendLine("FullName=?FullName,");
+                    sb.AppendLine("SurName=?SurName,");
+                    sb.AppendLine("Designation=?Designation,");
+                    sb.AppendLine("NICNo=?NICNo,");
+                    sb.AppendLine("EPFNo=?EPFNo,");
+                    sb.AppendLine("ETFNo=?ETFNo,");
+                    sb.AppendLine("Gender=?Gender,");
+                    sb.AppendLine("Religion=?Religion,");
+                    sb.AppendLine("Nationality=?Nationality,");
+                    sb.AppendLine("CivilStatus=?CivilStatus,");
+                    sb.AppendLine("DateOfBirth=?DateOfBirth,");
+                    sb.AppendLine("DateOfJoining=?DateOfJoining,");
+                    sb.AppendLine("DateOfLeaving=?DateOfLeaving,");
+                    sb.AppendLine("ReportingTo=?ReportingTo,");
+                    sb.AppendLine("Email=?Email,");
+                    sb.AppendLine("HomeTelephone=?HomeTelephone,");
+                    sb.AppendLine("Mobile=?Mobile,");
+                    sb.AppendLine("EmployeePhoto=?EmployeePhoto,");
+                    sb.AppendLine("LabourAct=?LabourAct,");
+                    sb.AppendLine("Status=?Status,");
+                    sb.AppendLine("ModifiedDateTime=?ModifiedDateTime,");
+                    sb.AppendLine("ModifiedUser=?ModifiedUser,");
+                    sb.AppendLine("ModifiedMachine=?ModifiedMachine");
+                    sb.AppendLine(" WHERE 1=1");
+                    sb.AppendLine(" AND (EmpNo=?EmpNo)");
+
+                    oCloudConnection.CommandText = sb.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "EmpNo", Value = oEmployeeProfileDTO.EmpNo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Title", Value = oEmployeeProfileDTO.Title });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ShortName", Value = oEmployeeProfileDTO.ShortName });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "FullName", Value = oEmployeeProfileDTO.FullName });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "SurName", Value = oEmployeeProfileDTO.SurName });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Designation", Value = oEmployeeProfileDTO.Designation });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "NICNo", Value = oEmployeeProfileDTO.NICNo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "EPFNo", Value = oEmployeeProfileDTO.EPFNo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ETFNo", Value = oEmployeeProfileDTO.ETFNo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Gender", Value = oEmployeeProfileDTO.Gender });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Religion", Value = oEmployeeProfileDTO.Religion });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Nationality", Value = oEmployeeProfileDTO.Nationality });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "CivilStatus", Value = oEmployeeProfileDTO.CivilStatus });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "DateOfBirth", Value = (oEmployeeProfileDTO.DateOfBirth != DateTime.MinValue) ? oEmployeeProfileDTO.DateOfBirth : (object)DBNull.Value });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "DateOfJoining", Value = (oEmployeeProfileDTO.DateOfJoining != DateTime.MinValue) ? oEmployeeProfileDTO.DateOfJoining : (object)DBNull.Value });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "DateOfLeaving", Value = (oEmployeeProfileDTO.DateOfLeaving != DateTime.MinValue) ? oEmployeeProfileDTO.DateOfLeaving : (object)DBNull.Value });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ReportingTo", Value = oEmployeeProfileDTO.ReportingTo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Email", Value = oEmployeeProfileDTO.Email });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "HomeTelephone", Value = oEmployeeProfileDTO.HomeTelephone });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Mobile", Value = oEmployeeProfileDTO.Mobile });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "EmployeePhoto", Value = oEmployeeProfileDTO.EmployeePhoto });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LabourAct", Value = oEmployeeProfileDTO.LabourAct });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "Status", Value = oEmployeeProfileDTO.Status });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedDateTime", Value = oEmployeeProfileDTO.ModifiedDateTime });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedUser", Value = oEmployeeProfileDTO.ModifiedUser });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedMachine", Value = oEmployeeProfileDTO.ModifiedMachine });
+                    result = oCloudConnection.ExecuteQuery();
+                }
+            
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+            }
+            return result;
+        }
+
+        #endregion Update
+
+        #region Delete
+
+        public int EmployeeDelete(EmployeeProfileDTO oEmployeeProfileDTO)
+        {
+            int result = 0;
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine(" DELETE FROM EmployeeProfile");
+                    sb.AppendLine(" WHERE 1=1");
+                    sb.AppendLine(" AND (EmpNo=?EmpNo)");
+
+                    oCloudConnection.CommandText = sb.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "EmpNo", Value = oEmployeeProfileDTO.EmpNo });
+                    result = oCloudConnection.ExecuteQuery();
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
+
+        #endregion Delete
     }
 }

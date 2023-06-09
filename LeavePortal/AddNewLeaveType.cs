@@ -64,25 +64,45 @@ namespace LeavePortal
             {
                 if (string.IsNullOrEmpty(txtLeaveCode.Text.Trim()))
                 {
-                    errorProvider1.SetError(txtLeaveCode, "Leave Code is required");
+                   MessageBox.Show("Leave Code is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtLeaveCode.Focus();
+                    return status = false;
                 }
-                if (string.IsNullOrEmpty(txtLeaveCode.Text.Trim()))
+                if (string.IsNullOrEmpty(txtName.Text.Trim()))
                 {
-                    errorProvider1.SetError(txtLeaveCode, "Leave Code is required");
+                    MessageBox.Show("Leave Name is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtName.Focus();
+                    return status = false;
                 }
-                if (string.IsNullOrEmpty(txtLeaveCode.Text.Trim()))
+                if (cmbDayMode.SelectedIndex==0)
                 {
-                    errorProvider1.SetError(txtLeaveCode, "Leave Code is required");
+                    MessageBox.Show("Day Mode is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmbDayMode.Focus();
+                    return status = false;
                 }
-                if (string.IsNullOrEmpty(txtLeaveCode.Text.Trim()))
+                if (cmbLeaveEntilmet.SelectedIndex==0)
                 {
-                    errorProvider1.SetError(txtLeaveCode, "Leave Code is required");
+                    MessageBox.Show("Leave Entitlment is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmbLeaveEntilmet.Focus();
+                    return status = false;
+                }
+                if (cmbDedQuota.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Deduction Quota is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmbDedQuota.Focus();
+                    return status = false;
+                }
+                if (cmbStatus.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Status  is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmbStatus.Focus();
+                    return status = false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
             return status;
         }

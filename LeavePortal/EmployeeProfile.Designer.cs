@@ -46,17 +46,17 @@ namespace LeavePortal
             // 
             // txtEmpNo
             // 
-            this.txtEmpNo.Location = new System.Drawing.Point(427, 114);
+            this.txtEmpNo.Location = new System.Drawing.Point(367, 76);
             this.txtEmpNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmpNo.Name = "txtEmpNo";
-            this.txtEmpNo.Size = new System.Drawing.Size(205, 26);
+            this.txtEmpNo.Size = new System.Drawing.Size(198, 26);
             this.txtEmpNo.TabIndex = 23;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 40);
+            this.label1.Location = new System.Drawing.Point(22, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 23);
             this.label1.TabIndex = 22;
@@ -65,23 +65,24 @@ namespace LeavePortal
             // gvEmpProfile
             // 
             this.gvEmpProfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvEmpProfile.Location = new System.Drawing.Point(44, 173);
+            this.gvEmpProfile.Location = new System.Drawing.Point(26, 131);
             this.gvEmpProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gvEmpProfile.Name = "gvEmpProfile";
             this.gvEmpProfile.RowHeadersWidth = 51;
             this.gvEmpProfile.RowTemplate.Height = 24;
-            this.gvEmpProfile.Size = new System.Drawing.Size(749, 256);
+            this.gvEmpProfile.Size = new System.Drawing.Size(700, 248);
             this.gvEmpProfile.TabIndex = 21;
+            this.gvEmpProfile.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvEmpProfile_CellDoubleClick);
             // 
             // btnAddNewEmpProfile
             // 
             this.btnAddNewEmpProfile.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAddNewEmpProfile.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewEmpProfile.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewEmpProfile.Location = new System.Drawing.Point(44, 100);
+            this.btnAddNewEmpProfile.Location = new System.Drawing.Point(26, 69);
             this.btnAddNewEmpProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddNewEmpProfile.Name = "btnAddNewEmpProfile";
-            this.btnAddNewEmpProfile.Size = new System.Drawing.Size(132, 48);
+            this.btnAddNewEmpProfile.Size = new System.Drawing.Size(125, 40);
             this.btnAddNewEmpProfile.TabIndex = 20;
             this.btnAddNewEmpProfile.Text = "+ Add New";
             this.btnAddNewEmpProfile.UseVisualStyleBackColor = false;
@@ -94,11 +95,11 @@ namespace LeavePortal
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(663, 106);
+            this.btnSearch.Location = new System.Drawing.Point(603, 68);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.btnSearch.Size = new System.Drawing.Size(130, 49);
+            this.btnSearch.Size = new System.Drawing.Size(123, 41);
             this.btnSearch.TabIndex = 24;
             this.btnSearch.Text = " Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -117,7 +118,7 @@ namespace LeavePortal
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EmployeeProfile";
-            this.Size = new System.Drawing.Size(841, 475);
+            this.Size = new System.Drawing.Size(762, 407);
             ((System.ComponentModel.ISupportInitialize)(this.gvEmpProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
