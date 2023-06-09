@@ -146,6 +146,7 @@ namespace LeavePortal
             this.btnLAPAdd.TabIndex = 17;
             this.btnLAPAdd.Text = "Add";
             this.btnLAPAdd.UseVisualStyleBackColor = false;
+            this.btnLAPAdd.Click += new System.EventHandler(this.btnLAPAdd_Click);
             // 
             // cmbIsEntitle
             // 
@@ -166,6 +167,7 @@ namespace LeavePortal
             this.btnLAPCancel.TabIndex = 19;
             this.btnLAPCancel.Text = "Cancel";
             this.btnLAPCancel.UseVisualStyleBackColor = false;
+            this.btnLAPCancel.Click += new System.EventHandler(this.btnLAPCancel_Click_1);
             // 
             // cmbLeaveCode
             // 
@@ -208,6 +210,7 @@ namespace LeavePortal
             this.cmbIsPotrate.Name = "cmbIsPotrate";
             this.cmbIsPotrate.Size = new System.Drawing.Size(204, 28);
             this.cmbIsPotrate.TabIndex = 70;
+            this.cmbIsPotrate.SelectedIndexChanged += new System.EventHandler(this.cmbIsPotrate_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -257,6 +260,7 @@ namespace LeavePortal
             this.btnLAPClear.TabIndex = 18;
             this.btnLAPClear.Text = "Clear";
             this.btnLAPClear.UseVisualStyleBackColor = false;
+            this.btnLAPClear.Click += new System.EventHandler(this.btnLAPClear_Click_1);
             // 
             // pnlAddButton
             // 

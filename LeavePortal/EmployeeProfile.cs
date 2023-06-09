@@ -39,8 +39,8 @@ namespace LeavePortal
         {
             try
             {
-                List<EmployeeProfileDTO> lstEmployeeProfileDTO = oEmployeeProfileBL.EmployeeProfileGetAll();
-                gvEmpProfile.DataSource = lstEmployeeProfileDTO;
+                //List<EmployeeProfileDTO> lstEmployeeProfileDTO = oEmployeeProfileBL.EmployeeProfileGetAll();
+                //gvEmpProfile.DataSource = lstEmployeeProfileDTO;
 
             }
             catch (Exception ex)

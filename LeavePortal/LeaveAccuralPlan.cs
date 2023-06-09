@@ -40,7 +40,25 @@ namespace LeavePortal
             }
         }
 
+        private void SearchLeaveAccrualType()
+        {
+            try
+            {
+                List<ParamsDTO> oParamsDTOs = new List<ParamsDTO>();
 
+                if (!String.IsNullOrEmpty(txtSearch.Text.Trim()))
+                    oParamsDTOs.Add(new ParamsDTO { ColumnName = "LeaveAccrualPlan.LeaveCode", Operator = "Like", Value = txtSearch.Text.Trim() + "%" });
+
+                //if (employeeProfile.cmbSatus.SelectedIndex > 0)
+                //    oParamsDTOs.Add(new ParamsDTO { ColumnName = "A.Status", Operator = "=", Value = Convert.ToInt32(employeeProfile.cmbSatus.SelectedValue) });
+
+                DataGridViewAP.DataSource = oLeaveAccrualPlanBL.ApplicableLeaveTypeSearch(oParamsDTOs);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         #endregion Method
 
         private void LeaveAccuralPlan_Load(object sender, EventArgs e)
@@ -60,6 +78,25 @@ namespace LeavePortal
         {
             AddNewAccrualPlan addNewAccrualPlan = new AddNewAccrualPlan();
             addNewAccrualPlan.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchLeaveAccrualType();
+        }
+
+        private void DataGridViewAP_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            EditNewAccrualPlan editNewAccrualPlan = new EditNewAccrualPlan();
+            editNewAccrualPlan.cmbLACCPaln.SelectedItem = this.DataGridViewAP.CurrentRow.Cells[0].Value.ToString();
+            editNewAccrualPlan.cmbLeaveCode.SelectedItem = this.DataGridViewAP.CurrentRow.Cells[1].Value.ToString();
+            editNewAccrualPlan.cmbIsPotrate.SelectedItem = this.DataGridViewAP.CurrentRow.Cells[2].Value.ToString();
+            editNewAccrualPlan.cmbIsEntitle.SelectedItem = this.DataGridViewAP.CurrentRow.Cells[3].Value.ToString();
+            editNewAccrualPlan.txtFirst.Text = this.DataGridViewAP.CurrentRow.Cells[4].Value.ToString();
+            editNewAccrualPlan.txtSecond.Text = this.DataGridViewAP.CurrentRow.Cells[5].Value.ToString();
+            editNewAccrualPlan.txtThired.Text = this.DataGridViewAP.CurrentRow.Cells[6].Value.ToString();
+            editNewAccrualPlan.txtFourth.Text = this.DataGridViewAP.CurrentRow.Cells[7].Value.ToString();
+            editNewAccrualPlan.Show();
         }
     }
 }

@@ -31,32 +31,32 @@ namespace LeavePortal
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserPortalForm));
             this.pnlMenubar = new System.Windows.Forms.Panel();
+            this.btnMaxzimis = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.PictureBox();
+            this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnApplyLeave = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnCancelLeave = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblHome = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.PictureBox();
-            this.btnApplyLeave = new System.Windows.Forms.PictureBox();
-            this.btnCancelLeave = new System.Windows.Forms.PictureBox();
-            this.btnMaxzimis = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.PictureBox();
-            this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.pnlMenubar.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnApplyLeave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelLeave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaxzimis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnApplyLeave)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelLeave)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenubar
@@ -72,6 +72,42 @@ namespace LeavePortal
             this.pnlMenubar.Size = new System.Drawing.Size(921, 43);
             this.pnlMenubar.TabIndex = 0;
             this.pnlMenubar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenubar_Paint);
+            // 
+            // btnMaxzimis
+            // 
+            this.btnMaxzimis.Image = ((System.Drawing.Image)(resources.GetObject("btnMaxzimis.Image")));
+            this.btnMaxzimis.Location = new System.Drawing.Point(840, 9);
+            this.btnMaxzimis.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMaxzimis.Name = "btnMaxzimis";
+            this.btnMaxzimis.Size = new System.Drawing.Size(31, 27);
+            this.btnMaxzimis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMaxzimis.TabIndex = 6;
+            this.btnMaxzimis.TabStop = false;
+            this.btnMaxzimis.Click += new System.EventHandler(this.btnMaxzimis_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(871, 9);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(33, 28);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnClose.TabIndex = 5;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(808, 9);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(31, 27);
+            this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimize.TabIndex = 4;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // panel1
             // 
@@ -113,6 +149,18 @@ namespace LeavePortal
             this.panel4.Size = new System.Drawing.Size(200, 158);
             this.panel4.TabIndex = 2;
             // 
+            // btnApplyLeave
+            // 
+            this.btnApplyLeave.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnApplyLeave.Image = ((System.Drawing.Image)(resources.GetObject("btnApplyLeave.Image")));
+            this.btnApplyLeave.Location = new System.Drawing.Point(3, 3);
+            this.btnApplyLeave.Name = "btnApplyLeave";
+            this.btnApplyLeave.Size = new System.Drawing.Size(194, 152);
+            this.btnApplyLeave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnApplyLeave.TabIndex = 1;
+            this.btnApplyLeave.TabStop = false;
+            this.btnApplyLeave.Click += new System.EventHandler(this.btnApplyLeave_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnCancelLeave);
@@ -120,6 +168,18 @@ namespace LeavePortal
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 158);
             this.panel3.TabIndex = 0;
+            // 
+            // btnCancelLeave
+            // 
+            this.btnCancelLeave.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCancelLeave.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelLeave.Image")));
+            this.btnCancelLeave.Location = new System.Drawing.Point(3, 3);
+            this.btnCancelLeave.Name = "btnCancelLeave";
+            this.btnCancelLeave.Size = new System.Drawing.Size(194, 152);
+            this.btnCancelLeave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCancelLeave.TabIndex = 1;
+            this.btnCancelLeave.TabStop = false;
+            this.btnCancelLeave.Click += new System.EventHandler(this.btnCancelLeave_Click);
             // 
             // panel2
             // 
@@ -177,65 +237,6 @@ namespace LeavePortal
             this.btnLogout.TabStop = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnApplyLeave
-            // 
-            this.btnApplyLeave.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnApplyLeave.Image = ((System.Drawing.Image)(resources.GetObject("btnApplyLeave.Image")));
-            this.btnApplyLeave.Location = new System.Drawing.Point(3, 3);
-            this.btnApplyLeave.Name = "btnApplyLeave";
-            this.btnApplyLeave.Size = new System.Drawing.Size(194, 152);
-            this.btnApplyLeave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnApplyLeave.TabIndex = 1;
-            this.btnApplyLeave.TabStop = false;
-            // 
-            // btnCancelLeave
-            // 
-            this.btnCancelLeave.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnCancelLeave.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelLeave.Image")));
-            this.btnCancelLeave.Location = new System.Drawing.Point(3, 3);
-            this.btnCancelLeave.Name = "btnCancelLeave";
-            this.btnCancelLeave.Size = new System.Drawing.Size(194, 152);
-            this.btnCancelLeave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCancelLeave.TabIndex = 1;
-            this.btnCancelLeave.TabStop = false;
-            this.btnCancelLeave.Click += new System.EventHandler(this.btnCancelLeave_Click);
-            // 
-            // btnMaxzimis
-            // 
-            this.btnMaxzimis.Image = ((System.Drawing.Image)(resources.GetObject("btnMaxzimis.Image")));
-            this.btnMaxzimis.Location = new System.Drawing.Point(840, 9);
-            this.btnMaxzimis.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMaxzimis.Name = "btnMaxzimis";
-            this.btnMaxzimis.Size = new System.Drawing.Size(31, 27);
-            this.btnMaxzimis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMaxzimis.TabIndex = 6;
-            this.btnMaxzimis.TabStop = false;
-            this.btnMaxzimis.Click += new System.EventHandler(this.btnMaxzimis_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(871, 9);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(33, 28);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnClose.TabIndex = 5;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(808, 9);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(31, 27);
-            this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimize.TabIndex = 4;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
             // UserPortalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -253,18 +254,18 @@ namespace LeavePortal
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserPortalForm";
             this.pnlMenubar.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnApplyLeave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelLeave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaxzimis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnApplyLeave)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelLeave)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             this.ResumeLayout(false);
 
         }

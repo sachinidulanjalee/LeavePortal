@@ -95,7 +95,7 @@ namespace LeavePortal
 
         private void btnLeaveType_Click(object sender, EventArgs e)
         {
-            leaveTypeForm2.BringToFront();
+            //leaveTypeForm2.BringToFront();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -125,12 +125,12 @@ namespace LeavePortal
         //}
         private void btnLeaveAccPlan_Click(object sender, EventArgs e)
         {
-            
+            leaveAccuralPlan1.BringToFront();
         }
 
         private void leaveAccuralPlan1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -146,7 +146,7 @@ namespace LeavePortal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            employeeProfile1.BringToFront();
+            employeeProfile2.BringToFront();
         }
 
         private void leaveEntitlment2_Load(object sender, EventArgs e)
@@ -168,6 +168,13 @@ namespace LeavePortal
                 Location = mouusePose;
 
             }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            frm_Login frm_Login = new frm_Login();
+            frm_Login.Show();
+            this.Hide();
         }
     }
 }

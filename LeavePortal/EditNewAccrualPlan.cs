@@ -25,18 +25,7 @@ namespace LeavePortal
         private LeaveAccrualPlanBL oLeaveAccrualPlanBL = new LeaveAccrualPlanBL();
 
 
-        public static EditNewAccrualPlan getEditNewAccrualPlan
-        {
-            get
-            {
-                if (ediNewAccrualPlan == null)
-                {
-                    ediNewAccrualPlan = new EditNewAccrualPlan();
-                }
-                return ediNewAccrualPlan;
-            }
 
-        }
 
         private void btnLAPEditCancel_Click(object sender, EventArgs e)
         {
@@ -45,20 +34,11 @@ namespace LeavePortal
 
         private void EditNewAccrualPlan_Load(object sender, EventArgs e)
         {
-            cmbLACCPaln.Enabled = false;
-            cmbLeaveCode.Enabled = false;
+            cmbLACCPaln.Enabled = true;
+            cmbLeaveCode.Enabled = true;
             FillDropDowns();
             LoadLeaveCode();
-
-            cmbLACCPaln.SelectedValue = LeaveAccuralPlan.selectedrow.Cells[0].Value.ToString();
-            cmbLeaveCode.SelectedItem = LeaveAccuralPlan.selectedrow.Cells[1].Value.ToString();
-            cmbIsPotrate.SelectedItem = LeaveAccuralPlan.selectedrow.Cells[2].Value.ToString();
-            cmbIsEntitle.SelectedItem = LeaveAccuralPlan.selectedrow.Cells[3].Value.ToString();
-            txtFirst.Text = LeaveAccuralPlan.selectedrow.Cells[4].Value.ToString();
-            txtSecond.Text = LeaveAccuralPlan.selectedrow.Cells[5].Value.ToString();
-            txtThired.Text = LeaveAccuralPlan.selectedrow.Cells[6].Value.ToString();
-            txtFourth.Text = LeaveAccuralPlan.selectedrow.Cells[7].Value.ToString();
-          
+        
         }
 
         private void FillDropDowns()
@@ -94,7 +74,7 @@ namespace LeavePortal
         {
             LeaveAccrualPlanDTO oLeaveAccrualPlanDTO = new LeaveAccrualPlanDTO();
             oLeaveAccrualPlanDTO.LeaveAccrualType = cmbLACCPaln.SelectedIndex != 0 ? Convert.ToInt32(cmbLACCPaln.SelectedValue) : 0;
-            oLeaveAccrualPlanDTO.LeaveCode = cmbLeaveCode.Text != string.Empty ? Convert.ToInt32(cmbLeaveCode.Text) : 0;
+            oLeaveAccrualPlanDTO.LeaveCode = cmbLeaveCode.Text != string.Empty ? Convert.ToInt32(cmbLeaveCode.SelectedValue) : 0;
             oLeaveAccrualPlanDTO.IsEntitle = cmbIsEntitle.SelectedIndex != 0 ? Convert.ToInt32(cmbIsEntitle.SelectedValue) : 0;
             oLeaveAccrualPlanDTO.IsProrate = cmbIsPotrate.SelectedIndex != 0 ? Convert.ToInt32(cmbIsPotrate.SelectedValue) : 0;
             oLeaveAccrualPlanDTO.FirstQuarterEntitlement = txtFirst.Text != string.Empty ? Convert.ToInt32(txtFirst.Text) : 0;

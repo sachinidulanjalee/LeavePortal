@@ -42,7 +42,7 @@ namespace LeavePortal
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(381, 86);
+            this.txtSearch.Location = new System.Drawing.Point(495, 82);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(183, 23);
             this.txtSearch.TabIndex = 8;
@@ -64,7 +64,7 @@ namespace LeavePortal
             this.dgLeaveTypes.Name = "dgLeaveTypes";
             this.dgLeaveTypes.RowHeadersWidth = 51;
             this.dgLeaveTypes.RowTemplate.Height = 24;
-            this.dgLeaveTypes.Size = new System.Drawing.Size(666, 205);
+            this.dgLeaveTypes.Size = new System.Drawing.Size(780, 257);
             this.dgLeaveTypes.TabIndex = 6;
             this.dgLeaveTypes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLeaveTypes_CellDoubleClick);
             // 
@@ -93,7 +93,7 @@ namespace LeavePortal
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(591, 80);
+            this.btnSearch.Location = new System.Drawing.Point(705, 76);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSearch.Size = new System.Drawing.Size(116, 39);
@@ -114,7 +114,7 @@ namespace LeavePortal
             this.Controls.Add(this.btnAddNewLeaveType);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LeaveTypeForm";
-            this.Size = new System.Drawing.Size(763, 445);
+            this.Size = new System.Drawing.Size(880, 449);
             this.Load += new System.EventHandler(this.LeaveTypeForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgLeaveTypes)).EndInit();
             this.ResumeLayout(false);

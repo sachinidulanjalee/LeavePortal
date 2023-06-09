@@ -1021,6 +1021,17 @@
   <metadata name="sideBarTransition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>197, 17</value>
   </metadata>
+  <data name="btnLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAHYAAAB2AU57JggAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAA5UlEQVQ4T7WSwQpBQRSGbyRPwSvwCrKSjZKtN0BZWRIr2bHFxsqChYWFvAZbW1KsxIr/nzPd7oy5
+        hHz11X/OnE4zNd6/KWi/Zqr9iDRsSDQWsJeSGE4eXuBCVeYC9niWU5WDJDzDIYyyAYIL2BvDE0ywYdOD
+        OxhXlRBcQHjGma6qLLawLdHHXkA6cCPRhO8rS/SZaINwhrNPHGBVog/far+3BvcSTeZwJfElaziTaJKF
+        d1hUlZsS5ExGVQ4G8AorMMaGhplX51mfjTAisAVv8AiXWmb2mpAzb+GnqsORltn5eX7E8x7kKTAwL2oz
+        KwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA

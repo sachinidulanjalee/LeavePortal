@@ -52,6 +52,11 @@ namespace LeavePortal
 
         private void btnCancelLeave_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnApplyLeave_Click(object sender, EventArgs e)
+        {
             LeaveApply leaveApply = new LeaveApply();
             leaveApply.Show();
             this.Hide();

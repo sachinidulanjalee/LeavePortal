@@ -136,24 +136,6 @@ namespace LeavePortal.BL
                 using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
                 {
                     StringBuilder sb = new StringBuilder();
-                    //sb.AppendLine(" SELECT ");
-                    //sb.AppendLine("CompanyID,");
-                    //sb.AppendLine("LeaveAccrualType,");
-                    //sb.AppendLine("LeaveCode,");
-                    //sb.AppendLine("IsEntitle,");
-                    //sb.AppendLine("IsProrate,");
-                    //sb.AppendLine("FirstQuarterEntitlement,");
-                    //sb.AppendLine("SecondQuarterEntitlement,");
-                    //sb.AppendLine("ThiredQuarterEntitlement,");
-                    //sb.AppendLine("FourthQuarterEntitlement,");
-                    //sb.AppendLine("CreatedDateTime,");
-                    //sb.AppendLine("CreatedUser,");
-                    //sb.AppendLine("CreatedMachine,");
-                    //sb.AppendLine("ModifiedDateTime,");
-                    //sb.AppendLine("ModifiedUser,");
-                    //sb.AppendLine("ModifiedMachine");
-                    //sb.AppendLine(" FROM LeaveAccrualPlan ");
-                    //sb.AppendLine(" WHERE 1=1 ");
 
                     sb.AppendLine("select LeaveAccrualPlan.LeaveAccrualType, LeaveAccrualPlan.LeaveCode, LeaveType.Name, LeaveAccrualPlan.IsEntitle, LeaveAccrualPlan.IsProrate, LeaveAccrualPlan.FirstQuarterEntitlement, ");
                     sb.AppendLine("   LeaveAccrualPlan.SecondQuarterEntitlement, LeaveAccrualPlan.ThiredQuarterEntitlement, LeaveAccrualPlan.FourthQuarterEntitlement ");
@@ -168,19 +150,12 @@ namespace LeavePortal.BL
                         while (dr.Read())
                         {
                             LeaveAccrualPlanDTO result = new LeaveAccrualPlanDTO();
-                            //result.CompanyID = Helper.GetDataValue<int>(dr, "CompanyID");
-                            //result.LeaveAccrualType = Helper.GetDataValue<int>(dr, "LeaveAccrualType");
-                            //result.LeaveCode = Helper.GetDataValue<int>(dr, "LeaveCode");
-                            //result.FirstQuarterEntitlement = Helper.GetDataValue<int>(dr, "FirstQuarterEntitlement");
-
                             result.LeaveAccrualType = Helper.GetDataValue<int>(dr, "LeaveAccrualType");
                             result.LeaveAccrualTypeText = Enum.GetName(typeof(LeaveAccrualType), Helper.GetDataValue<int>(dr, "LeaveAccrualType"));
                             result.LeaveCode = Helper.GetDataValue<int>(dr, "LeaveCode");
                             result.LeaveCodeText = Helper.GetDataValue<string>(dr, "Name");
                             result.IsEntitle = Helper.GetDataValue<int>(dr, "IsEntitle");
-                            //result.IsEntitleText = Enum.GetName(typeof(DaycrossMode), Helper.GetDataValue<int>(dr, "IsEntitle"));
                             result.IsProrate = Helper.GetDataValue<int>(dr, "IsProrate");
-                            //result.IsProrateText = Enum.GetName(typeof(DaycrossMode), Helper.GetDataValue<int>(dr, "IsProrate"));
                             result.FirstQuarterEntitlement = Helper.GetDataValue<int>(dr, "FirstQuarterEntitlement");
                             result.SecondQuarterEntitlement = Helper.GetDataValue<int>(dr, "SecondQuarterEntitlement");
                             result.ThiredQuarterEntitlement = Helper.GetDataValue<int>(dr, "ThiredQuarterEntitlement");

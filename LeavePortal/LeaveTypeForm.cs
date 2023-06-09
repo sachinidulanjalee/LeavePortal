@@ -42,7 +42,7 @@ namespace LeavePortal
 
         private void LeaveTypeForm_Load_1(object sender, EventArgs e)
         {
-            LoadGrid();
+           // LoadGrid();
             timer1.Start();
         }
 
@@ -70,6 +70,10 @@ namespace LeavePortal
             timer1.Start();
 
         }
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+            SearchLeaveType();
+        }
 
         #endregion Event
 
@@ -94,8 +98,7 @@ namespace LeavePortal
             try
             {
                 List<ParamsDTO> oParamsDTOs = new List<ParamsDTO>();
-                AddNewEmployeeProfile employeeProfile = new AddNewEmployeeProfile();
-
+              
                 if (!String.IsNullOrEmpty(txtSearch.Text.Trim()))
                     oParamsDTOs.Add(new ParamsDTO { ColumnName = "LeaveCode", Operator = "Like", Value = txtSearch.Text.Trim() + "%" });
 
@@ -112,9 +115,6 @@ namespace LeavePortal
 
         #endregion Method
 
-        private void btnSearch_Click_1(object sender, EventArgs e)
-        {
-            SearchLeaveType();
-        }
+      
     }
 }

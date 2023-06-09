@@ -47,19 +47,20 @@ namespace LeavePortal
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(609, 81);
+            this.btnSearch.Location = new System.Drawing.Point(725, 81);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSearch.Size = new System.Drawing.Size(107, 34);
             this.btnSearch.TabIndex = 24;
             this.btnSearch.Text = " Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(399, 87);
+            this.txtSearch.Location = new System.Drawing.Point(508, 87);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(174, 22);
+            this.txtSearch.Size = new System.Drawing.Size(181, 22);
             this.txtSearch.TabIndex = 23;
             // 
             // label1
@@ -79,8 +80,9 @@ namespace LeavePortal
             this.DataGridViewAP.Name = "DataGridViewAP";
             this.DataGridViewAP.RowHeadersWidth = 51;
             this.DataGridViewAP.RowTemplate.Height = 24;
-            this.DataGridViewAP.Size = new System.Drawing.Size(666, 218);
+            this.DataGridViewAP.Size = new System.Drawing.Size(782, 288);
             this.DataGridViewAP.TabIndex = 21;
+            this.DataGridViewAP.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewAP_CellMouseDoubleClick);
             // 
             // btnAddNewAccrualPaln
             // 
@@ -111,7 +113,7 @@ namespace LeavePortal
             this.Controls.Add(this.DataGridViewAP);
             this.Controls.Add(this.btnAddNewAccrualPaln);
             this.Name = "LeaveAccuralPlan";
-            this.Size = new System.Drawing.Size(768, 410);
+            this.Size = new System.Drawing.Size(903, 468);
             this.Load += new System.EventHandler(this.LeaveAccuralPlan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAP)).EndInit();
             this.ResumeLayout(false);
