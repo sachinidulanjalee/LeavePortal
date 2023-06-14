@@ -29,7 +29,6 @@ namespace LeavePortal
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.pnlRegister = new System.Windows.Forms.Panel();
@@ -65,12 +64,6 @@ namespace LeavePortal
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlLogin.SuspendLayout();
             this.pnlRegister.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -83,12 +76,6 @@ namespace LeavePortal
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLogin
@@ -245,6 +232,7 @@ namespace LeavePortal
             this.txtRpassword.Size = new System.Drawing.Size(300, 19);
             this.txtRpassword.TabIndex = 0;
             this.txtRpassword.UseSystemPasswordChar = true;
+            this.txtRpassword.Leave += new System.EventHandler(this.txtRpassword_Leave);
             // 
             // btnRegister
             // 
@@ -507,30 +495,6 @@ namespace LeavePortal
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // errorProvider2
-            // 
-            this.errorProvider2.ContainerControl = this;
-            // 
-            // errorProvider3
-            // 
-            this.errorProvider3.ContainerControl = this;
-            // 
-            // errorProvider4
-            // 
-            this.errorProvider4.ContainerControl = this;
-            // 
-            // errorProvider5
-            // 
-            this.errorProvider5.ContainerControl = this;
-            // 
-            // errorProvider6
-            // 
-            this.errorProvider6.ContainerControl = this;
-            // 
             // frm_Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -566,12 +530,6 @@ namespace LeavePortal
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,12 +570,6 @@ namespace LeavePortal
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.ErrorProvider errorProvider3;
-        private System.Windows.Forms.ErrorProvider errorProvider4;
-        private System.Windows.Forms.ErrorProvider errorProvider5;
-        private System.Windows.Forms.ErrorProvider errorProvider6;
     }
 }
 

@@ -43,6 +43,7 @@ namespace LeavePortal
             // timer3
             // 
             this.timer3.Interval = 10;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick_1);
             // 
             // txtEmpNo
             // 
@@ -119,6 +120,7 @@ namespace LeavePortal
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EmployeeProfile";
             this.Size = new System.Drawing.Size(880, 449);
+            this.Load += new System.EventHandler(this.EmployeeProfile_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.gvEmpProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

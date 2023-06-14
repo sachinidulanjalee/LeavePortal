@@ -29,8 +29,8 @@ namespace LeavePortal
         {
             try
             {
-                List<LeaveAccrualPlanDTO> lstDTO = oLeaveAccrualPlanBL.AccrualLeaveDatagridLoadData();
-                DataGridViewAP.DataSource = lstDTO;
+                //List<LeaveAccrualPlanDTO> lstDTO = oLeaveAccrualPlanBL.AccrualLeaveDatagridLoadData();
+                //DataGridViewAP.DataSource = lstDTO;
 
             }
             catch (Exception ex)

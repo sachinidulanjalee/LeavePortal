@@ -146,9 +146,9 @@ namespace LeavePortal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            employeeProfile2.BringToFront();
+           employeeProfile3.BringToFront();
+                
         }
-
         private void leaveEntitlment2_Load(object sender, EventArgs e)
         {
 

@@ -32,6 +32,16 @@ namespace LeavePortal.Common
         [Description("Finance Authorization")]
         FinanceAuthorization = 5
     }
+
+    public enum LeaveAuthorizationFlag
+    {
+        Pending = 1,
+        Approved = 2,
+        Denied = 3,
+        Cancel = 4,
+        Validate = 5
+    }
+
     public enum UserStatus
     {
         [Description("New User")]

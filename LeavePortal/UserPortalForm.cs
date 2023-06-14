@@ -53,7 +53,8 @@ namespace LeavePortal
 
         private void btnCancelLeave_Click(object sender, EventArgs e)
         {
-           
+            CancelLeave cancelLeave = new CancelLeave();
+            cancelLeave.Show();
         }
 
         private void btnApplyLeave_Click(object sender, EventArgs e)

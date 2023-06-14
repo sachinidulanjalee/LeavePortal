@@ -18,7 +18,7 @@ namespace LeavePortal
         private CommonMethod oCommonMethod = new CommonMethod();
         private EmpLeaveEntitlementBL oEmpLeaveEntitlementBL = new EmpLeaveEntitlementBL();
         private BindingSource bindingSource1 = new BindingSource();
-
+        public Point mouseLocation;
         public LeaveApply()
         {
             InitializeComponent();
@@ -64,6 +64,7 @@ namespace LeavePortal
 
         protected void LeaveGridLoad(List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTO)
         {
+            dgLeaveDetails.AutoGenerateColumns = false;
             dgLeaveDetails.DataSource = lstEmpLeaveEntitlementDTO;
         }
 
@@ -136,6 +137,22 @@ namespace LeavePortal
             Sessions.endDate = Convert.ToDateTime(this.dgLeaveDetails.CurrentRow.Cells[6].Value.ToString()).ToString("yyyy-MM-dd");
             Sessions.year = Convert.ToInt32(txtYear.Text).ToString();
             addNewLeaveApply.Show();
+        }
+
+        private void LeaveApply_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void LeaveApply_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mouusePose = Control.MousePosition;
+                mouusePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mouusePose;
+
+            }
         }
     }
 }

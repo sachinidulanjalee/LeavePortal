@@ -30,7 +30,7 @@ namespace LeavePortal
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeaveApply));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenubar = new System.Windows.Forms.Panel();
             this.btnMaxzimis = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
@@ -254,10 +254,10 @@ namespace LeavePortal
             // 
             // btnApply
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApply.DefaultCellStyle = dataGridViewCellStyle2;
             this.btnApply.HeaderText = "Apply";
             this.btnApply.MinimumWidth = 6;
             this.btnApply.Name = "btnApply";
@@ -278,8 +278,11 @@ namespace LeavePortal
             this.Controls.Add(this.pnlMenubar);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //this.Name = "LeaveApply";
             this.Text = "LeaveApply";
             this.Load += new System.EventHandler(this.LeaveApply_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LeaveApply_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LeaveApply_MouseMove);
             this.pnlMenubar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMaxzimis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();

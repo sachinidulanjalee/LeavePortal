@@ -18,22 +18,11 @@ namespace LeavePortal
         public EmployeeProfile()
         {
             InitializeComponent();
-            LoadEmployee();
+            
         }
 
         private EmployeeProfileBL oEmployeeProfileBL = new EmployeeProfileBL();
         public static DataGridViewRow selectedrow;
-        private void EmployeeProfile_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer3_Tick(object sender, EventArgs e)
-        {
-            LoadEmployee();
-            timer3.Start();
-
-        }
 
         private void LoadEmployee()
         {
@@ -48,7 +37,6 @@ namespace LeavePortal
                 throw ex;
 
             }
-            // gvEmpProfile.DataSource = oEmployeeProfileBL.EmployeeProfileGetAll();
         }
 
         private void SearchEmployee()
@@ -113,6 +101,17 @@ namespace LeavePortal
             editEmployeeProfile.txtEmail.Text = this.gvEmpProfile.CurrentRow.Cells[23].Value.ToString();
             editEmployeeProfile.cmbSatus.SelectedItem = this.gvEmpProfile.CurrentRow.Cells[31].Value.ToString();
             editEmployeeProfile.Show();
+        }
+
+        private void EmployeeProfile_Load_1(object sender, EventArgs e)
+        {
+            LoadEmployee();
+        }
+
+        private void timer3_Tick_1(object sender, EventArgs e)
+        {
+            LoadEmployee();
+            timer3.Start();
         }
     }
 }

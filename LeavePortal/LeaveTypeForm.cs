@@ -1,4 +1,5 @@
 ﻿using LeavePortal.BL;
+using LeavePortal.Common;
 using LeavePortal.Model;
 using System;
 using System.Collections.Generic;
@@ -21,12 +22,8 @@ namespace LeavePortal
         }
         private LeaveTypeBL oLeaveTypeBL = new LeaveTypeBL();
         public static DataGridViewRow selectedrow;
+        EditLeaveType editLeaveType = new EditLeaveType();
         #region Event
-       private void dgLeaveTypes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-        }
 
         private void dgLeaveTypes_Click(object sender, EventArgs e)
         {
@@ -43,19 +40,18 @@ namespace LeavePortal
         private void LeaveTypeForm_Load_1(object sender, EventArgs e)
         {
            LoadGrid();
-            //timer1.Start();
+           // timer1.Start();
         }
 
         private void dgLeaveTypes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            EditLeaveType editLeaveType = new EditLeaveType();
+          
             editLeaveType.txtLeaveCode.Text = this.dgLeaveTypes.CurrentRow.Cells[0].Value.ToString();
             editLeaveType.txtName.Text = this.dgLeaveTypes.CurrentRow.Cells[1].Value.ToString();
             editLeaveType.txtAbbrevaiation.Text = this.dgLeaveTypes.CurrentRow.Cells[2].Value.ToString();
             editLeaveType.txtEntitlment.Text = this.dgLeaveTypes.CurrentRow.Cells[6].Value.ToString();
-            //editLeaveType.cmbDayMode.SelectedItem = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
-            editLeaveType.cmbDayMode.SelectedValue = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
+            editLeaveType.cmbDayMode.SelectedItem = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
             editLeaveType.cmbDedQuota.Text = this.dgLeaveTypes.CurrentRow.Cells[5].Value.ToString();
             editLeaveType.cmbLeaveEntilmet.Text = this.dgLeaveTypes.CurrentRow.Cells[3].Value.ToString();
             editLeaveType.cmbStatus.Text = this.dgLeaveTypes.CurrentRow.Cells[7].Value.ToString();
@@ -107,8 +103,14 @@ namespace LeavePortal
             }
         }
 
+
         #endregion Method
 
-      
+        private void dgLeaveTypes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+          
+        }
+
+   
     }
 }

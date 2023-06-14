@@ -121,6 +121,12 @@
     <Compile Include="BL\ReportBL.cs" />
     <Compile Include="BL\SerialNosBL.cs" />
     <Compile Include="BL\UserCreateBL.cs" />
+    <Compile Include="CancelLeave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelLeave.Designer.cs">
+      <DependentUpon>CancelLeave.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\CommonMethod.cs" />
     <Compile Include="Common\LogUser.cs" />
     <Compile Include="Common\MailConfiguration.cs" />
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelLeave.resx">
+      <DependentUpon>CancelLeave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditEmployeeProfile.resx">
       <DependentUpon>EditEmployeeProfile.cs</DependentUpon>

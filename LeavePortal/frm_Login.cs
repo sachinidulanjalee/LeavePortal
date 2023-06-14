@@ -136,9 +136,10 @@ namespace LeavePortal
 
             try
             {
-                if (LoginValidation())
+                UserModel oData = new UserModel();
+                if (ResgitrationValidation())
                 {
-                    UserModel oData = new UserModel();
+
                     oData.UserName = txtRUserName.Text.Trim();
                     oData.EmpNo = Convert.ToInt64(txtEmpNo.Text.Trim());
                     // oData.Password = DMSSWE.CryptoUtil.Encrypt(txtUserName.Text.Trim(), txtRpassword.Text.Trim());
@@ -155,9 +156,9 @@ namespace LeavePortal
                     oData.ModifiedBy = "Admin";
                     oData.ModifiedMachine = System.Windows.Forms.SystemInformation.ComputerName;
 
-
                     if (userCreateBL.Add(oData) > 0)
                     {
+
                         MessageBox.Show("Successfully Registered....", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -176,26 +177,27 @@ namespace LeavePortal
             }
         }
 
-        private bool LoginValidation()
+        private bool ResgitrationValidation()
         {
             bool status = true;
             try
             {
-                if (string.IsNullOrEmpty(txtUserName.Text.Trim()) || string.IsNullOrEmpty(txtRUserName.Text.Trim()))
+                if (string.IsNullOrEmpty(txtRUserName.Text.Trim()))
                 {
-                    errorProvider1.SetError(txtUserName, "UserName is required");
+                   MessageBox.Show("UserName is required","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
-                if (string.IsNullOrEmpty(txtPassword.Text.Trim()) || string.IsNullOrEmpty(txtRpassword.Text.Trim()))
+                if (string.IsNullOrEmpty(txtRpassword.Text.Trim()))
                 {
-                    errorProvider2.SetError(txtPassword, "Password is required");
+                    MessageBox.Show("Password is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+               
                 if (string.IsNullOrEmpty(txtEmpNo.Text.Trim()))
                 {
-                    errorProvider3.SetError(txtEmpNo, "Employee No is required");
+                    MessageBox.Show("Employee No is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (string.IsNullOrEmpty(cmbUserType.SelectedIndex.ToString()))
                 {
-                    errorProvider4.SetError(cmbUserType, "UserType is required");
+                    MessageBox.Show("UserType is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception)
@@ -204,6 +206,77 @@ namespace LeavePortal
                 throw;
             }
             return status;
+        }
+
+        private bool LoginValidation()
+        {
+            bool status = true;
+            try
+            {
+                if (string.IsNullOrEmpty(txtUserName.Text.Trim()))
+                {
+                    MessageBox.Show("UserName is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
+                {
+                    MessageBox.Show("Password is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return status;
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            // Add your password validation rules here
+            // Example rules: Password must be at least 8 characters long and contain at least one digit and one special character
+
+            if (password.Length < 8)
+            {
+                return false;
+            }
+
+            if (!password.Any(char.IsDigit))
+            {
+                return false;
+            }
+
+            if (!password.Any(IsSpecialCharacter))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsSpecialCharacter(char c)
+        {
+            // Add your own logic to determine what characters are considered special
+            // For simplicity, this example considers any character that is not a letter or a digit as special
+            return !char.IsLetterOrDigit(c);
+        }
+
+        private void txtRpassword_Leave(object sender, EventArgs e)
+        {
+            string password = txtRpassword.Text;
+            if (IsValidPassword(password))
+            {
+                // Password is valid
+               
+            }
+            else
+            {
+                // Password is invalid
+               
+                MessageBox.Show("Invalid password.At least 8 or more characters, Please try again."); // Show an error message (optional)
+                
+            }
         }
     }
     

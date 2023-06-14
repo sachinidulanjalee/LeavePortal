@@ -18,6 +18,8 @@ namespace LeavePortal.BL
                 using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
                 {
                     StringBuilder sb = new StringBuilder();
+                    sb.AppendLine(" IF NOT EXISTS( SELECT * FROM UserAccount WHERE EmpNo=?EmpNo ) ");
+                    sb.AppendLine(" BEGIN ");
                     sb.AppendLine(" INSERT INTO UserAccount VALUES(");
                     sb.AppendLine("?EmpNo,");
                     sb.AppendLine("?UserName,");
@@ -33,6 +35,7 @@ namespace LeavePortal.BL
                     sb.AppendLine("?ModifiedDateTime,");
                     sb.AppendLine("?ModifiedBy,");
                     sb.AppendLine("?ModifiedMachine)");
+                    sb.AppendLine(" END ");
 
                     oCloudConnection.CommandText = sb.ToString();
                     oCloudConnection.Parameters.Clear();

@@ -4,6 +4,7 @@ using LeavePortal.Common;
 using LeavePortal.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace LeavePortal.BL
 {
     public class LeaveRequestHeaderBL
     {
+        private CommonBL oCommonBL = new CommonBL();
         public void LeaveRequestHeaderInsert(CloudConnection oCloudConnection, LeaveRequestHeaderDTO oLeaveRequestHeaderDTO)
         {
             try
@@ -247,6 +249,77 @@ namespace LeavePortal.BL
                 oCloudConnection.Parameters.Add(new Parameter { Name = "Year", Value = oSerialNosDTO.Year });
                 oCloudConnection.Parameters.Add(new Parameter { Name = "SerialNo", Value = oSerialNosDTO.SerialNo });
                 oCloudConnection.ExecuteQuery();
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
+
+        public List<LeaveRequestHeaderDTO> LeaveRequestHeaderSearchByForLeaveCancel(List<ParamsDTO> oParamsDTOs, int[] oLeaveStatus)
+        {
+            List<LeaveRequestHeaderDTO> results = new List<LeaveRequestHeaderDTO>();
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    string query = oCommonBL.GenerateQueryFromListArray(oParamsDTOs);
+
+                    StringBuilder varname1 = new StringBuilder();
+                    varname1.Append("SELECT A.EmpNo, \n");
+                    varname1.Append("       A.LeaveChitNumber, \n");
+                    varname1.Append("       A.RequestDate, \n");
+                    varname1.Append("       A.LeaveCode, \n");
+                    varname1.Append("       B.Name, \n");
+                    varname1.Append("       A.StartDate, \n");
+                    varname1.Append("       A.EndDate, \n");
+                    varname1.Append("       A.LeaveStatus, \n");
+                    varname1.Append("       A.NoOfHoursDays \n");
+                    varname1.Append("FROM   LeaveRequestHeader AS A \n");
+                    varname1.Append("       INNER JOIN LeaveType AS B \n");
+                    varname1.Append("              ON A.LeaveCode = B.LeaveCode \n");
+                    varname1.Append("WHERE  ( 1 = 1 ) \n");
+
+                    if (oLeaveStatus.Count() > 0)
+                    {
+                        query += "AND A.LeaveStatus IN (" + oLeaveStatus[0].ToString();
+
+                        for (int i = 1; i < oLeaveStatus.Count(); i++)
+                        {
+                            query += ", " + oLeaveStatus[i].ToString();
+                        }
+
+                        query += ")";
+                    }
+
+                    varname1.Append(query);
+
+                    oCloudConnection.CommandText = varname1.ToString();
+                    oCloudConnection.Parameters.Clear();
+
+                    using (IDataReader dr = oCloudConnection.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            LeaveRequestHeaderDTO result = new LeaveRequestHeaderDTO
+                            {
+                                EmpNo = Helper.GetDataValue<long>(dr, "EmpNo"),
+                                LeaveChitNumber = Helper.GetDataValue<string>(dr, "LeaveChitNumber"),
+                                LeaveCodeText = Helper.GetDataValue<string>(dr, "Name"),
+                                RequestDate = Helper.GetDataValue<DateTime>(dr, "RequestDate"),
+                                StartDate = Helper.GetDataValue<DateTime>(dr, "StartDate"),
+                                EndDate = Helper.GetDataValue<DateTime>(dr, "EndDate"),
+                                NoOfHoursDays = Helper.GetDataValue<decimal>(dr, "NoOfHoursDays"),
+                                LeaveStatus = Helper.GetDataValue<int>(dr, "LeaveStatus"),
+                                LeaveStatusText = Enum.GetName(typeof(LeaveStatus), Helper.GetDataValue<int>(dr, "LeaveStatus"))
+                            };
+                            results.Add(result);
+                        }
+                        dr.Close();
+                    }
+                }
+                return results;
             }
             catch (Exception ex)
             {

@@ -29,12 +29,14 @@ namespace LeavePortal
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeaveTypeForm));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgLeaveTypes = new System.Windows.Forms.DataGridView();
             this.btnAddNewLeaveType = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgLeaveTypes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@ namespace LeavePortal
             this.dgLeaveTypes.RowTemplate.Height = 24;
             this.dgLeaveTypes.Size = new System.Drawing.Size(780, 257);
             this.dgLeaveTypes.TabIndex = 6;
+            this.dgLeaveTypes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLeaveTypes_CellContentClick_1);
             this.dgLeaveTypes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLeaveTypes_CellDoubleClick);
             // 
             // btnAddNewLeaveType
@@ -95,6 +98,10 @@ namespace LeavePortal
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 500;
+            // 
             // LeaveTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -122,5 +129,6 @@ namespace LeavePortal
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgLeaveTypes;
         private System.Windows.Forms.Button btnAddNewLeaveType;
+        private System.Windows.Forms.Timer timer1;
     }
 }
