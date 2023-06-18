@@ -275,7 +275,7 @@ namespace LeavePortal.Common
         Manual = 2,
     }
 
-    public enum LeaveStatus
+    public enum LeaveStatuss
     {
         Pending = 1,
         Approved = 2,

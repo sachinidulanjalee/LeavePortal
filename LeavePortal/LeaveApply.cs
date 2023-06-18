@@ -128,13 +128,14 @@ namespace LeavePortal
 
             AddNewLeaveApply addNewLeaveApply = new AddNewLeaveApply();
             
-            addNewLeaveApply.lblSelectedLeaveType.Text = this.dgLeaveDetails.CurrentRow.Cells[3].Value.ToString();
-            Sessions.entitlment = this.dgLeaveDetails.CurrentRow.Cells[8].Value.ToString();
-            Sessions.used = this.dgLeaveDetails.CurrentRow.Cells[9].Value.ToString();
-            Sessions.balance = this.dgLeaveDetails.CurrentRow.Cells[10].Value.ToString();
-            Sessions.leaveCode = Convert.ToInt32(this.dgLeaveDetails.CurrentRow.Cells[1].Value.ToString());
-            Sessions.startDate = Convert.ToDateTime(this.dgLeaveDetails.CurrentRow.Cells[4].Value.ToString()).ToString("yyyy-MM-dd");
-            Sessions.endDate = Convert.ToDateTime(this.dgLeaveDetails.CurrentRow.Cells[6].Value.ToString()).ToString("yyyy-MM-dd");
+            addNewLeaveApply.lblSelectedLeaveType.Text = this.dgLeaveDetails.CurrentRow.Cells[1].Value.ToString();
+            Sessions.leaevType = this.dgLeaveDetails.CurrentRow.Cells[1].Value.ToString();
+            Sessions.entitlment = this.dgLeaveDetails.CurrentRow.Cells[5].Value.ToString();
+            Sessions.used = this.dgLeaveDetails.CurrentRow.Cells[6].Value.ToString();
+            Sessions.balance = this.dgLeaveDetails.CurrentRow.Cells[7].Value.ToString();
+            Sessions.leaveCode = Convert.ToInt32(this.dgLeaveDetails.CurrentRow.Cells[0].Value.ToString());
+            Sessions.startDate = Convert.ToDateTime(this.dgLeaveDetails.CurrentRow.Cells[3].Value.ToString()).ToString("yyyy-MM-dd");
+            Sessions.endDate = Convert.ToDateTime(this.dgLeaveDetails.CurrentRow.Cells[4].Value.ToString()).ToString("yyyy-MM-dd");
             Sessions.year = Convert.ToInt32(txtYear.Text).ToString();
             addNewLeaveApply.Show();
         }

@@ -39,8 +39,8 @@ namespace LeavePortal
 
         private void LeaveTypeForm_Load_1(object sender, EventArgs e)
         {
-           LoadGrid();
-           // timer1.Start();
+            LoadGrid();
+           timer1.Start();
         }
 
         private void dgLeaveTypes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

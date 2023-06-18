@@ -1,4 +1,5 @@
 ﻿using LeavePortal.Common;
+using LeavePortal.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,27 @@ namespace LeavePortal
         bool functionExpand = false;
         bool sidebarExpand = true;
         public Point mouseLocation;
+
+        static HomeScreen _obj;
+
+        public  static HomeScreen Instance
+        {
+            get
+            {
+                if(_obj ==  null )
+                {
+                    _obj = new HomeScreen();
+                    
+                }
+                return _obj;
+            }
+        }
+        public Panel PnlContainer
+        {
+            get { return panelContainer; }
+            set { panelContainer = value; }
+        }
+
         public HomeScreen()
         {
             InitializeComponent();
@@ -25,7 +47,10 @@ namespace LeavePortal
         {
             UserName.Text = LogUser.userName;
             lblDatetime.Text = DateTime.Now.ToString();
-            adminDashboard1.BringToFront();
+
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(adminDashboard);
         }
 
        
@@ -95,12 +120,25 @@ namespace LeavePortal
 
         private void btnLeaveType_Click(object sender, EventArgs e)
         {
-            leaveTypeForm1.BringToFront();
+            if (!HomeScreen.Instance.PnlContainer.Controls.ContainsKey("LeaveTypeForm"))
+            {
+
+                LeaveTypeForm leaveTypeForm = new LeaveTypeForm();
+                leaveTypeForm.Dock = DockStyle.Fill;
+                panelContainer.Controls.Add(leaveTypeForm);
+            }
+                PnlContainer.Controls["LeaveTypeForm"].BringToFront();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            adminDashboard1.BringToFront();
+            if (!HomeScreen.Instance.PnlContainer.Controls.ContainsKey("AdminDashboard"))
+            {
+                AdminDashboard adminDashboard = new AdminDashboard();
+                adminDashboard.Dock = DockStyle.Fill;
+                panelContainer.Controls.Add(adminDashboard);
+            }
+             PnlContainer.Controls["AdminDashboard"].BringToFront();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -125,18 +163,26 @@ namespace LeavePortal
         //}
         private void btnLeaveAccPlan_Click(object sender, EventArgs e)
         {
-            leaveAccuralPlan1.BringToFront();
+            if (!HomeScreen.Instance.PnlContainer.Controls.ContainsKey("LeaveAccuralPlan"))
+            {
+
+                LeaveAccuralPlan leaveAccuralPlan = new LeaveAccuralPlan();
+                leaveAccuralPlan.Dock = DockStyle.Fill;
+                panelContainer.Controls.Add(leaveAccuralPlan);
+            }
+            PnlContainer.Controls["LeaveAccuralPlan"].BringToFront();
         }
 
-        private void leaveAccuralPlan1_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private void button10_Click(object sender, EventArgs e)
         {
-        leaveEntitlment1.BringToFront();
-        
+            if (!HomeScreen.Instance.PnlContainer.Controls.ContainsKey("LeaveEntitlment"))
+            {
+                LeaveEntitlment leaveEntitlemant = new LeaveEntitlment();
+                leaveEntitlemant.Dock = DockStyle.Fill;
+                panelContainer.Controls.Add(leaveEntitlemant);
+            }
+            PnlContainer.Controls["LeaveEntitlment"].BringToFront();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -146,8 +192,14 @@ namespace LeavePortal
 
         private void button1_Click(object sender, EventArgs e)
         {
-           employeeProfile3.BringToFront();
-                
+            if (!HomeScreen.Instance.PnlContainer.Controls.ContainsKey("EmployeeProfile"))
+            {
+                EmployeeProfile employeeProfile = new EmployeeProfile();
+                employeeProfile.Dock = DockStyle.Fill;
+                panelContainer.Controls.Add(employeeProfile);
+            }
+            PnlContainer.Controls["EmployeeProfile"].BringToFront();
+
         }
         private void leaveEntitlment2_Load(object sender, EventArgs e)
         {
@@ -179,7 +231,13 @@ namespace LeavePortal
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            rptLeaveType1.BringToFront();
+            if (!HomeScreen.Instance.PnlContainer.Controls.ContainsKey("RptLeaveType"))
+            {
+                RptLeaveType rptLeaveType = new RptLeaveType();
+                rptLeaveType.Dock = DockStyle.Fill;
+                panelContainer.Controls.Add(rptLeaveType);
+            }
+            PnlContainer.Controls["RptLeaveType"].BringToFront();
         }
     }
 }

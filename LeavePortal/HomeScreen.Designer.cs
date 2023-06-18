@@ -65,8 +65,6 @@ namespace LeavePortal
             this.button11 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
             this.pnlReport = new System.Windows.Forms.Panel();
             this.btnReport = new System.Windows.Forms.Button();
             this.functionTransition = new System.Windows.Forms.Timer(this.components);
@@ -76,13 +74,7 @@ namespace LeavePortal
             this.btnLogout = new System.Windows.Forms.PictureBox();
             this.lblDatetime = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.employeeProfile3 = new LeavePortal.EmployeeProfile();
-            this.leaveEntitlment1 = new LeavePortal.LeaveEntitlment();
-            this.leaveTypeForm1 = new LeavePortal.LeaveTypeForm();
-            this.rptLeaveType1 = new LeavePortal.Report.RptLeaveType();
-            this.leaveAccuralPlan1 = new LeavePortal.LeaveAccuralPlan();
-            this.adminDashboard1 = new LeavePortal.AdminDashboard();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -103,12 +95,10 @@ namespace LeavePortal
             this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel14.SuspendLayout();
             this.pnlReport.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -236,7 +226,6 @@ namespace LeavePortal
             this.FunctionContainer.Controls.Add(this.panel9);
             this.FunctionContainer.Controls.Add(this.panel13);
             this.FunctionContainer.Controls.Add(this.panel15);
-            this.FunctionContainer.Controls.Add(this.panel14);
             this.FunctionContainer.Location = new System.Drawing.Point(3, 70);
             this.FunctionContainer.Name = "FunctionContainer";
             this.FunctionContainer.Size = new System.Drawing.Size(252, 61);
@@ -582,39 +571,13 @@ namespace LeavePortal
             this.button13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button13.UseVisualStyleBackColor = false;
             // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.button12);
-            this.panel14.Location = new System.Drawing.Point(3, 438);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(260, 59);
-            this.panel14.TabIndex = 16;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.button12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(-11, -12);
-            this.button12.Margin = new System.Windows.Forms.Padding(0);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(279, 79);
-            this.button12.TabIndex = 13;
-            this.button12.Text = "        LeaveAccrualPlan";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button12.UseVisualStyleBackColor = false;
-            // 
             // pnlReport
             // 
             this.pnlReport.Controls.Add(this.btnReport);
             this.pnlReport.Location = new System.Drawing.Point(3, 137);
             this.pnlReport.Name = "pnlReport";
             this.pnlReport.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.pnlReport.Size = new System.Drawing.Size(252, 61);
+            this.pnlReport.Size = new System.Drawing.Size(252, 52);
             this.pnlReport.TabIndex = 7;
             // 
             // btnReport
@@ -624,10 +587,10 @@ namespace LeavePortal
             this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(-12, -17);
+            this.btnReport.Location = new System.Drawing.Point(-12, -4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnReport.Size = new System.Drawing.Size(284, 94);
+            this.btnReport.Size = new System.Drawing.Size(284, 66);
             this.btnReport.TabIndex = 6;
             this.btnReport.Text = "        Reports";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -651,7 +614,7 @@ namespace LeavePortal
             this.UserName.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserName.Location = new System.Drawing.Point(244, 7);
             this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(78, 19);
+            this.UserName.Size = new System.Drawing.Size(73, 17);
             this.UserName.TabIndex = 7;
             this.UserName.Text = "UserName";
             // 
@@ -683,7 +646,7 @@ namespace LeavePortal
             this.lblDatetime.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatetime.Location = new System.Drawing.Point(4, 8);
             this.lblDatetime.Name = "lblDatetime";
-            this.lblDatetime.Size = new System.Drawing.Size(73, 19);
+            this.lblDatetime.Size = new System.Drawing.Size(69, 17);
             this.lblDatetime.TabIndex = 10;
             this.lblDatetime.Text = "DateTime";
             // 
@@ -697,78 +660,19 @@ namespace LeavePortal
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
-            // panel16
+            // panelContainer
             // 
-            this.panel16.Controls.Add(this.employeeProfile3);
-            this.panel16.Controls.Add(this.leaveEntitlment1);
-            this.panel16.Controls.Add(this.leaveTypeForm1);
-            this.panel16.Controls.Add(this.rptLeaveType1);
-            this.panel16.Controls.Add(this.leaveAccuralPlan1);
-            this.panel16.Controls.Add(this.adminDashboard1);
-            this.panel16.Location = new System.Drawing.Point(261, 117);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(1218, 696);
-            this.panel16.TabIndex = 9;
-            // 
-            // employeeProfile3
-            // 
-            this.employeeProfile3.BackColor = System.Drawing.Color.White;
-            this.employeeProfile3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.employeeProfile3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeeProfile3.Location = new System.Drawing.Point(0, 0);
-            this.employeeProfile3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.employeeProfile3.Name = "employeeProfile3";
-            this.employeeProfile3.Size = new System.Drawing.Size(1218, 696);
-            this.employeeProfile3.TabIndex = 6;
-            // 
-            // leaveEntitlment1
-            // 
-            this.leaveEntitlment1.BackColor = System.Drawing.Color.White;
-            this.leaveEntitlment1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveEntitlment1.Location = new System.Drawing.Point(0, -3);
-            this.leaveEntitlment1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.leaveEntitlment1.Name = "leaveEntitlment1";
-            this.leaveEntitlment1.Size = new System.Drawing.Size(1221, 696);
-            this.leaveEntitlment1.TabIndex = 5;
-            // 
-            // leaveTypeForm1
-            // 
-            this.leaveTypeForm1.BackColor = System.Drawing.Color.White;
-            this.leaveTypeForm1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leaveTypeForm1.Location = new System.Drawing.Point(0, -3);
-            this.leaveTypeForm1.Name = "leaveTypeForm1";
-            this.leaveTypeForm1.Size = new System.Drawing.Size(1218, 693);
-            this.leaveTypeForm1.TabIndex = 4;
-            // 
-            // rptLeaveType1
-            // 
-            this.rptLeaveType1.BackColor = System.Drawing.Color.White;
-            this.rptLeaveType1.Location = new System.Drawing.Point(-3, 0);
-            this.rptLeaveType1.Name = "rptLeaveType1";
-            this.rptLeaveType1.Size = new System.Drawing.Size(1221, 693);
-            this.rptLeaveType1.TabIndex = 3;
-            // 
-            // leaveAccuralPlan1
-            // 
-            this.leaveAccuralPlan1.BackColor = System.Drawing.Color.White;
-            this.leaveAccuralPlan1.Location = new System.Drawing.Point(0, 0);
-            this.leaveAccuralPlan1.Name = "leaveAccuralPlan1";
-            this.leaveAccuralPlan1.Size = new System.Drawing.Size(1218, 667);
-            this.leaveAccuralPlan1.TabIndex = 2;
-            // 
-            // adminDashboard1
-            // 
-            this.adminDashboard1.Location = new System.Drawing.Point(2, -3);
-            this.adminDashboard1.Name = "adminDashboard1";
-            this.adminDashboard1.Size = new System.Drawing.Size(1216, 696);
-            this.adminDashboard1.TabIndex = 0;
+            this.panelContainer.Location = new System.Drawing.Point(261, 110);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1221, 703);
+            this.panelContainer.TabIndex = 9;
             // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1482, 813);
-            this.Controls.Add(this.panel16);
+            this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.sidebar);
@@ -799,13 +703,11 @@ namespace LeavePortal
             this.panel10.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
             this.pnlReport.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel16.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -843,8 +745,6 @@ namespace LeavePortal
         private System.Windows.Forms.Timer functionTransition;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.PictureBox btnHam;
         private System.Windows.Forms.Timer sideBarTransition;
         private System.Windows.Forms.Panel panel2;
@@ -856,14 +756,8 @@ namespace LeavePortal
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblDatetime;
         private EmployeeProfile employeeProfile1;
-        private System.Windows.Forms.Panel panel16;
-        private AdminDashboard adminDashboard1;
         private EmployeeProfile employeeProfile2;
-        private LeaveAccuralPlan leaveAccuralPlan1;
         private System.Windows.Forms.PictureBox btnLogout;
-        private Report.RptLeaveType rptLeaveType1;
-        private LeaveTypeForm leaveTypeForm1;
-        private LeaveEntitlment leaveEntitlment1;
-        private EmployeeProfile employeeProfile3;
+        private System.Windows.Forms.Panel panelContainer;
     }
 }

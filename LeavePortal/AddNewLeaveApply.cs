@@ -36,7 +36,7 @@ namespace LeavePortal
             GetLeaveTypes();
             SetLeaveApply();
             
-            cmbWhichHalf.Enabled = false;
+            cmbWhichHalf.SelectedValue = ((int)WhichHalf.NotApplicable).ToString();
             txtNoHours.Enabled = true;
         }
 
@@ -50,15 +50,20 @@ namespace LeavePortal
         {
             try
             {
-                if (cmbDayMode.SelectedIndex == (int)DayMode.HalfDay)
-                {
-                    cmbWhichHalf.Visible = true;
-                  
-                }
-                else 
+                if (Convert.ToInt32(cmbDayMode.SelectedValue) == (int)LeaveRequestDayMode1.Fullday)
                 {
                     cmbWhichHalf.Enabled = false;
-
+                    cmbWhichHalf.SelectedValue = (int)WhichHalf.NotApplicable;
+                    dtEndDate.Enabled = true;
+                    txtNoHours.Text = "1.0";
+                }
+                else if (Convert.ToInt32(cmbDayMode.SelectedValue) == (int)LeaveRequestDayMode1.Halfday)
+                {
+                    cmbWhichHalf.Enabled = true;
+                    cmbWhichHalf.SelectedValue = ((int)WhichHalf.FirstHalf).ToString();
+                    dtEndDate.Text = dtStartDate.Text;
+                    dtEndDate.Enabled = false;
+                    txtNoHours.Text = "0.5";
                 }
                 SetLeaveDaysCount();
             }
@@ -456,7 +461,7 @@ namespace LeavePortal
                     Remarks = string.Empty,
                     CoveringEmpCode = 0,
                     ContactNoDuringLeave = string.Empty,
-                    LeaveStatus = (int)LeaveStatus.Pending,
+                    LeaveStatus = (int)LeaveStatuss.Pending,
                     AuthorizedUser = string.Empty,
                     AuthorizedDate = null,
                     DenialReason = string.Empty,

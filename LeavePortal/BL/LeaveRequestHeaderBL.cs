@@ -312,7 +312,7 @@ namespace LeavePortal.BL
                                 EndDate = Helper.GetDataValue<DateTime>(dr, "EndDate"),
                                 NoOfHoursDays = Helper.GetDataValue<decimal>(dr, "NoOfHoursDays"),
                                 LeaveStatus = Helper.GetDataValue<int>(dr, "LeaveStatus"),
-                                LeaveStatusText = Enum.GetName(typeof(LeaveStatus), Helper.GetDataValue<int>(dr, "LeaveStatus"))
+                                LeaveStatusText = Enum.GetName(typeof(LeaveStatuss), Helper.GetDataValue<int>(dr, "LeaveStatus"))
                             };
                             results.Add(result);
                         }
@@ -327,5 +327,193 @@ namespace LeavePortal.BL
                 throw ex;
             }
         }
+
+        private static StringBuilder LeaveRequestHeaderSearch()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(" SELECT ");
+            sb.AppendLine("EmpNo,");
+            sb.AppendLine("LeaveCode,");
+            sb.AppendLine("LeaveChitNumber,");
+            sb.AppendLine("RequestDate,");
+            sb.AppendLine("StartDate,");
+            sb.AppendLine("EndDate,");
+            sb.AppendLine("NoOfHoursDays,");
+            sb.AppendLine("Remarks,");
+            sb.AppendLine("CoveringEmpCode,");
+            sb.AppendLine("ContactNoDuringLeave,");
+            sb.AppendLine("LeaveStatus,");
+            sb.AppendLine("AuthorizedUser,");
+            sb.AppendLine("AuthorizedDate,");
+            sb.AppendLine("DenialReason,");
+            sb.AppendLine("IsDocumentSubmitted,");
+            sb.AppendLine("LeaveDocument,");
+            sb.AppendLine("CancelledDate,");
+            sb.AppendLine("CreatedDateTime,");
+            sb.AppendLine("CreatedUser,");
+            sb.AppendLine("CreatedMachine,");
+            sb.AppendLine("ModifiedDateTime,");
+            sb.AppendLine("ModifiedUser,");
+            sb.AppendLine("ModifiedMachine");
+            sb.AppendLine(" FROM LeaveRequestHeader ");
+            sb.AppendLine(" WHERE 1=1 ");
+            return sb;
+        }
+        public LeaveRequestHeaderDTO LeaveRequestHeaderSearchByChitNo(string LeaveChitNo)
+        {
+            LeaveRequestHeaderDTO result = new LeaveRequestHeaderDTO();
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder sb = LeaveRequestHeaderSearch();
+                    sb.AppendLine(" AND (LeaveStatus!=?LeaveStatus)");
+                    sb.AppendLine(" AND (LeaveChitNumber=?LeaveChitNumber)");
+
+                    oCloudConnection.CommandText = sb.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveChitNumber", Value = LeaveChitNo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveStatus", Value = (int)LeaveStatuss.DoubleDeduction });
+
+                    using (IDataReader dr = oCloudConnection.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            result.EmpNo = Helper.GetDataValue<long>(dr, "EmpNo");
+                            result.LeaveCode = Helper.GetDataValue<int>(dr, "LeaveCode");
+                            result.LeaveChitNumber = Helper.GetDataValue<string>(dr, "LeaveChitNumber");
+                            result.RequestDate = Helper.GetDataValue<DateTime>(dr, "RequestDate");
+                            result.StartDate = Helper.GetDataValue<DateTime>(dr, "StartDate");
+                            result.EndDate = Helper.GetDataValue<DateTime>(dr, "EndDate");
+                            result.NoOfHoursDays = Helper.GetDataValue<decimal>(dr, "NoOfHoursDays");
+                            result.Remarks = Helper.GetDataValue<string>(dr, "Remarks");
+                            result.CoveringEmpCode = Helper.GetDataValue<long>(dr, "CoveringEmpCode");
+                            result.ContactNoDuringLeave = Helper.GetDataValue<string>(dr, "ContactNoDuringLeave");
+                            result.LeaveStatus = Helper.GetDataValue<int>(dr, "LeaveStatus");
+                            result.AuthorizedUser = Helper.GetDataValue<string>(dr, "AuthorizedUser");
+                            result.AuthorizedDate = Helper.GetDataValue<DateTime>(dr, "AuthorizedDate");
+                            result.DenialReason = Helper.GetDataValue<string>(dr, "DenialReason");
+                            result.IsDocumentSubmitted = Helper.GetDataValue<int>(dr, "IsDocumentSubmitted");
+                            result.LeaveDocument = Helper.GetDataValue<byte[]>(dr, "LeaveDocument");
+                            result.CancelledDate = Helper.GetDataValue<DateTime>(dr, "CancelledDate");
+                            result.CreatedDateTime = Helper.GetDataValue<DateTime>(dr, "CreatedDateTime");
+                            result.CreatedUser = Helper.GetDataValue<string>(dr, "CreatedUser");
+                            result.CreatedMachine = Helper.GetDataValue<string>(dr, "CreatedMachine");
+                            result.ModifiedDateTime = Helper.GetDataValue<DateTime>(dr, "ModifiedDateTime");
+                            result.ModifiedUser = Helper.GetDataValue<string>(dr, "ModifiedUser");
+                            result.ModifiedMachine = Helper.GetDataValue<string>(dr, "ModifiedMachine");
+                        }
+                        dr.Close();
+                    }
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
+
+        public int DeleteLeaveKIOSK(LeaveRequestHeaderDTO oLeaveRequestHeaderDTO, List<EmpLeaveEntitlementDTO> oEmpLeaveEntitlementDTOs, LeaveTypeDTO oLeaveTypeDTO)
+        {
+            int result = 0;
+            try
+            {
+                LeaveRequestDetailBL _oLeaveRequestDetailBL = new LeaveRequestDetailBL();
+
+                //List<LeaveRequestDetailDTO> lstLeaveRequestDetailDTO = _oLeaveRequestDetailBL.LeaveRequestDetailSearchByChitNo(oLeaveRequestHeaderDTO.LeaveChitNumber);
+
+                //StringBuilder sb = new StringBuilder();
+                //sb.AppendLine(" DELETE FROM LeaveRequestDetail");
+                //sb.AppendLine(" WHERE 1=1");
+                //sb.AppendLine(" AND (EmpNo=?EmpNo)");
+                //sb.AppendLine(" AND (LeaveChitNumber=?LeaveChitNumber)");
+
+                StringBuilder sbLeaveRequestHeader = new StringBuilder();
+                sbLeaveRequestHeader.AppendLine(" UPDATE LeaveRequestHeader");
+                sbLeaveRequestHeader.AppendLine(" SET ");
+                sbLeaveRequestHeader.AppendLine("LeaveStatus=?LeaveStatus,");
+
+                if (oLeaveRequestHeaderDTO.LeaveStatus == (int)LeaveAuthorizationFlag.Cancel) sbLeaveRequestHeader.AppendLine("CancelledDate=?CancelledDate,");
+                else
+                {
+                    sbLeaveRequestHeader.AppendLine("AuthorizedUser=?AuthorizedUser,");
+                    sbLeaveRequestHeader.AppendLine("AuthorizedDate=?AuthorizedDate,");
+                    sbLeaveRequestHeader.AppendLine("DenialReason=?DenialReason,");
+                }
+
+                sbLeaveRequestHeader.AppendLine("ModifiedDateTime=?ModifiedDateTime,");
+                sbLeaveRequestHeader.AppendLine("ModifiedUser=?ModifiedUser,");
+                sbLeaveRequestHeader.AppendLine("ModifiedMachine=?ModifiedMachine");
+                sbLeaveRequestHeader.AppendLine(" WHERE 1=1");
+                sbLeaveRequestHeader.AppendLine(" AND (CompanyID=?CompanyID)");
+                sbLeaveRequestHeader.AppendLine(" AND (EmpNo=?EmpNo)");
+                sbLeaveRequestHeader.AppendLine(" AND (LeaveChitNumber=?LeaveChitNumber)");
+
+                StringBuilder sbUpdate = new StringBuilder();
+                sbUpdate.AppendLine(" UPDATE EmpLeaveEntitlement");
+                sbUpdate.AppendLine(" SET ");
+                sbUpdate.AppendLine(" Amount=?Amount, ");
+                sbUpdate.AppendLine(" Used=?Used ");
+                sbUpdate.AppendLine(" WHERE 1=1");
+                sbUpdate.AppendLine(" AND (LeaveCode=?LeaveCode)");
+                sbUpdate.AppendLine(" AND (EmpNo=?EmpNo)");
+                sbUpdate.AppendLine(" AND (StartDate =?StartDate)");
+                sbUpdate.AppendLine(" AND (EndDate =?EndDate)");
+
+                List<LeaveRequestDetailDTO> results = new List<LeaveRequestDetailDTO>();
+
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+
+                    //oCloudConnection.CommandText = sb.ToString();
+                    //oCloudConnection.Parameters.Clear();
+                    //oCloudConnection.Parameters.Add(new Parameter { Name = "EmpNo", Value = oLeaveRequestHeaderDTO.EmpNo });
+                    //oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveChitNumber", Value = oLeaveRequestHeaderDTO.LeaveChitNumber });
+                    //result = oCloudConnection.ExecuteQuery();
+
+                    oCloudConnection.CommandText = sbLeaveRequestHeader.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "EmpNo", Value = oLeaveRequestHeaderDTO.EmpNo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveChitNumber", Value = oLeaveRequestHeaderDTO.LeaveChitNumber });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveStatus", Value = oLeaveRequestHeaderDTO.LeaveStatus });
+
+                    if (oLeaveRequestHeaderDTO.LeaveStatus == (int)LeaveAuthorizationFlag.Cancel) oCloudConnection.Parameters.Add(new Parameter { Name = "CancelledDate", Value = oLeaveRequestHeaderDTO.CancelledDate });
+                    else
+                    {
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "AuthorizedUser", Value = oLeaveRequestHeaderDTO.AuthorizedUser });
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "AuthorizedDate", Value = oLeaveRequestHeaderDTO.AuthorizedDate });
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "DenialReason", Value = oLeaveRequestHeaderDTO.DenialReason });
+                    }
+
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedDateTime", Value = oLeaveRequestHeaderDTO.ModifiedDateTime });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedUser", Value = oLeaveRequestHeaderDTO.ModifiedUser });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "ModifiedMachine", Value = oLeaveRequestHeaderDTO.ModifiedMachine });
+                    result = oCloudConnection.ExecuteQuery();
+
+                    foreach (var oEmpLeaveEntitlementDTO in oEmpLeaveEntitlementDTOs)
+                    {
+                        oCloudConnection.CommandText = sbUpdate.ToString();
+                        oCloudConnection.Parameters.Clear();
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveCode", Value = oEmpLeaveEntitlementDTO.LeaveCode });
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "EmpNo", Value = oEmpLeaveEntitlementDTO.EmpNo });
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "StartDate", Value = oEmpLeaveEntitlementDTO.StartDate.Date });
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "EndDate", Value = oEmpLeaveEntitlementDTO.EndDate.Date });
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "Amount", Value = oEmpLeaveEntitlementDTO.Amount });
+                        oCloudConnection.Parameters.Add(new Parameter { Name = "Used", Value = oEmpLeaveEntitlementDTO.Used });
+                        result = oCloudConnection.ExecuteQuery();
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
+
     }
 }

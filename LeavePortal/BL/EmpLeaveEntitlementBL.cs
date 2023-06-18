@@ -151,6 +151,59 @@ namespace LeavePortal.BL
                 throw ex;
             }
         }
+        public List<EmpLeaveEntitlementDTO> EmpLeaveEntitlementSearchByRange(long empNo, int leaveCode, DateTime startDate, DateTime endDate)
+        {
+            List<EmpLeaveEntitlementDTO> results = new List<EmpLeaveEntitlementDTO>();
+            try
+            {
+                using (CloudConnection oCloudConnection = new CloudConnection(DMSSWE.Common.ConnectionString))
+                {
+                    StringBuilder sb = EmpLeaveEntitlementSearch();
 
+                    sb.AppendLine(" AND (LeaveCode=?LeaveCode)");
+                    sb.AppendLine(" AND (EmpNo=?EmpNo)");
+                    sb.AppendLine(" AND (StartDate  <= ?StartDate AND EndDate >= ?EndDate)");
+
+                    oCloudConnection.CommandText = sb.ToString();
+                    oCloudConnection.Parameters.Clear();
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "LeaveCode", Value = leaveCode });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "EmpNo", Value = empNo });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "StartDate", Value = startDate.ToString("yyyy-MM-dd") });
+                    oCloudConnection.Parameters.Add(new Parameter { Name = "EndDate", Value = endDate.ToString("yyyy-MM-dd") });
+
+                    using (IDataReader dr = oCloudConnection.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            EmpLeaveEntitlementDTO result = new EmpLeaveEntitlementDTO
+                            {
+                                LeaveCode = Helper.GetDataValue<int>(dr, "LeaveCode"),
+                                EmpNo = Helper.GetDataValue<long>(dr, "EmpNo"),
+                                StartDate = Helper.GetDataValue<DateTime>(dr, "StartDate"),
+                                EndDate = Helper.GetDataValue<DateTime>(dr, "EndDate"),
+                                Amount = Helper.GetDataValue<decimal>(dr, "Amount"),
+                                Used = Helper.GetDataValue<decimal>(dr, "Used"),
+                                LeaveYear = Helper.GetDataValue<int>(dr, "LeaveYear"),
+                                CarryForwardAmount = Helper.GetDataValue<decimal>(dr, "CarryForwardAmount"),
+                                CreatedDateTime = Helper.GetDataValue<DateTime>(dr, "CreatedDateTime"),
+                                CreatedUser = Helper.GetDataValue<string>(dr, "CreatedUser"),
+                                CreatedMachine = Helper.GetDataValue<string>(dr, "CreatedMachine"),
+                                ModifiedDateTime = Helper.GetDataValue<DateTime>(dr, "ModifiedDateTime"),
+                                ModifiedUser = Helper.GetDataValue<string>(dr, "ModifiedUser"),
+                                ModifiedMachine = Helper.GetDataValue<string>(dr, "ModifiedMachine")
+                            };
+                            results.Add(result);
+                        }
+                        dr.Close();
+                    }
+                }
+                return results;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write(ex);
+                throw ex;
+            }
+        }
     }
 }

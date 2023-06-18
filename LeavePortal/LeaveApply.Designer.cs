@@ -30,7 +30,7 @@ namespace LeavePortal
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeaveApply));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenubar = new System.Windows.Forms.Panel();
             this.btnMaxzimis = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
@@ -46,6 +46,8 @@ namespace LeavePortal
             this.LeaveCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Used = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -190,6 +192,8 @@ namespace LeavePortal
             this.LeaveCode,
             this.Name,
             this.StartEndDate,
+            this.StartDate,
+            this.EndDate,
             this.Amount,
             this.Used,
             this.Balance,
@@ -228,6 +232,24 @@ namespace LeavePortal
             this.StartEndDate.Name = "StartEndDate";
             this.StartEndDate.Width = 125;
             // 
+            // StartDate
+            // 
+            this.StartDate.DataPropertyName = "StartDate";
+            this.StartDate.HeaderText = "StartDate";
+            this.StartDate.MinimumWidth = 6;
+            this.StartDate.Name = "StartDate";
+            this.StartDate.Visible = false;
+            this.StartDate.Width = 125;
+            // 
+            // EndDate
+            // 
+            this.EndDate.DataPropertyName = "EndDate";
+            this.EndDate.HeaderText = "EndDate";
+            this.EndDate.MinimumWidth = 6;
+            this.EndDate.Name = "EndDate";
+            this.EndDate.Visible = false;
+            this.EndDate.Width = 125;
+            // 
             // Amount
             // 
             this.Amount.DataPropertyName = "Amount";
@@ -254,10 +276,10 @@ namespace LeavePortal
             // 
             // btnApply
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApply.DefaultCellStyle = dataGridViewCellStyle1;
             this.btnApply.HeaderText = "Apply";
             this.btnApply.MinimumWidth = 6;
             this.btnApply.Name = "btnApply";
@@ -313,6 +335,8 @@ namespace LeavePortal
         private System.Windows.Forms.DataGridViewTextBoxColumn LeaveCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Used;
         private System.Windows.Forms.DataGridViewTextBoxColumn Balance;

@@ -17,6 +17,8 @@ namespace LeavePortal
     {
         public Point mouseLocation;
         private LeaveRequestHeaderBL oLeaveRequestHeaderBL = new LeaveRequestHeaderBL();
+        private EmpLeaveEntitlementBL oEmpLeaveEntitlementBL = new EmpLeaveEntitlementBL();
+        private LeaveTypeBL oLeaveTypeBL = new LeaveTypeBL();
         public CancelLeave()
         {
             InitializeComponent();
@@ -117,6 +119,91 @@ namespace LeavePortal
             {
                 return;
             }
+        }
+
+        private void dgCancelLeave_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                
+                Sessions.LeaveChitNumber = this.dgCancelLeave.CurrentRow.Cells[1].Value.ToString();
+                LeaveRequestHeaderDTO oLeaveRequestHeaderDTO = oLeaveRequestHeaderBL.LeaveRequestHeaderSearchByChitNo(Sessions.LeaveChitNumber);
+
+                    if (oLeaveRequestHeaderDTO != null)
+                    {
+                        List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTOUpdate = new List<EmpLeaveEntitlementDTO>();
+
+                        oLeaveRequestHeaderDTO.LeaveStatus = (int)LeaveStatuss.Cancel;
+                        oLeaveRequestHeaderDTO.CancelledDate = DateTime.UtcNow.Date;
+                        oLeaveRequestHeaderDTO.ModifiedDateTime = DateTime.UtcNow;
+                        oLeaveRequestHeaderDTO.ModifiedUser = LogUser.userName.ToString();
+                        oLeaveRequestHeaderDTO.ModifiedMachine = Environment.MachineName;
+
+                        LeaveTypeDTO oLeaveTypeDTO = oLeaveTypeBL.LeaveTypeSearchById(oLeaveRequestHeaderDTO.LeaveCode);
+
+                        if (oLeaveTypeDTO != null)
+                        {
+                            if (oLeaveTypeDTO.IsDeductFromQuota == (int)YesNo.Yes)
+                            {
+                                List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTO = oEmpLeaveEntitlementBL.EmpLeaveEntitlementSearchByRange(oLeaveRequestHeaderDTO.EmpNo, oLeaveRequestHeaderDTO.LeaveCode, oLeaveRequestHeaderDTO.StartDate.Date, oLeaveRequestHeaderDTO.EndDate.Date);
+
+                                if (lstEmpLeaveEntitlementDTO.Count > 0)
+                                {
+                                    decimal oUsed = oLeaveRequestHeaderDTO.NoOfHoursDays;
+                                    int i = 0;
+
+                                    while (oUsed > 0)
+                                    {
+                                        if (lstEmpLeaveEntitlementDTO[i].Used > oUsed)
+                                        {
+                                            lstEmpLeaveEntitlementDTO[i].Used -= oUsed;
+                                            oUsed = 0;
+                                        }
+                                        else
+                                        {
+                                            oUsed -= lstEmpLeaveEntitlementDTO[i].Used;
+                                            lstEmpLeaveEntitlementDTO[i].Used = 0;
+                                        }
+
+
+                                        lstEmpLeaveEntitlementDTOUpdate.Add(lstEmpLeaveEntitlementDTO[i]);
+                                    }
+                                }
+                                else
+                                {
+                                         MessageBox.Show("No entitlement for this period !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Leave Period invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    
+                    if (oLeaveRequestHeaderBL.DeleteLeaveKIOSK(oLeaveRequestHeaderDTO, lstEmpLeaveEntitlementDTOUpdate, oLeaveTypeDTO) > 0)
+                    {
+                        MessageBox.Show("Leave Successfully cancelled...", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadLeaveGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Leave Fail cancelled...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Leave Type!!...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
     }
 }

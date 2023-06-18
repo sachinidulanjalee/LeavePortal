@@ -29,9 +29,17 @@ namespace LeavePortal
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CancelLeave));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgCancelLeave = new System.Windows.Forms.DataGridView();
+            this.LeaveChitNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequestDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeaveCodeText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoOfHoursDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeaveStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCancel = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.DateTimePicker();
             this.lblDateTime = new System.Windows.Forms.Label();
@@ -43,14 +51,6 @@ namespace LeavePortal
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.pnlMenubar = new System.Windows.Forms.Panel();
-            this.LeaveChitNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RequestDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeaveCodeText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoOfHoursDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeaveStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancel = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgCancelLeave)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
@@ -78,6 +78,76 @@ namespace LeavePortal
             this.dgCancelLeave.RowTemplate.Height = 24;
             this.dgCancelLeave.Size = new System.Drawing.Size(1059, 245);
             this.dgCancelLeave.TabIndex = 11;
+            this.dgCancelLeave.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCancelLeave_CellClick);
+            // 
+            // LeaveChitNumber
+            // 
+            this.LeaveChitNumber.DataPropertyName = "LeaveChitNumber";
+            this.LeaveChitNumber.HeaderText = "LeaveChitNo";
+            this.LeaveChitNumber.MinimumWidth = 6;
+            this.LeaveChitNumber.Name = "LeaveChitNumber";
+            this.LeaveChitNumber.Width = 125;
+            // 
+            // RequestDate
+            // 
+            this.RequestDate.DataPropertyName = "RequestDate";
+            this.RequestDate.HeaderText = "RequestDate";
+            this.RequestDate.MinimumWidth = 6;
+            this.RequestDate.Name = "RequestDate";
+            this.RequestDate.Width = 125;
+            // 
+            // LeaveCodeText
+            // 
+            this.LeaveCodeText.DataPropertyName = "LeaveCodeText";
+            this.LeaveCodeText.HeaderText = "LeaveCode";
+            this.LeaveCodeText.MinimumWidth = 6;
+            this.LeaveCodeText.Name = "LeaveCodeText";
+            this.LeaveCodeText.Width = 125;
+            // 
+            // StartDate
+            // 
+            this.StartDate.DataPropertyName = "StartDate";
+            this.StartDate.HeaderText = "StartDate";
+            this.StartDate.MinimumWidth = 6;
+            this.StartDate.Name = "StartDate";
+            this.StartDate.Width = 125;
+            // 
+            // EndDate
+            // 
+            this.EndDate.DataPropertyName = "EndDate";
+            this.EndDate.HeaderText = "EndDate";
+            this.EndDate.MinimumWidth = 6;
+            this.EndDate.Name = "EndDate";
+            this.EndDate.Width = 125;
+            // 
+            // NoOfHoursDays
+            // 
+            this.NoOfHoursDays.DataPropertyName = "NoOfHoursDays";
+            this.NoOfHoursDays.HeaderText = "NoOfHoursDays";
+            this.NoOfHoursDays.MinimumWidth = 6;
+            this.NoOfHoursDays.Name = "NoOfHoursDays";
+            this.NoOfHoursDays.Width = 125;
+            // 
+            // LeaveStatus
+            // 
+            this.LeaveStatus.DataPropertyName = "LeaveStatusText";
+            this.LeaveStatus.HeaderText = "LeaveStatus";
+            this.LeaveStatus.MinimumWidth = 6;
+            this.LeaveStatus.Name = "LeaveStatus";
+            this.LeaveStatus.Width = 125;
+            // 
+            // btnCancel
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.DefaultCellStyle = dataGridViewCellStyle2;
+            this.btnCancel.HeaderText = "Cancel";
+            this.btnCancel.MinimumWidth = 6;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseColumnTextForButtonValue = true;
+            this.btnCancel.Width = 125;
             // 
             // label1
             // 
@@ -204,75 +274,6 @@ namespace LeavePortal
             this.pnlMenubar.Name = "pnlMenubar";
             this.pnlMenubar.Size = new System.Drawing.Size(1131, 43);
             this.pnlMenubar.TabIndex = 7;
-            // 
-            // LeaveChitNumber
-            // 
-            this.LeaveChitNumber.DataPropertyName = "LeaveChitNumber";
-            this.LeaveChitNumber.HeaderText = "LeaveChitNo";
-            this.LeaveChitNumber.MinimumWidth = 6;
-            this.LeaveChitNumber.Name = "LeaveChitNumber";
-            this.LeaveChitNumber.Width = 125;
-            // 
-            // RequestDate
-            // 
-            this.RequestDate.DataPropertyName = "RequestDate";
-            this.RequestDate.HeaderText = "RequestDate";
-            this.RequestDate.MinimumWidth = 6;
-            this.RequestDate.Name = "RequestDate";
-            this.RequestDate.Width = 125;
-            // 
-            // LeaveCodeText
-            // 
-            this.LeaveCodeText.DataPropertyName = "LeaveCodeText";
-            this.LeaveCodeText.HeaderText = "LeaveCode";
-            this.LeaveCodeText.MinimumWidth = 6;
-            this.LeaveCodeText.Name = "LeaveCodeText";
-            this.LeaveCodeText.Width = 125;
-            // 
-            // StartDate
-            // 
-            this.StartDate.DataPropertyName = "StartDate";
-            this.StartDate.HeaderText = "StartDate";
-            this.StartDate.MinimumWidth = 6;
-            this.StartDate.Name = "StartDate";
-            this.StartDate.Width = 125;
-            // 
-            // EndDate
-            // 
-            this.EndDate.DataPropertyName = "EndDate";
-            this.EndDate.HeaderText = "EndDate";
-            this.EndDate.MinimumWidth = 6;
-            this.EndDate.Name = "EndDate";
-            this.EndDate.Width = 125;
-            // 
-            // NoOfHoursDays
-            // 
-            this.NoOfHoursDays.DataPropertyName = "NoOfHoursDays";
-            this.NoOfHoursDays.HeaderText = "NoOfHoursDays";
-            this.NoOfHoursDays.MinimumWidth = 6;
-            this.NoOfHoursDays.Name = "NoOfHoursDays";
-            this.NoOfHoursDays.Width = 125;
-            // 
-            // LeaveStatus
-            // 
-            this.LeaveStatus.DataPropertyName = "LeaveStatusText";
-            this.LeaveStatus.HeaderText = "LeaveStatus";
-            this.LeaveStatus.MinimumWidth = 6;
-            this.LeaveStatus.Name = "LeaveStatus";
-            this.LeaveStatus.Width = 125;
-            // 
-            // btnCancel
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.DefaultCellStyle = dataGridViewCellStyle1;
-            this.btnCancel.HeaderText = "Cancel";
-            this.btnCancel.MinimumWidth = 6;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseColumnTextForButtonValue = true;
-            this.btnCancel.Width = 125;
             // 
             // CancelLeave
             // 

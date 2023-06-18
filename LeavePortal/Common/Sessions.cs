@@ -29,6 +29,7 @@ namespace LeavePortal
         static string Year;
         static string rptName;
         static string progressThread;
+        static string leaveChitNumber;
 
         public static string leaevType
         {
@@ -162,6 +163,22 @@ namespace LeavePortal
             }
 
         }
+
+        public static string LeaveChitNumber
+        {
+
+            get
+            {
+                return leaveChitNumber;
+            }
+            set
+            {
+                leaveChitNumber = value;
+            }
+
+        }
+
+
         public static List<LeaveRequestDetailDTO> LeaveRequestDetailDTOs
         {
             get { return lstleaveRequestDetailDTO; }
