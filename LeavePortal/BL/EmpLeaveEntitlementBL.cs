@@ -12,6 +12,7 @@ namespace LeavePortal.BL
 {
     public class EmpLeaveEntitlementBL
     {
+        //common select query 
         private static StringBuilder EmpLeaveEntitlementSearch()
         {
             StringBuilder sb = new StringBuilder();
@@ -34,6 +35,8 @@ namespace LeavePortal.BL
             sb.AppendLine(" WHERE 1=1 ");
             return sb;
         }
+
+        //load table query
         public List<EmpLeaveEntitlementDTO> EmpLeaveEntitlementData(long EmpNo, int LeaveYear)
         {
             List<EmpLeaveEntitlementDTO> results = new List<EmpLeaveEntitlementDTO>();

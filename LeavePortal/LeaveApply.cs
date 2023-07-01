@@ -56,12 +56,15 @@ namespace LeavePortal
             WindowState = FormWindowState.Minimized;
         }
 
+        //load Entitlment from empLeaveEntitlment table according to the login user 
         protected void LoadLeaveDetails()
         {
+            //ceate list object and BL Folder -> EmpLeaveEntitlementBL.cs
             List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTO = oEmpLeaveEntitlementBL.EmpLeaveEntitlementData(Convert.ToInt32(LogUser.empNo), Convert.ToInt32(txtYear.Text));
             LeaveGridLoad(lstEmpLeaveEntitlementDTO);
         }
 
+        //databind method
         protected void LeaveGridLoad(List<EmpLeaveEntitlementDTO> lstEmpLeaveEntitlementDTO)
         {
             dgLeaveDetails.AutoGenerateColumns = false;
@@ -106,6 +109,7 @@ namespace LeavePortal
             }
         }
 
+        //when click the year,  change the recode acordint to the year 
         private void txtYear_ValueChanged(object sender, EventArgs e)
         {
             try
@@ -122,7 +126,8 @@ namespace LeavePortal
         {
 
         }
-
+        
+        //when click the datagrid cell open the apply leave form
         private void dgLeaveDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 

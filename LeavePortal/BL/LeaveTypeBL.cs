@@ -69,6 +69,7 @@ namespace LeavePortal.BL
 
         #region Search
 
+        //common query
         private static StringBuilder LeaveTypeSearch()
         {
             StringBuilder sb = new StringBuilder();
@@ -92,6 +93,7 @@ namespace LeavePortal.BL
             return sb;
         }
 
+        //load data grid values to leave type form
         public List<LeaveTypeDTO> LeaveDatagridLoadData()
         {
             List<LeaveTypeDTO> results = new List<LeaveTypeDTO>();
@@ -176,6 +178,7 @@ namespace LeavePortal.BL
             }
         }
 
+        //search query
         public List<LeaveTypeDTO> LeaveTypeSearch(List<ParamsDTO> oParamsDTOs)
         {
             List<LeaveTypeDTO> results = new List<LeaveTypeDTO>();

@@ -26,6 +26,7 @@ namespace LeavePortal.Report
         public RptLeaveType()
         {
             InitializeComponent();
+            
         }
 
         //private void View()
@@ -82,9 +83,11 @@ namespace LeavePortal.Report
 
         private void btnRptSearch_Click(object sender, EventArgs e)
         {
-            reportViewer1 = new ReportViewer();
+
+            Viwer viwer = new Viwer();
+            viwer.Show();
             getData();
-            reportViewer1.Show();
+          
         }
 
         //    private void trmWatcher_Tick(object sender, EventArgs e)

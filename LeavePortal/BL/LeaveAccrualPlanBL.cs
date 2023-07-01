@@ -13,6 +13,7 @@ namespace LeavePortal.BL
     {
         #region Search
 
+        //Load value to Datagrid Query
         public List<LeaveAccrualPlanDTO> AccrualLeaveDatagridLoadData()
         {
             List<LeaveAccrualPlanDTO> results = new List<LeaveAccrualPlanDTO>();
@@ -126,6 +127,7 @@ namespace LeavePortal.BL
             }
         }
 
+        // search query
         public List<LeaveAccrualPlanDTO> ApplicableLeaveTypeSearch(List<ParamsDTO> oParamsDTOs)
         {
             List<LeaveAccrualPlanDTO> results = new List<LeaveAccrualPlanDTO>();
@@ -175,6 +177,7 @@ namespace LeavePortal.BL
             }
         }
 
+        //chack the is exists leavecode
         public bool IsLeaveAcrualTypeExists(int LeaveAccrualType, int LeaveCode)
         {
             int result = 0;
@@ -209,6 +212,7 @@ namespace LeavePortal.BL
 
         #region Insert
 
+        //Insert Query
         public int LeaveAccrualPlanInsert(LeaveAccrualPlanDTO oLeaveAccrualPlanDTO)
         {
             int result = 0;

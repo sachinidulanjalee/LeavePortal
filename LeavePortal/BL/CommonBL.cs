@@ -89,6 +89,7 @@ namespace LeavePortal.BL
 
         #endregion Process
 
+        //mail detail query from mail configartiontable
         public MailConfigurationDTO MailDetails()
         {
             MailConfigurationDTO result = new MailConfigurationDTO();

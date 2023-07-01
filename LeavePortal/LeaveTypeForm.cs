@@ -15,14 +15,16 @@ namespace LeavePortal
 {
     public partial class LeaveTypeForm : UserControl
     {
+        // Create the desired object
 
+        private LeaveTypeBL oLeaveTypeBL = new LeaveTypeBL();//-> Blfolder
+        public static DataGridViewRow selectedrow;
+        private EditLeaveType editLeaveType = new EditLeaveType();
         public LeaveTypeForm()
         {
             InitializeComponent();
         }
-        private LeaveTypeBL oLeaveTypeBL = new LeaveTypeBL();
-        public static DataGridViewRow selectedrow;
-        EditLeaveType editLeaveType = new EditLeaveType();
+
         #region Event
 
         private void dgLeaveTypes_Click(object sender, EventArgs e)
@@ -31,6 +33,7 @@ namespace LeavePortal
 
         }
 
+        //when click the Add new button open the Add New Leave Type Form
         private void btnAddNewLeaveType_Click_1(object sender, EventArgs e)
         {
             AddNewLeaveType lT = new AddNewLeaveType();
@@ -43,15 +46,30 @@ namespace LeavePortal
            timer1.Start();
         }
 
+        //when click grid cell  open to EditLaveType form
         private void dgLeaveTypes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //bind cell values to editform textbox
 
-          
             editLeaveType.txtLeaveCode.Text = this.dgLeaveTypes.CurrentRow.Cells[0].Value.ToString();
             editLeaveType.txtName.Text = this.dgLeaveTypes.CurrentRow.Cells[1].Value.ToString();
             editLeaveType.txtAbbrevaiation.Text = this.dgLeaveTypes.CurrentRow.Cells[2].Value.ToString();
             editLeaveType.txtEntitlment.Text = this.dgLeaveTypes.CurrentRow.Cells[6].Value.ToString();
-            editLeaveType.cmbDayMode.SelectedItem = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
+            string DM = this.dgLeaveTypes.CurrentRow.Cells[4].Value.ToString();
+            if(Convert.ToInt32(DM) == 1)
+            {
+                editLeaveType.cmbDayMode.SelectedValue = (int)DayMode.FullDay;
+            }
+            else if (Convert.ToInt32(DM) == 2)
+            {
+                editLeaveType.cmbDayMode.SelectedValue = (int)DayMode.HalfDay;
+            }
+            else if (Convert.ToInt32(DM) == 3)
+            {
+                editLeaveType.cmbDayMode.SelectedValue = (int)DayMode.Both;
+            }
+
+
             editLeaveType.cmbDedQuota.Text = this.dgLeaveTypes.CurrentRow.Cells[5].Value.ToString();
             editLeaveType.cmbLeaveEntilmet.Text = this.dgLeaveTypes.CurrentRow.Cells[3].Value.ToString();
             editLeaveType.cmbStatus.Text = this.dgLeaveTypes.CurrentRow.Cells[7].Value.ToString();
@@ -60,6 +78,7 @@ namespace LeavePortal
 
         }
 
+        //when click the search button called to  SearchLeaveType method
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
             SearchLeaveType();
@@ -68,10 +87,13 @@ namespace LeavePortal
         #endregion Event
 
         #region method
+
+        // load values to datagrid
         private void LoadGrid()
         {
             try
             {
+                //get a list from below write query
                 List<LeaveTypeDTO> lstDTO = oLeaveTypeBL.LeaveDatagridLoadData();
                 dgLeaveTypes.DataSource = lstDTO;
 
@@ -83,6 +105,7 @@ namespace LeavePortal
             }
         }
 
+        // filter by LeaveCode
         private void SearchLeaveType()
         {
             try
@@ -95,6 +118,7 @@ namespace LeavePortal
                 //if (employeeProfile.cmbSatus.SelectedIndex > 0)
                 //    oParamsDTOs.Add(new ParamsDTO { ColumnName = "A.Status", Operator = "=", Value = Convert.ToInt32(employeeProfile.cmbSatus.SelectedValue) });
 
+                //BL Folder-> LeaveTypeBL.cs
                 dgLeaveTypes.DataSource = oLeaveTypeBL.LeaveTypeSearch(oParamsDTOs);
             }
             catch (Exception)

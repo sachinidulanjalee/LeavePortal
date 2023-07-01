@@ -23,6 +23,7 @@ namespace LeavePortal
         }
         private LeaveTypeBL oLeaveTypeBL = new LeaveTypeBL();
 
+            //FormLoad
         private void AddNewLeaveType_Load(object sender, EventArgs e)
         {
                    
@@ -31,7 +32,8 @@ namespace LeavePortal
             CommonMethod.setEnumValues(cmbDayMode, typeof(DayMode));
             CommonMethod.setEnumValues(cmbStatus, typeof(Status));
         }
-
+       
+        //-----ClearButton Click Event(clear all textbox values)----
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtLeaveCode.Clear();
@@ -44,11 +46,13 @@ namespace LeavePortal
             cmbStatus.Text = string.Empty;
         }
 
+        //----Cancel Button Click Event (Nvigate to grid page)------
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //------LeaveCode Validation---  Cannot type Charaters-- 
         private void txtLeaveCode_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -57,6 +61,7 @@ namespace LeavePortal
             }
         }
 
+        //------Other Validation----
         private bool LeaveTypeValidation()
         {
             bool status = true;
@@ -107,13 +112,15 @@ namespace LeavePortal
             return status;
         }
 
+        // ---- add new leave type--- 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
+                //--first validation check through the if conditon-----
                 if (LeaveTypeValidation())
                 {
-                    LeaveTypeDTO oLeaveTypeDTO = new LeaveTypeDTO();
+                    LeaveTypeDTO oLeaveTypeDTO = new LeaveTypeDTO();// create leave type model object 
                     oLeaveTypeDTO.LeaveCode = Convert.ToInt32(txtLeaveCode.Text);
                     oLeaveTypeDTO.Name = txtName.Text.ToUpper();
                     oLeaveTypeDTO.Abbreviation = txtAbbrevaiation.Text.ToUpper();
@@ -123,13 +130,14 @@ namespace LeavePortal
                     oLeaveTypeDTO.Entitlement = txtEntitlment.Text != string.Empty ? Convert.ToDecimal(txtEntitlment.Text) : 0;
                     oLeaveTypeDTO.Status = cmbStatus.SelectedIndex != 0 ? Convert.ToInt32(cmbStatus.SelectedValue) : 0;
                     oLeaveTypeDTO.CreatedDateTime = DateTime.UtcNow;
-                    oLeaveTypeDTO.CreatedUser = LogUser.userName;
+                    oLeaveTypeDTO.CreatedUser = LogUser.userName;// common folder-> lOg user.cs 
                     oLeaveTypeDTO.CreatedMachine = System.Windows.Forms.SystemInformation.ComputerName;
                     oLeaveTypeDTO.ModifiedDateTime = DateTime.UtcNow;
                     oLeaveTypeDTO.ModifiedUser = LogUser.userName;
                     oLeaveTypeDTO.ModifiedMachine = System.Windows.Forms.SystemInformation.ComputerName;
 
 
+                    //----  navigate to the Bl folder-> LeaveTypeBL (ctr+ click)---- 
                     if (oLeaveTypeBL.LeaveTypeInsert(oLeaveTypeDTO) > 0)
                     {
                         MessageBox.Show("Successfully Instert....", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

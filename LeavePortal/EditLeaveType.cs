@@ -35,11 +35,14 @@ namespace LeavePortal
             InitializeComponent();
         }
 
+        //when click the cancel button 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //when open the page ,laod all combo box values
         private void EditLeaveType_Load(object sender, EventArgs e)
         {
             CommonMethod.setEnumValues(cmbLeaveEntilmet, typeof(LeaveEntitlemant));
@@ -55,6 +58,7 @@ namespace LeavePortal
             leaveTypeForm.Show();
         }
 
+        //when click the delete button called to the delete method
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DeleteLeaveTypes();
@@ -130,6 +134,7 @@ namespace LeavePortal
         }
 
 
+        //delete method
 
         private void DeleteLeaveTypes()
         {
@@ -166,6 +171,7 @@ namespace LeavePortal
             }
         }
 
+        //clear all textbox values
         private void Clear()
         {
 

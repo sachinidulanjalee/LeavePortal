@@ -18,6 +18,7 @@ namespace LeavePortal
         public Viwer()
         {
             InitializeComponent();
+            this.Controls.Add(this.reportViewer1);
         }
 
         private void Viwer_Load(object sender, EventArgs e)

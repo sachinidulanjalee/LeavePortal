@@ -174,6 +174,7 @@ namespace LeavePortal
         }
 
 
+        //LeaveEntitlment button
         private void button10_Click(object sender, EventArgs e)
         {
             if (!HomeScreen.Instance.PnlContainer.Controls.ContainsKey("LeaveEntitlment"))
@@ -190,6 +191,7 @@ namespace LeavePortal
 
         }
 
+        //EmployeeProfile button
         private void button1_Click(object sender, EventArgs e)
         {
             if (!HomeScreen.Instance.PnlContainer.Controls.ContainsKey("EmployeeProfile"))
